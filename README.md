@@ -14,11 +14,16 @@ beauty-customer-service-agent/
 ├─ agent_observability.py    结构化日志与运行指标
 ├─ es_store/                 多源知识转换、ES 增量入库与混合检索
 ├─ vector_store/             本地 BGE 编码器（ES 入库和查询共用）
-├─ 意图识别/                  美妆客服三级意图 Prompt
-├─ data/                    公开原始数据与清洗后的知识、订单数据
-├─ chunk/                    customer_dialogues切分实验与评测产物
+├─ intention_prompt/          美妆客服三级意图 Prompt
+├─ data/                      公开原始数据与清洗后的知识、订单数据
+├─ chunk/                     customer_dialogues 切分实验与评测产物
 ├─ qa_pairs/                 对话 QA 抽取脚本及结果
-├─ evaluation/               检索模式离线评测
+├─ evaluation_suites/        编号化专项离线测评
+│  ├─ 01_intent_recognition_evaluation/
+│  ├─ 02_rag_retrieval_evaluation/
+│  ├─ 03_answer_generation_evaluation/
+│  ├─ 04_tool_call_task_completion_evaluation/
+│  └─ 05_performance_cost_handoff_evaluation/
 ├─ tests/                    安全、记忆、工具、RAG、Web 自动化测试
 ├─ web_app.py + web/         FastAPI 服务与演示页面
 ├─ scripts/                  初始化、检查、启动和端到端验收脚本

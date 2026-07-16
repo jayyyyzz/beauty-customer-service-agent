@@ -2,7 +2,7 @@
 """构建冻结的美妆客服意图识别专项基准集 v1。
 
 数据由人工定义的业务语句与三级标签模板生成，不使用待测模型生成 gold 标签。
-生成后默认写入 evaluation/intent_benchmark_v1.jsonl。
+生成后默认写入当前测评目录的 intent_benchmark_v1.jsonl。
 """
 
 from __future__ import annotations
@@ -12,8 +12,9 @@ from pathlib import Path
 from typing import Any
 
 
-ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "evaluation" / "intent_benchmark_v1.jsonl"
+EVALUATION_DIR = Path(__file__).resolve().parent
+ROOT = EVALUATION_DIR.parents[1]
+OUT = EVALUATION_DIR / "intent_benchmark_v1.jsonl"
 
 
 # 每个一级意图 5 个已人工指定三级路径的基础语句；使用 4 种自然包装生成 20 条基础样本。

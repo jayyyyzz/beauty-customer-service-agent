@@ -7,8 +7,9 @@ import json
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / "evaluation" / "retrieval_benchmark.jsonl"
+EVALUATION_DIR = Path(__file__).resolve().parent
+ROOT = EVALUATION_DIR.parents[1]
+OUTPUT = EVALUATION_DIR / "retrieval_benchmark.jsonl"
 
 
 BASE_CASES = [

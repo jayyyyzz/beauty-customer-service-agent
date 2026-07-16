@@ -18,7 +18,8 @@ from pathlib import Path
 from typing import Any, Iterable
 
 
-ROOT = Path(__file__).resolve().parents[1]
+EVALUATION_DIR = Path(__file__).resolve().parent
+ROOT = EVALUATION_DIR.parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 for intent_dir in (ROOT / "意图识别", ROOT / "intention_prompt"):
@@ -34,7 +35,7 @@ from agent_pipeline import (  # noqa: E402
 from configs import AGENT_RUNTIME_config, LLM_deepseek_config  # noqa: E402
 
 
-DEFAULT_DATASET = ROOT / "evaluation" / "intent_benchmark_v1.jsonl"
+DEFAULT_DATASET = EVALUATION_DIR / "intent_benchmark_v1.jsonl"
 DEFAULT_OUTPUT_DIR = ROOT / "reports" / "intent_evaluation_v1"
 THRESHOLDS = [0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80]
 

@@ -255,10 +255,10 @@ End-to-end RAG P95 <= 800ms
 
 ## 12. 产出文件
 
-- 基准生成器：`evaluation/build_retrieval_benchmark.py`
-- 固定基准：`evaluation/retrieval_benchmark.jsonl`
-- 检索测评脚本：`evaluation/evaluate_retrieval.py`
-- Query 向量缓存：`evaluation/retrieval_query_vectors.npz`
+- 基准生成器：`evaluation_suites/02_rag_retrieval_evaluation/build_retrieval_benchmark.py`
+- 固定基准：`evaluation_suites/02_rag_retrieval_evaluation/retrieval_benchmark.jsonl`
+- 检索测评脚本：`evaluation_suites/02_rag_retrieval_evaluation/evaluate_retrieval.py`
+- Query 向量缓存：`evaluation_suites/02_rag_retrieval_evaluation/retrieval_query_vectors.npz`
 - 7 组基线汇总：`reports/rag_retrieval_evaluation_results.json`
 - 7 组逐条明细：`reports/rag_retrieval_evaluation_details.jsonl`
 - H/I 优化汇总：`reports/rag_retrieval_httpx_results.json`

@@ -9,7 +9,8 @@ from pathlib import Path
 from typing import Any
 
 
-ROOT = Path(__file__).resolve().parents[1]
+EVALUATION_DIR = Path(__file__).resolve().parent
+ROOT = EVALUATION_DIR.parents[1]
 BEFORE_PATH = ROOT / "reports" / "intent_evaluation_v1" / "intent_eval_metrics.json"
 AFTER_PATH = ROOT / "reports" / "intent_evaluation_v2" / "intent_eval_metrics.json"
 OUT_DIR = ROOT / "reports" / "intent_evaluation_v2"

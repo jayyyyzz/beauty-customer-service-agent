@@ -5,7 +5,7 @@
   "before": {
     "metadata": {
       "generated_at": "2026-07-16T10:10:47+08:00",
-      "dataset": "F:\\111_ai大模型学习资料\\beauty-customer-service-agent\\evaluation\\intent_benchmark_v1.jsonl",
+      "dataset": "F:\\111_ai大模型学习资料\\beauty-customer-service-agent\\evaluation_suites\\01_intent_recognition_evaluation\\intent_benchmark_v1.jsonl",
       "dataset_sha256": "307432c40bc4ae228250fa1db4d42477174373370c0a048a4b9b416d17b6ccd8",
       "deployed_prompt_source": "F:\\111_ai大模型学习资料\\beauty-customer-service-agent\\agent_pipeline.py",
       "deployed_prompt_source_sha256": "51d1abb9712d8587650313f5bd781d8c4af0fe284c0fb3219f1a4db0217d18d1",
@@ -2089,7 +2089,7 @@
   "after": {
     "metadata": {
       "generated_at": "2026-07-16T10:56:00+08:00",
-      "dataset": "F:\\111_ai大模型学习资料\\beauty-customer-service-agent\\evaluation\\intent_benchmark_v1.jsonl",
+      "dataset": "F:\\111_ai大模型学习资料\\beauty-customer-service-agent\\evaluation_suites\\01_intent_recognition_evaluation\\intent_benchmark_v1.jsonl",
       "dataset_sha256": "307432c40bc4ae228250fa1db4d42477174373370c0a048a4b9b416d17b6ccd8",
       "deployed_prompt_source": "F:\\111_ai大模型学习资料\\beauty-customer-service-agent\\agent_pipeline.py",
       "deployed_prompt_source_sha256": "56aa0c48dafb42897ff25034803c8ac7e66274e251f880a789e08f066eb1ca36",

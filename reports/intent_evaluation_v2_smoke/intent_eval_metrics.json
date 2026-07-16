@@ -1,7 +1,7 @@
 {
   "metadata": {
     "generated_at": "2026-07-16T10:44:50+08:00",
-    "dataset": "F:\\111_ai大模型学习资料\\beauty-customer-service-agent\\evaluation\\intent_benchmark_v1.jsonl",
+    "dataset": "F:\\111_ai大模型学习资料\\beauty-customer-service-agent\\evaluation_suites\\01_intent_recognition_evaluation\\intent_benchmark_v1.jsonl",
     "dataset_sha256": "307432c40bc4ae228250fa1db4d42477174373370c0a048a4b9b416d17b6ccd8",
     "deployed_prompt_source": "F:\\111_ai大模型学习资料\\beauty-customer-service-agent\\agent_pipeline.py",
     "deployed_prompt_source_sha256": "85ff9b61c667e25451745f794f4d09e4d694e223411240ed64a37ddfe2b7a3c1",

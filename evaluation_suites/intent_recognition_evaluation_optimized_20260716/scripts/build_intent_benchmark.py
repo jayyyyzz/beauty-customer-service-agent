@@ -2,7 +2,7 @@
 """构建冻结的美妆客服意图识别专项基准集 v1。
 
 数据由人工定义的业务语句与三级标签模板生成，不使用待测模型生成 gold 标签。
-生成后默认写入 evaluation/intent_benchmark_v1.jsonl。
+生成后默认写入 evaluation_suites/01_intent_recognition_evaluation/intent_benchmark_v1.jsonl。
 """
 
 from __future__ import annotations
