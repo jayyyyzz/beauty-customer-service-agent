@@ -30,4 +30,4 @@ intent_recognition_evaluation_20260716/
 - JSON 可解析率：100.00%
 - 合法层级前缀率：5.08%
 
-`scripts/` 中保存的是本次运行时的代码快照。需要重新执行时，优先使用项目原目录 `evaluation/` 下的脚本，以保证能够正确引用 Agent 源码和配置。
+`scripts/` 中保存的是本次运行时的代码快照。需要重新执行时，优先使用项目目录 `evaluation_suites/01_intent_recognition_evaluation/` 下的脚本，以保证能够正确引用 Agent 源码和配置。

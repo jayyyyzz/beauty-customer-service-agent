@@ -1,7 +1,7 @@
 {
   "evaluation_type": "phase1_weak_supervision",
   "benchmark": {
-    "path": "F:\\111_ai大模型学习资料\\beauty-customer-service-agent\\evaluation\\retrieval_benchmark.jsonl",
+    "path": "F:\\111_ai大模型学习资料\\beauty-customer-service-agent\\evaluation_suites\\02_rag_retrieval_evaluation\\retrieval_benchmark.jsonl",
     "query_count": 65,
     "distribution": {
       "intent": {

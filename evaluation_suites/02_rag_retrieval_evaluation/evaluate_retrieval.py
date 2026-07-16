@@ -24,7 +24,8 @@ from pathlib import Path
 from typing import Any
 
 
-ROOT = Path(__file__).resolve().parents[1]
+EVALUATION_DIR = Path(__file__).resolve().parent
+ROOT = EVALUATION_DIR.parents[1]
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "es_store"))
 import es_search as es_search_module
@@ -112,10 +113,10 @@ def build_metadata_filters(intent_result: dict[str, Any], question: str) -> dict
     return filters
 
 
-DEFAULT_BENCHMARK = ROOT / "evaluation" / "retrieval_benchmark.jsonl"
+DEFAULT_BENCHMARK = EVALUATION_DIR / "retrieval_benchmark.jsonl"
 DEFAULT_SUMMARY = ROOT / "reports" / "rag_retrieval_evaluation_results.json"
 DEFAULT_DETAILS = ROOT / "reports" / "rag_retrieval_evaluation_details.jsonl"
-DEFAULT_VECTOR_CACHE = ROOT / "evaluation" / "retrieval_query_vectors.npz"
+DEFAULT_VECTOR_CACHE = EVALUATION_DIR / "retrieval_query_vectors.npz"
 TOP_KS = (1, 3, 5, 10)
 
 
