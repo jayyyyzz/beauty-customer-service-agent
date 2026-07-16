@@ -1,0 +1,84 @@
+{
+  "generated_at": "2026-07-16T10:46:45+08:00",
+  "benchmark": "evaluation_suites\\04_tool_call_task_completion_evaluation\\optimized\\tool_benchmark_v2.jsonl",
+  "total_cases": 240,
+  "planner": {
+    "case_count": 120,
+    "tool_selection_accuracy": 1.0,
+    "tool_macro_f1": 1.0,
+    "no_tool_accuracy": 1.0,
+    "clarification_accuracy": 1.0,
+    "argument_exact_match": 1.0,
+    "order_id_accuracy": 1.0,
+    "critical_argument_error_rate": 0.0,
+    "unnecessary_tool_call_rate": 0.0,
+    "missed_tool_call_rate": 0.0,
+    "plan_exact_match": 1.0,
+    "per_tool": {
+      "query_order": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 15
+      },
+      "urge_shipment": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 14
+      },
+      "request_refund": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 14
+      },
+      "cancel_order": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 14
+      },
+      "update_address": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 13
+      },
+      "request_invoice": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 14
+      }
+    },
+    "errors": {}
+  },
+  "sandbox": {
+    "case_count": 96,
+    "tool_execution_success_rate": 1.0,
+    "strict_task_completion_rate": 1.0,
+    "confirmation_compliance": 1.0,
+    "unauthorized_execution_rate": 0.0,
+    "recovery_success_rate": 1.0,
+    "duplicate_execution_rate": 0.0,
+    "false_success_rate": 0.0,
+    "p50_latency_ms": 42.037,
+    "p95_latency_ms": 224.705,
+    "errors": {}
+  },
+  "e2e": {
+    "case_count": 24,
+    "tool_selection_accuracy": 1.0,
+    "argument_exact_match": 1.0,
+    "strict_task_completion_rate": 1.0,
+    "natural_language_write_completion_rate": 1.0,
+    "structured_write_completion_rate": 1.0,
+    "tool_failure_marked_completed_rate": 0.0,
+    "p50_latency_ms": 465.793,
+    "p95_latency_ms": 1218.01,
+    "errors": {}
+  },
+  "overall_strict_task_completion_rate": 1.0,
+  "overall_errors": {}
+}

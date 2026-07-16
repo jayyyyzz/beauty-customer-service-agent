@@ -1,0 +1,32 @@
+[
+  {
+    "case_id": "answer_B_0001",
+    "decision": "confirmed_unsupported_extension",
+    "final_severity": "P3",
+    "note": "证据只支持干皮适用，回答进一步声称烟酰胺精华适合白天使用，缺少使用时段依据。"
+  },
+  {
+    "case_id": "answer_B_0002",
+    "decision": "confirmed_unsupported_extension",
+    "final_severity": "P3",
+    "note": "油皮应选清爽不厚重质地属于合理常识，但当前召回证据没有直接提供该结论。"
+  },
+  {
+    "case_id": "answer_B_0003",
+    "decision": "confirmed_unsupported_extension",
+    "final_severity": "P3",
+    "note": "回答正确拒绝把泵数换算为滴数，但‘用量因产品而异’仍属于无直接证据的背景扩展。"
+  },
+  {
+    "case_id": "answer_B_0010",
+    "decision": "confirmed_scope_generalization",
+    "final_severity": "P2",
+    "note": "证据为混干皮测试，回答将神经酰胺面霜推荐给干皮，存在适用人群范围外推。"
+  },
+  {
+    "case_id": "answer_B_0017",
+    "decision": "confirmed_scope_generalization",
+    "final_severity": "P2",
+    "note": "证据只支持混油皮，回答泛化为油皮通常可以使用；使用时段部分已正确说明资料不足。"
+  }
+]

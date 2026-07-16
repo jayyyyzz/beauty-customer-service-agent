@@ -1,0 +1,557 @@
+{
+  "evaluation_type": "phase1_weak_supervision",
+  "benchmark": {
+    "path": "F:\\111_ai大模型学习资料\\beauty-customer-service-agent\\evaluation\\retrieval_benchmark.jsonl",
+    "query_count": 65,
+    "distribution": {
+      "intent": {
+        "after_sale": 6,
+        "authenticity_shelf_life": 6,
+        "compatibility": 3,
+        "efficacy": 5,
+        "gift_sample": 3,
+        "ingredient": 4,
+        "invoice": 3,
+        "logistics": 3,
+        "logistics_delay": 3,
+        "price": 3,
+        "product_info": 6,
+        "quality_issue": 3,
+        "review": 3,
+        "routine": 3,
+        "safety_allergy": 2,
+        "shade_color": 3,
+        "skin_type": 3,
+        "usage": 3
+      },
+      "query_type": {
+        "colloquial_noise": 19,
+        "multi_turn": 19,
+        "no_answer": 8,
+        "standard": 19
+      },
+      "difficulty": {
+        "easy": 18,
+        "hard": 28,
+        "medium": 19
+      },
+      "has_answer": {
+        "False": 8,
+        "True": 57
+      }
+    }
+  },
+  "knowledge_snapshot": {
+    "index": "customer_service_knowledge_v1",
+    "document_count": 25520,
+    "embedding_model": "bge-small-zh-v1.5",
+    "vector_dims": 512,
+    "mapping": "es_store/es_mapping.json",
+    "query_prefix": "为这个句子生成表示以用于检索相关文章："
+  },
+  "encoding_benchmark": {
+    "batch_size": 4,
+    "query_count_per_batch_run": 65,
+    "raw_batch_total_ms": 0.0,
+    "enhanced_batch_total_ms": 0.0,
+    "batch_amortized_ms_per_query": 0.0,
+    "cache_loaded": true,
+    "single_query_sample_count": 3,
+    "single_query_avg_ms": 1376.3970666671714,
+    "single_query_p95_ms": 2261.162400001922
+  },
+  "metric_note": "Recall 使用 required_groups 的信息点覆盖率（Group Recall），相关性等级由关键词组规则弱监督生成；正式验收需替换为人工 doc_id 四级标注。",
+  "runtime_optimization": {
+    "ssl_context_cached": true,
+    "production_code_modified": false
+  },
+  "experiments": [
+    {
+      "experiment": {
+        "id": "H_hybrid_enhanced_dedup",
+        "name": "Hybrid增强 / 语义去重",
+        "mode": "hybrid",
+        "text_query": "enhanced",
+        "vector_query": "enhanced",
+        "mmr": false,
+        "postprocess": "dedup"
+      },
+      "summary": {
+        "query_count": 65,
+        "answered_query_count": 57,
+        "avg_latency_ms": 2325.766661538476,
+        "p95_latency_ms": 2623.708200000692,
+        "mrr_at_10": 0.8508771929824561,
+        "hit_at_1": 0.8245614035087719,
+        "precision_at_1": 0.8245614035087719,
+        "group_recall_at_1": 0.8771929824561403,
+        "ndcg_at_1": 0.8395989974937343,
+        "duplicate_rate_at_1": 0.0,
+        "hit_at_3": 0.8771929824561403,
+        "precision_at_3": 0.7017543859649122,
+        "group_recall_at_3": 0.9122807017543859,
+        "ndcg_at_3": 0.830986325637303,
+        "duplicate_rate_at_3": 0.0,
+        "hit_at_5": 0.8771929824561403,
+        "precision_at_5": 0.6701754385964912,
+        "group_recall_at_5": 0.9122807017543859,
+        "ndcg_at_5": 0.8414841992447226,
+        "duplicate_rate_at_5": 0.0,
+        "hit_at_10": 0.8771929824561403,
+        "precision_at_10": 0.6070175438596491,
+        "group_recall_at_10": 0.9122807017543859,
+        "ndcg_at_10": 0.8819967897306663,
+        "duplicate_rate_at_10": 0.0006265664160401002,
+        "no_answer": {
+          "threshold": 18.209193,
+          "precision": 0.6666666666666666,
+          "recall": 0.5,
+          "false_support_rate": 0.5,
+          "test_no_answer_count": 4
+        }
+      },
+      "slices": {
+        "intent": {
+          "after_sale": {
+            "count": 6,
+            "hit_at_3": 0.8333333333333334,
+            "group_recall_at_3": 0.9166666666666666,
+            "mrr_at_10": 0.8333333333333334,
+            "ndcg_at_5": 0.8802274880952037,
+            "duplicate_rate_at_3": 0.0
+          },
+          "authenticity_shelf_life": {
+            "count": 6,
+            "hit_at_3": 1.0,
+            "group_recall_at_3": 1.0,
+            "mrr_at_10": 1.0,
+            "ndcg_at_5": 1.0,
+            "duplicate_rate_at_3": 0.0
+          },
+          "compatibility": {
+            "count": 3,
+            "hit_at_3": 1.0,
+            "group_recall_at_3": 1.0,
+            "mrr_at_10": 1.0,
+            "ndcg_at_5": 0.890343123085838,
+            "duplicate_rate_at_3": 0.0
+          },
+          "efficacy": {
+            "count": 3,
+            "hit_at_3": 1.0,
+            "group_recall_at_3": 1.0,
+            "mrr_at_10": 1.0,
+            "ndcg_at_5": 0.8904096093224755,
+            "duplicate_rate_at_3": 0.0
+          },
+          "gift_sample": {
+            "count": 3,
+            "hit_at_3": 1.0,
+            "group_recall_at_3": 1.0,
+            "mrr_at_10": 1.0,
+            "ndcg_at_5": 1.0,
+            "duplicate_rate_at_3": 0.0
+          },
+          "ingredient": {
+            "count": 3,
+            "hit_at_3": 1.0,
+            "group_recall_at_3": 1.0,
+            "mrr_at_10": 1.0,
+            "ndcg_at_5": 0.9388610672187064,
+            "duplicate_rate_at_3": 0.0
+          },
+          "invoice": {
+            "count": 3,
+            "hit_at_3": 1.0,
+            "group_recall_at_3": 1.0,
+            "mrr_at_10": 1.0,
+            "ndcg_at_5": 1.0,
+            "duplicate_rate_at_3": 0.0
+          },
+          "logistics": {
+            "count": 3,
+            "hit_at_3": 1.0,
+            "group_recall_at_3": 1.0,
+            "mrr_at_10": 0.8333333333333334,
+            "ndcg_at_5": 0.8419581514262446,
+            "duplicate_rate_at_3": 0.0
+          },
+          "logistics_delay": {
+            "count": 3,
+            "hit_at_3": 1.0,
+            "group_recall_at_3": 1.0,
+            "mrr_at_10": 1.0,
+            "ndcg_at_5": 0.9263293010376829,
+            "duplicate_rate_at_3": 0.0
+          },
+          "price": {
+            "count": 3,
+            "hit_at_3": 1.0,
+            "group_recall_at_3": 1.0,
+            "mrr_at_10": 0.8333333333333334,
+            "ndcg_at_5": 0.7754246470670079,
+            "duplicate_rate_at_3": 0.0
+          },
+          "product_info": {
+            "count": 3,
+            "hit_at_3": 0.0,
+            "group_recall_at_3": 0.0,
+            "mrr_at_10": 0.0,
+            "ndcg_at_5": 0.0,
+            "duplicate_rate_at_3": 0.0
+          },
+          "quality_issue": {
+            "count": 3,
+            "hit_at_3": 1.0,
+            "group_recall_at_3": 1.0,
+            "mrr_at_10": 1.0,
+            "ndcg_at_5": 1.0,
+            "duplicate_rate_at_3": 0.0
+          },
+          "review": {
+            "count": 3,
+            "hit_at_3": 0.0,
+            "group_recall_at_3": 0.5,
+            "mrr_at_10": 0.0,
+            "ndcg_at_5": 0.32949350046856174,
+            "duplicate_rate_at_3": 0.0
+          },
+          "routine": {
+            "count": 3,
+            "hit_at_3": 1.0,
+            "group_recall_at_3": 1.0,
+            "mrr_at_10": 1.0,
+            "ndcg_at_5": 1.0,
+            "duplicate_rate_at_3": 0.0
+          },
+          "shade_color": {
+            "count": 3,
+            "hit_at_3": 1.0,
+            "group_recall_at_3": 1.0,
+            "mrr_at_10": 1.0,
+            "ndcg_at_5": 1.0,
+            "duplicate_rate_at_3": 0.0
+          },
+          "skin_type": {
+            "count": 3,
+            "hit_at_3": 1.0,
+            "group_recall_at_3": 1.0,
+            "mrr_at_10": 1.0,
+            "ndcg_at_5": 0.747978811590677,
+            "duplicate_rate_at_3": 0.0
+          },
+          "usage": {
+            "count": 3,
+            "hit_at_3": 1.0,
+            "group_recall_at_3": 1.0,
+            "mrr_at_10": 0.8333333333333334,
+            "ndcg_at_5": 0.886946598242128,
+            "duplicate_rate_at_3": 0.0
+          }
+        },
+        "query_type": {
+          "colloquial_noise": {
+            "count": 19,
+            "hit_at_3": 0.8421052631578947,
+            "group_recall_at_3": 0.8947368421052632,
+            "mrr_at_10": 0.8157894736842105,
+            "ndcg_at_5": 0.8082195512482675,
+            "duplicate_rate_at_3": 0.0
+          },
+          "multi_turn": {
+            "count": 19,
+            "hit_at_3": 0.8947368421052632,
+            "group_recall_at_3": 0.9210526315789473,
+            "mrr_at_10": 0.8421052631578947,
+            "ndcg_at_5": 0.8484397579322847,
+            "duplicate_rate_at_3": 0.0
+          },
+          "standard": {
+            "count": 19,
+            "hit_at_3": 0.8947368421052632,
+            "group_recall_at_3": 0.9210526315789473,
+            "mrr_at_10": 0.8947368421052632,
+            "ndcg_at_5": 0.8677932885536156,
+            "duplicate_rate_at_3": 0.0
+          }
+        },
+        "difficulty": {
+          "easy": {
+            "count": 18,
+            "hit_at_3": 0.8888888888888888,
+            "group_recall_at_3": 0.9166666666666666,
+            "mrr_at_10": 0.8888888888888888,
+            "ndcg_at_5": 0.8604484712510387,
+            "duplicate_rate_at_3": 0.0
+          },
+          "hard": {
+            "count": 20,
+            "hit_at_3": 0.9,
+            "group_recall_at_3": 0.925,
+            "mrr_at_10": 0.85,
+            "ndcg_at_5": 0.8560177700356705,
+            "duplicate_rate_at_3": 0.0
+          },
+          "medium": {
+            "count": 19,
+            "hit_at_3": 0.8421052631578947,
+            "group_recall_at_3": 0.8947368421052632,
+            "mrr_at_10": 0.8157894736842105,
+            "ndcg_at_5": 0.8082195512482675,
+            "duplicate_rate_at_3": 0.0
+          }
+        }
+      },
+      "error_counts": {
+        "context_missing": 2,
+        "incomplete_information": 7,
+        "no_answer_false_support": 3,
+        "no_hit": 7
+      }
+    },
+    {
+      "experiment": {
+        "id": "I_rrf_production_dedup",
+        "name": "RRF生产Query / 仅语义去重",
+        "mode": "rrf",
+        "text_query": "enhanced",
+        "vector_query": "raw",
+        "mmr": false,
+        "postprocess": "dedup"
+      },
+      "summary": {
+        "query_count": 65,
+        "answered_query_count": 57,
+        "avg_latency_ms": 2359.7033969230743,
+        "p95_latency_ms": 2861.670199999935,
+        "mrr_at_10": 0.7736842105263158,
+        "hit_at_1": 0.7192982456140351,
+        "precision_at_1": 0.7192982456140351,
+        "group_recall_at_1": 0.8216374269005848,
+        "ndcg_at_1": 0.7493734335839599,
+        "duplicate_rate_at_1": 0.0,
+        "hit_at_3": 0.8070175438596491,
+        "precision_at_3": 0.6198830409356725,
+        "group_recall_at_3": 0.8713450292397661,
+        "ndcg_at_3": 0.7286274793357138,
+        "duplicate_rate_at_3": 0.0,
+        "hit_at_5": 0.8421052631578947,
+        "precision_at_5": 0.5754385964912281,
+        "group_recall_at_5": 0.8888888888888888,
+        "ndcg_at_5": 0.7248931711825253,
+        "duplicate_rate_at_5": 0.0,
+        "hit_at_10": 0.8596491228070176,
+        "precision_at_10": 0.5175438596491229,
+        "group_recall_at_10": 0.8976608187134503,
+        "ndcg_at_10": 0.8139195904637212,
+        "duplicate_rate_at_10": 0.0,
+        "no_answer": {
+          "threshold": 0.020457486861714645,
+          "precision": 0.16666666666666666,
+          "recall": 0.25,
+          "false_support_rate": 0.75,
+          "test_no_answer_count": 4
+        }
+      },
+      "slices": {
+        "intent": {
+          "after_sale": {
+            "count": 6,
+            "hit_at_3": 0.8333333333333334,
+            "group_recall_at_3": 0.9166666666666666,
+            "mrr_at_10": 0.7916666666666666,
+            "ndcg_at_5": 0.7990024922313096,
+            "duplicate_rate_at_3": 0.0
+          },
+          "authenticity_shelf_life": {
+            "count": 6,
+            "hit_at_3": 0.6666666666666666,
+            "group_recall_at_3": 0.8333333333333334,
+            "mrr_at_10": 0.5833333333333334,
+            "ndcg_at_5": 0.6263127006439415,
+            "duplicate_rate_at_3": 0.0
+          },
+          "compatibility": {
+            "count": 3,
+            "hit_at_3": 1.0,
+            "group_recall_at_3": 0.8888888888888888,
+            "mrr_at_10": 0.8333333333333334,
+            "ndcg_at_5": 0.7484091459692886,
+            "duplicate_rate_at_3": 0.0
+          },
+          "efficacy": {
+            "count": 3,
+            "hit_at_3": 0.6666666666666666,
+            "group_recall_at_3": 0.8333333333333334,
+            "mrr_at_10": 0.7,
+            "ndcg_at_5": 0.7347640192487473,
+            "duplicate_rate_at_3": 0.0
+          },
+          "gift_sample": {
+            "count": 3,
+            "hit_at_3": 1.0,
+            "group_recall_at_3": 1.0,
+            "mrr_at_10": 1.0,
+            "ndcg_at_5": 1.0,
+            "duplicate_rate_at_3": 0.0
+          },
+          "ingredient": {
+            "count": 3,
+            "hit_at_3": 1.0,
+            "group_recall_at_3": 1.0,
+            "mrr_at_10": 1.0,
+            "ndcg_at_5": 0.8580044590428434,
+            "duplicate_rate_at_3": 0.0
+          },
+          "invoice": {
+            "count": 3,
+            "hit_at_3": 1.0,
+            "group_recall_at_3": 1.0,
+            "mrr_at_10": 1.0,
+            "ndcg_at_5": 0.9582661857592267,
+            "duplicate_rate_at_3": 0.0
+          },
+          "logistics": {
+            "count": 3,
+            "hit_at_3": 1.0,
+            "group_recall_at_3": 1.0,
+            "mrr_at_10": 1.0,
+            "ndcg_at_5": 0.9098147278629959,
+            "duplicate_rate_at_3": 0.0
+          },
+          "logistics_delay": {
+            "count": 3,
+            "hit_at_3": 0.6666666666666666,
+            "group_recall_at_3": 0.8333333333333334,
+            "mrr_at_10": 0.75,
+            "ndcg_at_5": 0.6174966867452469,
+            "duplicate_rate_at_3": 0.0
+          },
+          "price": {
+            "count": 3,
+            "hit_at_3": 1.0,
+            "group_recall_at_3": 1.0,
+            "mrr_at_10": 0.8333333333333334,
+            "ndcg_at_5": 0.8546456263113074,
+            "duplicate_rate_at_3": 0.0
+          },
+          "product_info": {
+            "count": 3,
+            "hit_at_3": 0.0,
+            "group_recall_at_3": 0.0,
+            "mrr_at_10": 0.0,
+            "ndcg_at_5": 0.0,
+            "duplicate_rate_at_3": 0.0
+          },
+          "quality_issue": {
+            "count": 3,
+            "hit_at_3": 1.0,
+            "group_recall_at_3": 1.0,
+            "mrr_at_10": 1.0,
+            "ndcg_at_5": 0.9513105500524311,
+            "duplicate_rate_at_3": 0.0
+          },
+          "review": {
+            "count": 3,
+            "hit_at_3": 0.0,
+            "group_recall_at_3": 0.5,
+            "mrr_at_10": 0.0,
+            "ndcg_at_5": 0.23828751418824778,
+            "duplicate_rate_at_3": 0.0
+          },
+          "routine": {
+            "count": 3,
+            "hit_at_3": 1.0,
+            "group_recall_at_3": 1.0,
+            "mrr_at_10": 1.0,
+            "ndcg_at_5": 0.7799580604758767,
+            "duplicate_rate_at_3": 0.0
+          },
+          "shade_color": {
+            "count": 3,
+            "hit_at_3": 1.0,
+            "group_recall_at_3": 1.0,
+            "mrr_at_10": 1.0,
+            "ndcg_at_5": 0.8205172940393172,
+            "duplicate_rate_at_3": 0.0
+          },
+          "skin_type": {
+            "count": 3,
+            "hit_at_3": 1.0,
+            "group_recall_at_3": 1.0,
+            "mrr_at_10": 1.0,
+            "ndcg_at_5": 0.7252500071784189,
+            "duplicate_rate_at_3": 0.0
+          },
+          "usage": {
+            "count": 3,
+            "hit_at_3": 1.0,
+            "group_recall_at_3": 1.0,
+            "mrr_at_10": 0.8333333333333334,
+            "ndcg_at_5": 0.7256155898435295,
+            "duplicate_rate_at_3": 0.0
+          }
+        },
+        "query_type": {
+          "colloquial_noise": {
+            "count": 19,
+            "hit_at_3": 0.7368421052631579,
+            "group_recall_at_3": 0.8421052631578947,
+            "mrr_at_10": 0.7289473684210527,
+            "ndcg_at_5": 0.7062738245795425,
+            "duplicate_rate_at_3": 0.0
+          },
+          "multi_turn": {
+            "count": 19,
+            "hit_at_3": 0.8421052631578947,
+            "group_recall_at_3": 0.8771929824561403,
+            "mrr_at_10": 0.8026315789473685,
+            "ndcg_at_5": 0.7005215376474345,
+            "duplicate_rate_at_3": 0.0
+          },
+          "standard": {
+            "count": 19,
+            "hit_at_3": 0.8421052631578947,
+            "group_recall_at_3": 0.8947368421052632,
+            "mrr_at_10": 0.7894736842105263,
+            "ndcg_at_5": 0.7678841513205988,
+            "duplicate_rate_at_3": 0.0
+          }
+        },
+        "difficulty": {
+          "easy": {
+            "count": 18,
+            "hit_at_3": 0.8333333333333334,
+            "group_recall_at_3": 0.8888888888888888,
+            "mrr_at_10": 0.7777777777777778,
+            "ndcg_at_5": 0.7549888263939655,
+            "duplicate_rate_at_3": 0.0
+          },
+          "hard": {
+            "count": 20,
+            "hit_at_3": 0.85,
+            "group_recall_at_3": 0.8833333333333333,
+            "mrr_at_10": 0.8125,
+            "ndcg_at_5": 0.7154954607650628,
+            "duplicate_rate_at_3": 0.0
+          },
+          "medium": {
+            "count": 19,
+            "hit_at_3": 0.7368421052631579,
+            "group_recall_at_3": 0.8421052631578947,
+            "mrr_at_10": 0.7289473684210527,
+            "ndcg_at_5": 0.7062738245795425,
+            "duplicate_rate_at_3": 0.0
+          }
+        }
+      },
+      "error_counts": {
+        "context_missing": 2,
+        "incomplete_information": 12,
+        "low_rank": 3,
+        "no_answer_false_support": 6,
+        "no_hit": 8
+      }
+    }
+  ]
+}

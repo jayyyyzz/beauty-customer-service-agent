@@ -1,0 +1,3543 @@
+{
+  "generated_at": "2026-07-16T11:20:45+08:00",
+  "environment": {
+    "python": "3.14.5 (tags/v3.14.5:5607950, May 10 2026, 10:43:50) [MSC v.1944 64 bit (AMD64)]",
+    "model": "deepseek-v4-flash",
+    "es_url": "http://127.0.0.1:9200",
+    "es_index": "customer_service_knowledge_v1",
+    "configured_concurrency": 4,
+    "ttft_measurable": false,
+    "ttft_note": "Current Agent uses non-streaming ChatCompletions; only full-call latency is measurable.",
+    "pricing": {
+      "source": "https://api-docs.deepseek.com/quick_start/pricing",
+      "observed_at": "2026-07-16",
+      "input_cache_hit_per_million_usd": 0.0028,
+      "input_cache_miss_per_million_usd": 0.14,
+      "output_per_million_usd": 0.28
+    }
+  },
+  "performance": {
+    "aggregate": {
+      "requests": 19,
+      "successes": 19,
+      "success_rate": 1.0,
+      "e2e": {
+        "count": 19,
+        "p50": 2321.6,
+        "p90": 12678.6,
+        "p95": 14014.53,
+        "p99": 14790.59,
+        "max": 14984.6,
+        "mean": 4635.03
+      },
+      "by_route": {
+        "business_api": {
+          "count": 3,
+          "p50": 228.1,
+          "p90": 244.52,
+          "p95": 246.57,
+          "p99": 248.21,
+          "max": 248.62,
+          "mean": 233.43
+        },
+        "clarify": {
+          "count": 3,
+          "p50": 244.75,
+          "p90": 249.89,
+          "p95": 250.53,
+          "p99": 251.04,
+          "max": 251.17,
+          "mean": 205.34
+        },
+        "fallback": {
+          "count": 3,
+          "p50": 2459.09,
+          "p90": 5649.57,
+          "p95": 6048.38,
+          "p99": 6367.43,
+          "max": 6447.19,
+          "mean": 3742.63
+        },
+        "human_handoff": {
+          "count": 3,
+          "p50": 12.2,
+          "p90": 15.71,
+          "p95": 16.15,
+          "p99": 16.5,
+          "max": 16.59,
+          "mean": 12.42
+        },
+        "hybrid": {
+          "count": 3,
+          "p50": 6883.54,
+          "p90": 11273.96,
+          "p95": 11822.76,
+          "p99": 12261.8,
+          "max": 12371.56,
+          "mean": 8578.35
+        },
+        "knowledge_base": {
+          "count": 4,
+          "p50": 12744.23,
+          "p90": 14661.25,
+          "p95": 14822.92,
+          "p99": 14952.26,
+          "max": 14984.6,
+          "mean": 12437.25
+        }
+      },
+      "by_stage": {
+        "answer_generation": {
+          "count": 10,
+          "p50": 6347.05,
+          "p90": 9995.78,
+          "p95": 11239.78,
+          "p99": 12234.98,
+          "max": 12483.78,
+          "mean": 6174.29
+        },
+        "business_tool": {
+          "count": 6,
+          "p50": 1.0,
+          "p90": 1.87,
+          "p95": 2.04,
+          "p99": 2.18,
+          "max": 2.21,
+          "mean": 1.26
+        },
+        "embedding": {
+          "count": 7,
+          "p50": 0.01,
+          "p90": 1065.13,
+          "p95": 1213.63,
+          "p99": 1332.42,
+          "max": 1362.12,
+          "mean": 318.48
+        },
+        "handoff_ticket": {
+          "count": 3,
+          "p50": 11.95,
+          "p90": 15.45,
+          "p95": 15.88,
+          "p99": 16.23,
+          "max": 16.32,
+          "mean": 12.18
+        },
+        "retrieval": {
+          "count": 7,
+          "p50": 2441.83,
+          "p90": 2504.25,
+          "p95": 2504.26,
+          "p99": 2504.26,
+          "max": 2504.26,
+          "mean": 2449.79
+        }
+      },
+      "tokens_per_request": {
+        "count": 19,
+        "p50": 564.0,
+        "p90": 1276.6,
+        "p95": 1422.4,
+        "p99": 1475.68,
+        "max": 1489.0,
+        "mean": 543.11
+      },
+      "cost_usd_per_request": {
+        "count": 19,
+        "p50": 4.476e-05,
+        "p90": 0.00014558,
+        "p95": 0.00015886,
+        "p99": 0.00021128,
+        "max": 0.00022439,
+        "mean": 5.86e-05
+      },
+      "total_tokens": 10319,
+      "total_cost_usd": 0.00111337
+    },
+    "cold_start": {
+      "wall_seconds": 13.909,
+      "rows": [
+        {
+          "case_id": "perf_knowledge",
+          "question": "日常护肤流程应该怎么安排？",
+          "success": true,
+          "error": null,
+          "route": "knowledge_base",
+          "intent": "routine",
+          "intent_confidence": 0.99,
+          "elapsed_ms": 13906.75,
+          "trace": {
+            "trace_id": "trace_7da55156a0574211955025bedcc98184",
+            "conversation_id": "cold_perf_knowledge_9a0efde9",
+            "route": "knowledge_base",
+            "total_latency_ms": 13906.73,
+            "stages": [
+              {
+                "name": "embedding",
+                "latency_ms": 1362.12,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 2504.26,
+                "status": "success",
+                "mode": "rrf_mmr"
+              },
+              {
+                "name": "answer_generation",
+                "latency_ms": 6487.22,
+                "status": "success",
+                "prompt_tokens": 748,
+                "completion_tokens": 266,
+                "total_tokens": 1014,
+                "cache_hit_tokens": 256,
+                "cache_miss_tokens": 492,
+                "model": "deepseek-v4-flash"
+              }
+            ],
+            "tokens": {
+              "prompt": 748,
+              "completion": 266,
+              "total": 1014,
+              "cache_hit": 256,
+              "cache_miss": 492
+            }
+          },
+          "cost": {
+            "usd": 0.00014408,
+            "cache_hit_tokens": 256,
+            "cache_miss_tokens": 492
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "您好！干皮且偶尔泛红的情况下，日常护肤流程需要特别注重保湿和舒缓。不过，我们目前的知识库没有提供完整的整套护肤流程安排[S1][S2]，只提到了一些适合干皮和有泛红需求的产品参考。比如烟酰胺焕白精华配方温和无酒精无香精，干皮可以放心使用[S1]；维C亮肤精华主打改善泛红和提亮肤色，建议连续使用28天以上效果更明显[S2]。\n\n如果您需要更具体的流程（比如洁面、水、精华、乳液/面霜的顺序或推荐），请补充您当前正在使用或想了解的产品名称，我帮您进一步核对。",
+          "knowledge_topics": [
+            "肤质匹配",
+            "成分咨询",
+            "用法用量"
+          ],
+          "knowledge_document_ids": [
+            "conversation:qa_topic_01447",
+            "conversation:qa_topic_01951",
+            "conversation:qa_topic_01036"
+          ],
+          "knowledge_document_types": [
+            "conversation",
+            "conversation",
+            "conversation"
+          ]
+        }
+      ]
+    },
+    "warm_sequential": {
+      "wall_seconds": 21.417,
+      "rows": [
+        {
+          "case_id": "perf_knowledge",
+          "question": "日常护肤流程应该怎么安排？",
+          "success": true,
+          "error": null,
+          "route": "knowledge_base",
+          "intent": "routine",
+          "intent_confidence": 0.99,
+          "elapsed_ms": 11581.71,
+          "trace": {
+            "trace_id": "trace_3cd1394183574d9a8de0f32c36001d4a",
+            "conversation_id": "warm_perf_knowledge_31eab90b",
+            "route": "knowledge_base",
+            "total_latency_ms": 11581.69,
+            "stages": [
+              {
+                "name": "embedding",
+                "latency_ms": 0.06,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 2438.09,
+                "status": "success",
+                "mode": "rrf_mmr"
+              },
+              {
+                "name": "answer_generation",
+                "latency_ms": 8832.74,
+                "status": "success",
+                "prompt_tokens": 748,
+                "completion_tokens": 741,
+                "total_tokens": 1489,
+                "cache_hit_tokens": 640,
+                "cache_miss_tokens": 108,
+                "model": "deepseek-v4-flash"
+              }
+            ],
+            "tokens": {
+              "prompt": 748,
+              "completion": 741,
+              "total": 1489,
+              "cache_hit": 640,
+              "cache_miss": 108
+            }
+          },
+          "cost": {
+            "usd": 0.00022439,
+            "cache_hit_tokens": 640,
+            "cache_miss_tokens": 108
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "您好！您说自己是干皮、偶尔泛红，日常护肤流程通常包括清洁、保湿、防晒等基础步骤，但具体顺序和使用细节我暂时没有完整信息[S1][S2]。根据您的情况，可以尝试使用烟酰胺焕白精华（适合干皮）[S1]；针对泛红，维C亮肤精华有改善效果[S2]。至于这两个产品在流程中如何安排（比如先用哪个、是否需要打底等），建议您补充具体想了解的步骤，我再帮您查找。",
+          "knowledge_topics": [
+            "肤质匹配",
+            "成分咨询",
+            "用法用量"
+          ],
+          "knowledge_document_ids": [
+            "conversation:qa_topic_01447",
+            "conversation:qa_topic_01951",
+            "conversation:qa_topic_01036"
+          ],
+          "knowledge_document_types": [
+            "conversation",
+            "conversation",
+            "conversation"
+          ]
+        },
+        {
+          "case_id": "perf_business",
+          "question": "订单 MOCK202606260003 的物流到哪里了？",
+          "success": true,
+          "error": null,
+          "route": "business_api",
+          "intent": "logistics",
+          "intent_confidence": 0.99,
+          "elapsed_ms": 223.58,
+          "trace": {
+            "trace_id": "trace_2bfd4a56860c4c79866aefd67fde5b93",
+            "conversation_id": "warm_perf_business_bb54584a",
+            "route": "business_api",
+            "total_latency_ms": 223.56,
+            "stages": [
+              {
+                "name": "business_tool",
+                "latency_ms": 2.21,
+                "status": "success",
+                "action": "query_order",
+                "result_status": "authentication_required"
+              }
+            ],
+            "tokens": {
+              "prompt": 0,
+              "completion": 0,
+              "total": 0,
+              "cache_hit": 0,
+              "cache_miss": 0
+            }
+          },
+          "cost": {
+            "usd": 0.0,
+            "cache_hit_tokens": 0,
+            "cache_miss_tokens": 0
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "执行订单操作前需要登录用户身份。",
+          "knowledge_topics": [],
+          "knowledge_document_ids": [],
+          "knowledge_document_types": []
+        },
+        {
+          "case_id": "perf_hybrid",
+          "question": "收到的精华漏液了，应该怎么处理？",
+          "success": true,
+          "error": null,
+          "route": "hybrid",
+          "intent": "quality_issue",
+          "intent_confidence": 0.99,
+          "elapsed_ms": 6883.54,
+          "trace": {
+            "trace_id": "trace_bf264559c83d474fba4e73a9e23fd2aa",
+            "conversation_id": "warm_perf_hybrid_f543090d",
+            "route": "hybrid",
+            "total_latency_ms": 6883.53,
+            "stages": [
+              {
+                "name": "embedding",
+                "latency_ms": 867.14,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 2441.83,
+                "status": "success",
+                "mode": "rrf_mmr"
+              },
+              {
+                "name": "business_tool",
+                "latency_ms": 1.53,
+                "status": "success",
+                "action": "query_order",
+                "result_status": "authentication_required"
+              },
+              {
+                "name": "answer_generation",
+                "latency_ms": 3367.6,
+                "status": "success",
+                "prompt_tokens": 1007,
+                "completion_tokens": 226,
+                "total_tokens": 1233,
+                "cache_hit_tokens": 384,
+                "cache_miss_tokens": 623,
+                "model": "deepseek-v4-flash"
+              }
+            ],
+            "tokens": {
+              "prompt": 1007,
+              "completion": 226,
+              "total": 1233,
+              "cache_hit": 384,
+              "cache_miss": 623
+            }
+          },
+          "cost": {
+            "usd": 0.00015158,
+            "cache_hit_tokens": 384,
+            "cache_miss_tokens": 623
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "亲，非常抱歉给您带来不好的体验！精华漏液属于运输或包装问题，我们支持补发、换货或退款，您看哪种方式比较方便，这边马上为您安排~[S1]\n\n不过，目前查询您的订单（MOCK202606260003）时需要核实您的登录身份才能执行后续操作。方便的话，请您先登录账号或提供订单对应的收件人手机号，我来帮您快速处理。",
+          "knowledge_topics": [
+            "破损补发",
+            "退换货",
+            "回购老客"
+          ],
+          "knowledge_document_ids": [
+            "conversation:qa_topic_02460",
+            "conversation:qa_topic_02561",
+            "conversation:qa_topic_02391"
+          ],
+          "knowledge_document_types": [
+            "conversation",
+            "conversation",
+            "conversation"
+          ]
+        },
+        {
+          "case_id": "perf_clarify",
+          "question": "这个怎么办？",
+          "success": true,
+          "error": null,
+          "route": "clarify",
+          "intent": "other",
+          "intent_confidence": 0.2,
+          "elapsed_ms": 251.17,
+          "trace": {
+            "trace_id": "trace_a1f4a08704904a19b431afbbb2fe15da",
+            "conversation_id": "warm_perf_clarify_e88ea045",
+            "route": "clarify",
+            "total_latency_ms": 251.15,
+            "stages": [],
+            "tokens": {
+              "prompt": 0,
+              "completion": 0,
+              "total": 0,
+              "cache_hit": 0,
+              "cache_miss": 0
+            }
+          },
+          "cost": {
+            "usd": 0.0,
+            "cache_hit_tokens": 0,
+            "cache_miss_tokens": 0
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "请问您具体想咨询商品、物流、订单操作还是售后问题？",
+          "knowledge_topics": [],
+          "knowledge_document_ids": [],
+          "knowledge_document_types": []
+        },
+        {
+          "case_id": "perf_fallback",
+          "question": "给我讲一个关于星空的笑话。",
+          "success": true,
+          "error": null,
+          "route": "fallback",
+          "intent": "other",
+          "intent_confidence": 0.99,
+          "elapsed_ms": 2459.09,
+          "trace": {
+            "trace_id": "trace_6b409f5ff5164633a5d9d2ac25cb945f",
+            "conversation_id": "warm_perf_fallback_934283cd",
+            "route": "fallback",
+            "total_latency_ms": 2459.06,
+            "stages": [
+              {
+                "name": "answer_generation",
+                "latency_ms": 2191.63,
+                "status": "success",
+                "prompt_tokens": 468,
+                "completion_tokens": 96,
+                "total_tokens": 564,
+                "cache_hit_tokens": 256,
+                "cache_miss_tokens": 212,
+                "model": "deepseek-v4-flash"
+              }
+            ],
+            "tokens": {
+              "prompt": 468,
+              "completion": 96,
+              "total": 564,
+              "cache_hit": 256,
+              "cache_miss": 212
+            }
+          },
+          "cost": {
+            "usd": 5.728e-05,
+            "cache_hit_tokens": 256,
+            "cache_miss_tokens": 212
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "抱歉，我这边是美妆电商客服，主要帮您处理订单、产品咨询和售后问题。关于星空笑话这类娱乐话题，我没有相关信息可以分享。如果您有美妆护肤或者订单方面的需求，随时可以问我哦！",
+          "knowledge_topics": [],
+          "knowledge_document_ids": [],
+          "knowledge_document_types": []
+        },
+        {
+          "case_id": "perf_handoff",
+          "question": "用了精华后嘴唇肿而且呼吸困难。",
+          "success": true,
+          "error": null,
+          "route": "human_handoff",
+          "intent": "safety_allergy",
+          "intent_confidence": 1.0,
+          "elapsed_ms": 16.59,
+          "trace": {
+            "trace_id": "trace_21b1762459e2458393f00d0bbd9c71df",
+            "conversation_id": "warm_perf_handoff_f0f063f9",
+            "route": "human_handoff",
+            "total_latency_ms": 16.59,
+            "stages": [
+              {
+                "name": "handoff_ticket",
+                "latency_ms": 16.32,
+                "status": "success",
+                "reason": "urgent_skincare_safety",
+                "priority": "urgent"
+              }
+            ],
+            "tokens": {
+              "prompt": 0,
+              "completion": 0,
+              "total": 0,
+              "cache_hit": 0,
+              "cache_miss": 0
+            }
+          },
+          "cost": {
+            "usd": 0.0,
+            "cache_hit_tokens": 0,
+            "cache_miss_tokens": 0
+          },
+          "handoff_required": true,
+          "handoff": {
+            "ticket_id": "HO-7B4437BB21",
+            "conversation_id": "warm_perf_handoff_f0f063f9",
+            "reason": "urgent_skincare_safety",
+            "priority": "urgent",
+            "status": "open",
+            "summary": "用户诉求：用了精华后嘴唇肿而且呼吸困难。",
+            "context": {
+              "question": "用了精华后嘴唇肿而且呼吸困难。",
+              "history": [],
+              "order_id": null,
+              "policy": {
+                "should_handoff": true,
+                "reason": "urgent_skincare_safety",
+                "priority": "urgent",
+                "signals": [
+                  "呼吸困难",
+                  "嘴唇肿"
+                ],
+                "user_message": "已为您创建紧急人工协助工单。"
+              },
+              "safety": {
+                "level": "urgent",
+                "handoff_required": true,
+                "signals": [
+                  "呼吸困难",
+                  "嘴唇肿"
+                ],
+                "guidance": "请立即停止使用相关产品，并用清水温和冲洗。若出现呼吸困难、面部或喉咙肿胀、大面积水疱等情况，请立即联系急救或前往医疗机构；在线客服不能替代医生诊断。"
+              },
+              "errors": [],
+              "pii_redacted": [],
+              "recommended_next_action": "人工核对用户诉求、已有信息和失败步骤后继续处理。"
+            },
+            "created_at": "2026-07-16T03:19:50+00:00",
+            "updated_at": "2026-07-16T03:19:50+00:00"
+          },
+          "answer": "请立即停止使用相关产品，并用清水温和冲洗。若出现呼吸困难、面部或喉咙肿胀、大面积水疱等情况，请立即联系急救或前往医疗机构；在线客服不能替代医生诊断。\n\n已为您创建紧急人工协助工单。\n\n人工工单号：HO-7B4437BB21。",
+          "knowledge_topics": [],
+          "knowledge_document_ids": [],
+          "knowledge_document_types": []
+        }
+      ]
+    },
+    "concurrent": {
+      "level": 4,
+      "wall_seconds": 18.746,
+      "throughput_rps": 0.6401,
+      "rows": [
+        {
+          "case_id": "perf_knowledge",
+          "question": "日常护肤流程应该怎么安排？",
+          "success": true,
+          "error": null,
+          "route": "knowledge_base",
+          "intent": "routine",
+          "intent_confidence": 0.99,
+          "elapsed_ms": 14984.6,
+          "trace": {
+            "trace_id": "trace_5236dd46ea1f42fb9435af45e635e43c",
+            "conversation_id": "concurrent_perf_knowledge_f67306af",
+            "route": "knowledge_base",
+            "total_latency_ms": 14984.59,
+            "stages": [
+              {
+                "name": "embedding",
+                "latency_ms": 0.0,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 2323.8,
+                "status": "success",
+                "mode": "rrf_mmr"
+              },
+              {
+                "name": "answer_generation",
+                "latency_ms": 12483.78,
+                "status": "success",
+                "prompt_tokens": 748,
+                "completion_tokens": 350,
+                "total_tokens": 1098,
+                "cache_hit_tokens": 640,
+                "cache_miss_tokens": 108,
+                "model": "deepseek-v4-flash"
+              }
+            ],
+            "tokens": {
+              "prompt": 748,
+              "completion": 350,
+              "total": 1098,
+              "cache_hit": 640,
+              "cache_miss": 108
+            }
+          },
+          "cost": {
+            "usd": 0.00011491,
+            "cache_hit_tokens": 640,
+            "cache_miss_tokens": 108
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "你好！根据你提到的干皮、偶尔泛红的肤质情况，目前知识库中的信息可以给你两点产品参考：\n\n- **干皮**：烟酰胺焕白精华配方温和无酒精无香精，干皮可以放心使用[S1]。  \n- **偶尔泛红**：维C亮肤精华含高浓度活性成分，主打改善泛红和提亮肤色，需连续使用28天以上效果更明显[S2]。\n\n关于完整的“日常护肤流程”（比如洁面、水、乳、面霜的使用顺序及搭配），现有资料中没有具体说明，无法给出准确安排。如果需要针对你肤质的全套流程建议，请补充更详细的需求（例如已有产品、预算偏好等），或者咨询在线客服获取更全面的指导。",
+          "knowledge_topics": [
+            "肤质匹配",
+            "成分咨询",
+            "用法用量"
+          ],
+          "knowledge_document_ids": [
+            "conversation:qa_topic_01447",
+            "conversation:qa_topic_01951",
+            "conversation:qa_topic_01036"
+          ],
+          "knowledge_document_types": [
+            "conversation",
+            "conversation",
+            "conversation"
+          ]
+        },
+        {
+          "case_id": "perf_business",
+          "question": "订单 MOCK202606260003 的物流到哪里了？",
+          "success": true,
+          "error": null,
+          "route": "business_api",
+          "intent": "logistics",
+          "intent_confidence": 0.99,
+          "elapsed_ms": 228.1,
+          "trace": {
+            "trace_id": "trace_7bcd93667740488386e2932cefd6ffb9",
+            "conversation_id": "concurrent_perf_business_a7e5f64e",
+            "route": "business_api",
+            "total_latency_ms": 228.09,
+            "stages": [
+              {
+                "name": "business_tool",
+                "latency_ms": 0.93,
+                "status": "success",
+                "action": "query_order",
+                "result_status": "authentication_required"
+              }
+            ],
+            "tokens": {
+              "prompt": 0,
+              "completion": 0,
+              "total": 0,
+              "cache_hit": 0,
+              "cache_miss": 0
+            }
+          },
+          "cost": {
+            "usd": 0.0,
+            "cache_hit_tokens": 0,
+            "cache_miss_tokens": 0
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "执行订单操作前需要登录用户身份。",
+          "knowledge_topics": [],
+          "knowledge_document_ids": [],
+          "knowledge_document_types": []
+        },
+        {
+          "case_id": "perf_hybrid",
+          "question": "收到的精华漏液了，应该怎么处理？",
+          "success": true,
+          "error": null,
+          "route": "hybrid",
+          "intent": "quality_issue",
+          "intent_confidence": 0.99,
+          "elapsed_ms": 12371.56,
+          "trace": {
+            "trace_id": "trace_0931684562d14845830e9a29bf59dd34",
+            "conversation_id": "concurrent_perf_hybrid_ed3c3301",
+            "route": "hybrid",
+            "total_latency_ms": 12371.55,
+            "stages": [
+              {
+                "name": "embedding",
+                "latency_ms": 0.01,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 2432.38,
+                "status": "success",
+                "mode": "rrf_mmr"
+              },
+              {
+                "name": "business_tool",
+                "latency_ms": 1.02,
+                "status": "success",
+                "action": "query_order",
+                "result_status": "authentication_required"
+              },
+              {
+                "name": "answer_generation",
+                "latency_ms": 9719.34,
+                "status": "success",
+                "prompt_tokens": 1007,
+                "completion_tokens": 408,
+                "total_tokens": 1415,
+                "cache_hit_tokens": 896,
+                "cache_miss_tokens": 111,
+                "model": "deepseek-v4-flash"
+              }
+            ],
+            "tokens": {
+              "prompt": 1007,
+              "completion": 408,
+              "total": 1415,
+              "cache_hit": 896,
+              "cache_miss": 111
+            }
+          },
+          "cost": {
+            "usd": 0.00013229,
+            "cache_hit_tokens": 896,
+            "cache_miss_tokens": 111
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "非常抱歉给您带来不愉快的体验！根据确认，如果是运输或包装问题导致的漏液，我们支持补发、换货或退款，您可以根据需要选择一种处理方式[S1]。不过，当前需要先验证您的订单身份才能进行后续操作，请您提供一下您在平台上的登录信息或确认身份，我来帮您尽快安排处理。",
+          "knowledge_topics": [
+            "破损补发",
+            "退换货",
+            "回购老客"
+          ],
+          "knowledge_document_ids": [
+            "conversation:qa_topic_02460",
+            "conversation:qa_topic_02561",
+            "conversation:qa_topic_02391"
+          ],
+          "knowledge_document_types": [
+            "conversation",
+            "conversation",
+            "conversation"
+          ]
+        },
+        {
+          "case_id": "perf_clarify",
+          "question": "这个怎么办？",
+          "success": true,
+          "error": null,
+          "route": "clarify",
+          "intent": "other",
+          "intent_confidence": 0.2,
+          "elapsed_ms": 244.75,
+          "trace": {
+            "trace_id": "trace_50bdead1875d44a4ac2291c56462b9f0",
+            "conversation_id": "concurrent_perf_clarify_8b898420",
+            "route": "clarify",
+            "total_latency_ms": 244.74,
+            "stages": [],
+            "tokens": {
+              "prompt": 0,
+              "completion": 0,
+              "total": 0,
+              "cache_hit": 0,
+              "cache_miss": 0
+            }
+          },
+          "cost": {
+            "usd": 0.0,
+            "cache_hit_tokens": 0,
+            "cache_miss_tokens": 0
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "请问您具体想咨询商品、物流、订单操作还是售后问题？",
+          "knowledge_topics": [],
+          "knowledge_document_ids": [],
+          "knowledge_document_types": []
+        },
+        {
+          "case_id": "perf_fallback",
+          "question": "给我讲一个关于星空的笑话。",
+          "success": true,
+          "error": null,
+          "route": "fallback",
+          "intent": "other",
+          "intent_confidence": 0.99,
+          "elapsed_ms": 6447.19,
+          "trace": {
+            "trace_id": "trace_1aee30f7c04c48e8bb6d113cb8ccbd17",
+            "conversation_id": "concurrent_perf_fallback_c2206e07",
+            "route": "fallback",
+            "total_latency_ms": 6447.17,
+            "stages": [
+              {
+                "name": "answer_generation",
+                "latency_ms": 6206.87,
+                "status": "success",
+                "prompt_tokens": 468,
+                "completion_tokens": 132,
+                "total_tokens": 600,
+                "cache_hit_tokens": 384,
+                "cache_miss_tokens": 84,
+                "model": "deepseek-v4-flash"
+              }
+            ],
+            "tokens": {
+              "prompt": 468,
+              "completion": 132,
+              "total": 600,
+              "cache_hit": 384,
+              "cache_miss": 84
+            }
+          },
+          "cost": {
+            "usd": 4.98e-05,
+            "cache_hit_tokens": 384,
+            "cache_miss_tokens": 84
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "抱歉，作为美妆电商客服，我这边主要是为您解答产品、订单、物流等业务相关的问题，暂时没有娱乐笑话的功能😅 如果您有关于美妆护肤、订单状态或其他购物方面的疑问，欢迎随时告诉我，我会尽力帮您处理！",
+          "knowledge_topics": [],
+          "knowledge_document_ids": [],
+          "knowledge_document_types": []
+        },
+        {
+          "case_id": "perf_handoff",
+          "question": "用了精华后嘴唇肿而且呼吸困难。",
+          "success": true,
+          "error": null,
+          "route": "human_handoff",
+          "intent": "safety_allergy",
+          "intent_confidence": 1.0,
+          "elapsed_ms": 12.2,
+          "trace": {
+            "trace_id": "trace_92cec8a9cc934846a2bc2851b5bb402f",
+            "conversation_id": "concurrent_perf_handoff_9c0835d3",
+            "route": "human_handoff",
+            "total_latency_ms": 12.19,
+            "stages": [
+              {
+                "name": "handoff_ticket",
+                "latency_ms": 11.95,
+                "status": "success",
+                "reason": "urgent_skincare_safety",
+                "priority": "urgent"
+              }
+            ],
+            "tokens": {
+              "prompt": 0,
+              "completion": 0,
+              "total": 0,
+              "cache_hit": 0,
+              "cache_miss": 0
+            }
+          },
+          "cost": {
+            "usd": 0.0,
+            "cache_hit_tokens": 0,
+            "cache_miss_tokens": 0
+          },
+          "handoff_required": true,
+          "handoff": {
+            "ticket_id": "HO-7EBA6573EA",
+            "conversation_id": "concurrent_perf_handoff_9c0835d3",
+            "reason": "urgent_skincare_safety",
+            "priority": "urgent",
+            "status": "open",
+            "summary": "用户诉求：用了精华后嘴唇肿而且呼吸困难。",
+            "context": {
+              "question": "用了精华后嘴唇肿而且呼吸困难。",
+              "history": [],
+              "order_id": null,
+              "policy": {
+                "should_handoff": true,
+                "reason": "urgent_skincare_safety",
+                "priority": "urgent",
+                "signals": [
+                  "呼吸困难",
+                  "嘴唇肿"
+                ],
+                "user_message": "已为您创建紧急人工协助工单。"
+              },
+              "safety": {
+                "level": "urgent",
+                "handoff_required": true,
+                "signals": [
+                  "呼吸困难",
+                  "嘴唇肿"
+                ],
+                "guidance": "请立即停止使用相关产品，并用清水温和冲洗。若出现呼吸困难、面部或喉咙肿胀、大面积水疱等情况，请立即联系急救或前往医疗机构；在线客服不能替代医生诊断。"
+              },
+              "errors": [],
+              "pii_redacted": [],
+              "recommended_next_action": "人工核对用户诉求、已有信息和失败步骤后继续处理。"
+            },
+            "created_at": "2026-07-16T03:19:56+00:00",
+            "updated_at": "2026-07-16T03:19:56+00:00"
+          },
+          "answer": "请立即停止使用相关产品，并用清水温和冲洗。若出现呼吸困难、面部或喉咙肿胀、大面积水疱等情况，请立即联系急救或前往医疗机构；在线客服不能替代医生诊断。\n\n已为您创建紧急人工协助工单。\n\n人工工单号：HO-7EBA6573EA。",
+          "knowledge_topics": [],
+          "knowledge_document_ids": [],
+          "knowledge_document_types": []
+        },
+        {
+          "case_id": "perf_knowledge",
+          "question": "日常护肤流程应该怎么安排？",
+          "success": true,
+          "error": null,
+          "route": "knowledge_base",
+          "intent": "routine",
+          "intent_confidence": 0.99,
+          "elapsed_ms": 9275.93,
+          "trace": {
+            "trace_id": "trace_bfa8e7def4ce43e691e6bea99ed6c506",
+            "conversation_id": "concurrent_perf_knowledge_39058cce",
+            "route": "knowledge_base",
+            "total_latency_ms": 9275.92,
+            "stages": [
+              {
+                "name": "embedding",
+                "latency_ms": 0.01,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 2503.89,
+                "status": "success",
+                "mode": "rrf_mmr"
+              },
+              {
+                "name": "answer_generation",
+                "latency_ms": 6545.16,
+                "status": "success",
+                "prompt_tokens": 748,
+                "completion_tokens": 334,
+                "total_tokens": 1082,
+                "cache_hit_tokens": 640,
+                "cache_miss_tokens": 108,
+                "model": "deepseek-v4-flash"
+              }
+            ],
+            "tokens": {
+              "prompt": 748,
+              "completion": 334,
+              "total": 1082,
+              "cache_hit": 640,
+              "cache_miss": 108
+            }
+          },
+          "cost": {
+            "usd": 0.00011043,
+            "cache_hit_tokens": 640,
+            "cache_miss_tokens": 108
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "您好，感谢您的咨询！您提到自己是干皮且偶尔泛红，但关于“日常护肤流程应该怎么安排”这个具体问题，现有资料中并没有提供完整的步骤顺序或推荐方案。为了给您更准确的建议，能否请您补充一下：您目前是否有正在使用或感兴趣的护肤产品（比如洁面、精华、面霜等）？或者您更希望了解某个特定环节（如保湿或舒缓）的搭配方法？这样我可以针对性地查找相关信息帮您解答。😊",
+          "knowledge_topics": [
+            "肤质匹配",
+            "成分咨询",
+            "用法用量"
+          ],
+          "knowledge_document_ids": [
+            "conversation:qa_topic_01447",
+            "conversation:qa_topic_01951",
+            "conversation:qa_topic_01036"
+          ],
+          "knowledge_document_types": [
+            "conversation",
+            "conversation",
+            "conversation"
+          ]
+        },
+        {
+          "case_id": "perf_business",
+          "question": "订单 MOCK202606260003 的物流到哪里了？",
+          "success": true,
+          "error": null,
+          "route": "business_api",
+          "intent": "logistics",
+          "intent_confidence": 0.99,
+          "elapsed_ms": 248.62,
+          "trace": {
+            "trace_id": "trace_3763d4bc9fce4afeaa8fd1dd2ffe2b81",
+            "conversation_id": "concurrent_perf_business_82e73d30",
+            "route": "business_api",
+            "total_latency_ms": 248.61,
+            "stages": [
+              {
+                "name": "business_tool",
+                "latency_ms": 0.89,
+                "status": "success",
+                "action": "query_order",
+                "result_status": "authentication_required"
+              }
+            ],
+            "tokens": {
+              "prompt": 0,
+              "completion": 0,
+              "total": 0,
+              "cache_hit": 0,
+              "cache_miss": 0
+            }
+          },
+          "cost": {
+            "usd": 0.0,
+            "cache_hit_tokens": 0,
+            "cache_miss_tokens": 0
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "执行订单操作前需要登录用户身份。",
+          "knowledge_topics": [],
+          "knowledge_document_ids": [],
+          "knowledge_document_types": []
+        },
+        {
+          "case_id": "perf_hybrid",
+          "question": "收到的精华漏液了，应该怎么处理？",
+          "success": true,
+          "error": null,
+          "route": "hybrid",
+          "intent": "quality_issue",
+          "intent_confidence": 0.99,
+          "elapsed_ms": 6479.96,
+          "trace": {
+            "trace_id": "trace_72d96671419e47b38feac2c3763e8e6b",
+            "conversation_id": "concurrent_perf_hybrid_692bedde",
+            "route": "hybrid",
+            "total_latency_ms": 6479.94,
+            "stages": [
+              {
+                "name": "embedding",
+                "latency_ms": 0.01,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 2504.25,
+                "status": "success",
+                "mode": "rrf_mmr"
+              },
+              {
+                "name": "business_tool",
+                "latency_ms": 0.99,
+                "status": "success",
+                "action": "query_order",
+                "result_status": "authentication_required"
+              },
+              {
+                "name": "answer_generation",
+                "latency_ms": 3749.82,
+                "status": "success",
+                "prompt_tokens": 1007,
+                "completion_tokens": 235,
+                "total_tokens": 1242,
+                "cache_hit_tokens": 896,
+                "cache_miss_tokens": 111,
+                "model": "deepseek-v4-flash"
+              }
+            ],
+            "tokens": {
+              "prompt": 1007,
+              "completion": 235,
+              "total": 1242,
+              "cache_hit": 896,
+              "cache_miss": 111
+            }
+          },
+          "cost": {
+            "usd": 8.385e-05,
+            "cache_hit_tokens": 896,
+            "cache_miss_tokens": 111
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "亲，非常抱歉给您带来不好的体验！😥 精华漏液属于运输/包装问题的话，我们支持补发、换货或退款，您可以选择任意一种方案[S1]。\n\n不过我需要先核实您的订单信息，麻烦您提供一下**登录后的账号**或**订单号**（您之前提过是 MOCK202606260003），我这边先查询订单详情才能安排处理。方便现在登录一下账号吗？",
+          "knowledge_topics": [
+            "破损补发",
+            "退换货",
+            "回购老客"
+          ],
+          "knowledge_document_ids": [
+            "conversation:qa_topic_02460",
+            "conversation:qa_topic_02561",
+            "conversation:qa_topic_02391"
+          ],
+          "knowledge_document_types": [
+            "conversation",
+            "conversation",
+            "conversation"
+          ]
+        },
+        {
+          "case_id": "perf_clarify",
+          "question": "这个怎么办？",
+          "success": true,
+          "error": null,
+          "route": "clarify",
+          "intent": "other",
+          "intent_confidence": 0.2,
+          "elapsed_ms": 120.09,
+          "trace": {
+            "trace_id": "trace_781e52f79d604b9cb5cc1f7ff226fcff",
+            "conversation_id": "concurrent_perf_clarify_9fbd3511",
+            "route": "clarify",
+            "total_latency_ms": 120.08,
+            "stages": [],
+            "tokens": {
+              "prompt": 0,
+              "completion": 0,
+              "total": 0,
+              "cache_hit": 0,
+              "cache_miss": 0
+            }
+          },
+          "cost": {
+            "usd": 0.0,
+            "cache_hit_tokens": 0,
+            "cache_miss_tokens": 0
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "请问您具体想咨询商品、物流、订单操作还是售后问题？",
+          "knowledge_topics": [],
+          "knowledge_document_ids": [],
+          "knowledge_document_types": []
+        },
+        {
+          "case_id": "perf_fallback",
+          "question": "给我讲一个关于星空的笑话。",
+          "success": true,
+          "error": null,
+          "route": "fallback",
+          "intent": "other",
+          "intent_confidence": 0.99,
+          "elapsed_ms": 2321.6,
+          "trace": {
+            "trace_id": "trace_f877ca64b87b4883ae845981ad38e0ff",
+            "conversation_id": "concurrent_perf_fallback_458da7ed",
+            "route": "fallback",
+            "total_latency_ms": 2321.56,
+            "stages": [
+              {
+                "name": "answer_generation",
+                "latency_ms": 2158.7,
+                "status": "success",
+                "prompt_tokens": 468,
+                "completion_tokens": 114,
+                "total_tokens": 582,
+                "cache_hit_tokens": 384,
+                "cache_miss_tokens": 84,
+                "model": "deepseek-v4-flash"
+              }
+            ],
+            "tokens": {
+              "prompt": 468,
+              "completion": 114,
+              "total": 582,
+              "cache_hit": 384,
+              "cache_miss": 84
+            }
+          },
+          "cost": {
+            "usd": 4.476e-05,
+            "cache_hit_tokens": 384,
+            "cache_miss_tokens": 84
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "抱歉，我无法为您讲笑话。我是美妆电商客服，只能解答与商品、订单、物流、售后等业务相关的问题。如果您有关于产品的疑问，欢迎随时提出。",
+          "knowledge_topics": [],
+          "knowledge_document_ids": [],
+          "knowledge_document_types": []
+        },
+        {
+          "case_id": "perf_handoff",
+          "question": "用了精华后嘴唇肿而且呼吸困难。",
+          "success": true,
+          "error": null,
+          "route": "human_handoff",
+          "intent": "safety_allergy",
+          "intent_confidence": 1.0,
+          "elapsed_ms": 8.47,
+          "trace": {
+            "trace_id": "trace_2a5f4d1559a048b0a3d19a1e17e0eaaf",
+            "conversation_id": "concurrent_perf_handoff_4211c971",
+            "route": "human_handoff",
+            "total_latency_ms": 8.46,
+            "stages": [
+              {
+                "name": "handoff_ticket",
+                "latency_ms": 8.28,
+                "status": "success",
+                "reason": "urgent_skincare_safety",
+                "priority": "urgent"
+              }
+            ],
+            "tokens": {
+              "prompt": 0,
+              "completion": 0,
+              "total": 0,
+              "cache_hit": 0,
+              "cache_miss": 0
+            }
+          },
+          "cost": {
+            "usd": 0.0,
+            "cache_hit_tokens": 0,
+            "cache_miss_tokens": 0
+          },
+          "handoff_required": true,
+          "handoff": {
+            "ticket_id": "HO-BCFFE3F4B9",
+            "conversation_id": "concurrent_perf_handoff_4211c971",
+            "reason": "urgent_skincare_safety",
+            "priority": "urgent",
+            "status": "open",
+            "summary": "用户诉求：用了精华后嘴唇肿而且呼吸困难。",
+            "context": {
+              "question": "用了精华后嘴唇肿而且呼吸困难。",
+              "history": [],
+              "order_id": null,
+              "policy": {
+                "should_handoff": true,
+                "reason": "urgent_skincare_safety",
+                "priority": "urgent",
+                "signals": [
+                  "呼吸困难",
+                  "嘴唇肿"
+                ],
+                "user_message": "已为您创建紧急人工协助工单。"
+              },
+              "safety": {
+                "level": "urgent",
+                "handoff_required": true,
+                "signals": [
+                  "呼吸困难",
+                  "嘴唇肿"
+                ],
+                "guidance": "请立即停止使用相关产品，并用清水温和冲洗。若出现呼吸困难、面部或喉咙肿胀、大面积水疱等情况，请立即联系急救或前往医疗机构；在线客服不能替代医生诊断。"
+              },
+              "errors": [],
+              "pii_redacted": [],
+              "recommended_next_action": "人工核对用户诉求、已有信息和失败步骤后继续处理。"
+            },
+            "created_at": "2026-07-16T03:20:06+00:00",
+            "updated_at": "2026-07-16T03:20:06+00:00"
+          },
+          "answer": "请立即停止使用相关产品，并用清水温和冲洗。若出现呼吸困难、面部或喉咙肿胀、大面积水疱等情况，请立即联系急救或前往医疗机构；在线客服不能替代医生诊断。\n\n已为您创建紧急人工协助工单。\n\n人工工单号：HO-BCFFE3F4B9。",
+          "knowledge_topics": [],
+          "knowledge_document_ids": [],
+          "knowledge_document_types": []
+        }
+      ]
+    }
+  },
+  "handoff": {
+    "wall_seconds": 35.18,
+    "metrics": {
+      "sample_count": 24,
+      "tp": 12,
+      "fp": 0,
+      "fn": 0,
+      "tn": 12,
+      "precision": 1.0,
+      "recall": 1.0,
+      "missed_handoff_rate": 0.0,
+      "over_handoff_rate": 0.0,
+      "critical_missed_handoff_rate": 0.0,
+      "handoff_success_rate": 1.0,
+      "summary_completeness": 1.0,
+      "context_preservation_rate": 1.0,
+      "repeat_information_rate": null,
+      "details": [
+        {
+          "case_id": "ho_user_01",
+          "should_handoff": true,
+          "did_handoff": true,
+          "expected_reason": "user_requested",
+          "actual_reason": "user_requested",
+          "priority": "high",
+          "route": "human_handoff",
+          "success": true
+        },
+        {
+          "case_id": "ho_user_02",
+          "should_handoff": true,
+          "did_handoff": true,
+          "expected_reason": "user_requested",
+          "actual_reason": "user_requested",
+          "priority": "high",
+          "route": "human_handoff",
+          "success": true
+        },
+        {
+          "case_id": "ho_user_03",
+          "should_handoff": true,
+          "did_handoff": true,
+          "expected_reason": "user_requested",
+          "actual_reason": "user_requested",
+          "priority": "high",
+          "route": "human_handoff",
+          "success": true
+        },
+        {
+          "case_id": "ho_urgent_01",
+          "should_handoff": true,
+          "did_handoff": true,
+          "expected_reason": "urgent_skincare_safety",
+          "actual_reason": "urgent_skincare_safety",
+          "priority": "urgent",
+          "route": "human_handoff",
+          "success": true
+        },
+        {
+          "case_id": "ho_urgent_02",
+          "should_handoff": true,
+          "did_handoff": true,
+          "expected_reason": "urgent_skincare_safety",
+          "actual_reason": "urgent_skincare_safety",
+          "priority": "urgent",
+          "route": "human_handoff",
+          "success": true
+        },
+        {
+          "case_id": "ho_urgent_03",
+          "should_handoff": true,
+          "did_handoff": true,
+          "expected_reason": "urgent_skincare_safety",
+          "actual_reason": "urgent_skincare_safety",
+          "priority": "urgent",
+          "route": "human_handoff",
+          "success": true
+        },
+        {
+          "case_id": "ho_reaction_01",
+          "should_handoff": true,
+          "did_handoff": true,
+          "expected_reason": "skincare_reaction",
+          "actual_reason": "skincare_reaction",
+          "priority": "high",
+          "route": "human_handoff",
+          "success": true
+        },
+        {
+          "case_id": "ho_reaction_02",
+          "should_handoff": true,
+          "did_handoff": true,
+          "expected_reason": "skincare_reaction",
+          "actual_reason": "skincare_reaction",
+          "priority": "high",
+          "route": "human_handoff",
+          "success": true
+        },
+        {
+          "case_id": "ho_complaint_01",
+          "should_handoff": true,
+          "did_handoff": true,
+          "expected_reason": "complaint_escalation",
+          "actual_reason": "complaint_escalation",
+          "priority": "high",
+          "route": "human_handoff",
+          "success": true
+        },
+        {
+          "case_id": "ho_fraud_01",
+          "should_handoff": true,
+          "did_handoff": true,
+          "expected_reason": "account_security",
+          "actual_reason": "account_security",
+          "priority": "urgent",
+          "route": "human_handoff",
+          "success": true
+        },
+        {
+          "case_id": "ho_repeat_01",
+          "should_handoff": true,
+          "did_handoff": true,
+          "expected_reason": "repeated_failure",
+          "actual_reason": "repeated_failure",
+          "priority": "high",
+          "route": "human_handoff",
+          "success": true
+        },
+        {
+          "case_id": "ho_dispute_01",
+          "should_handoff": true,
+          "did_handoff": true,
+          "expected_reason": "high_value_dispute",
+          "actual_reason": "high_value_dispute",
+          "priority": "high",
+          "route": "human_handoff",
+          "success": true
+        },
+        {
+          "case_id": "auto_01",
+          "should_handoff": false,
+          "did_handoff": false,
+          "expected_reason": null,
+          "actual_reason": null,
+          "priority": null,
+          "route": "knowledge_base",
+          "success": true
+        },
+        {
+          "case_id": "auto_02",
+          "should_handoff": false,
+          "did_handoff": false,
+          "expected_reason": null,
+          "actual_reason": null,
+          "priority": null,
+          "route": "knowledge_base",
+          "success": true
+        },
+        {
+          "case_id": "auto_03",
+          "should_handoff": false,
+          "did_handoff": false,
+          "expected_reason": null,
+          "actual_reason": null,
+          "priority": null,
+          "route": "business_api",
+          "success": true
+        },
+        {
+          "case_id": "auto_04",
+          "should_handoff": false,
+          "did_handoff": false,
+          "expected_reason": null,
+          "actual_reason": null,
+          "priority": null,
+          "route": "waiting_slots",
+          "success": true
+        },
+        {
+          "case_id": "auto_05",
+          "should_handoff": false,
+          "did_handoff": false,
+          "expected_reason": null,
+          "actual_reason": null,
+          "priority": null,
+          "route": "knowledge_base",
+          "success": true
+        },
+        {
+          "case_id": "auto_06",
+          "should_handoff": false,
+          "did_handoff": false,
+          "expected_reason": null,
+          "actual_reason": null,
+          "priority": null,
+          "route": "knowledge_base",
+          "success": true
+        },
+        {
+          "case_id": "auto_07",
+          "should_handoff": false,
+          "did_handoff": false,
+          "expected_reason": null,
+          "actual_reason": null,
+          "priority": null,
+          "route": "knowledge_base",
+          "success": true
+        },
+        {
+          "case_id": "auto_08",
+          "should_handoff": false,
+          "did_handoff": false,
+          "expected_reason": null,
+          "actual_reason": null,
+          "priority": null,
+          "route": "knowledge_base",
+          "success": true
+        },
+        {
+          "case_id": "clarify_01",
+          "should_handoff": false,
+          "did_handoff": false,
+          "expected_reason": null,
+          "actual_reason": null,
+          "priority": null,
+          "route": "clarify",
+          "success": true
+        },
+        {
+          "case_id": "clarify_02",
+          "should_handoff": false,
+          "did_handoff": false,
+          "expected_reason": null,
+          "actual_reason": null,
+          "priority": null,
+          "route": "clarify",
+          "success": true
+        },
+        {
+          "case_id": "clarify_03",
+          "should_handoff": false,
+          "did_handoff": false,
+          "expected_reason": null,
+          "actual_reason": null,
+          "priority": null,
+          "route": "clarify",
+          "success": true
+        },
+        {
+          "case_id": "clarify_04",
+          "should_handoff": false,
+          "did_handoff": false,
+          "expected_reason": null,
+          "actual_reason": null,
+          "priority": null,
+          "route": "clarify",
+          "success": true
+        }
+      ]
+    },
+    "rows": [
+      {
+        "case_id": "ho_user_01",
+        "question": "给我转人工客服。",
+        "success": true,
+        "error": null,
+        "route": "human_handoff",
+        "intent": "other",
+        "intent_confidence": 1.0,
+        "elapsed_ms": 13.38,
+        "trace": {
+          "trace_id": "trace_9daf363207624ad181b2bb2861eb319a",
+          "conversation_id": "handoff_ho_user_01_3ce25bd1",
+          "route": "human_handoff",
+          "total_latency_ms": 13.37,
+          "stages": [
+            {
+              "name": "handoff_ticket",
+              "latency_ms": 13.13,
+              "status": "success",
+              "reason": "user_requested",
+              "priority": "high"
+            }
+          ],
+          "tokens": {
+            "prompt": 0,
+            "completion": 0,
+            "total": 0,
+            "cache_hit": 0,
+            "cache_miss": 0
+          }
+        },
+        "cost": {
+          "usd": 0.0,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 0
+        },
+        "handoff_required": true,
+        "handoff": {
+          "ticket_id": "HO-145F1BEFCB",
+          "conversation_id": "handoff_ho_user_01_3ce25bd1",
+          "reason": "user_requested",
+          "priority": "high",
+          "status": "open",
+          "summary": "用户诉求：给我转人工客服。",
+          "context": {
+            "question": "给我转人工客服。",
+            "history": [],
+            "order_id": null,
+            "policy": {
+              "should_handoff": true,
+              "reason": "user_requested",
+              "priority": "high",
+              "signals": [
+                "explicit_human_request"
+              ],
+              "user_message": "已按您的要求转接人工客服，并保留本次对话信息。"
+            },
+            "safety": {
+              "level": "normal",
+              "handoff_required": false,
+              "signals": [],
+              "guidance": ""
+            },
+            "errors": [],
+            "pii_redacted": [],
+            "recommended_next_action": "人工核对用户诉求、已有信息和失败步骤后继续处理。"
+          },
+          "created_at": "2026-07-16T03:20:09+00:00",
+          "updated_at": "2026-07-16T03:20:09+00:00"
+        },
+        "answer": "已按您的要求转接人工客服，并保留本次对话信息。\n\n人工工单号：HO-145F1BEFCB。",
+        "knowledge_topics": [],
+        "knowledge_document_ids": [],
+        "knowledge_document_types": []
+      },
+      {
+        "case_id": "ho_user_02",
+        "question": "我不想和机器人说了，我要找真人。",
+        "success": true,
+        "error": null,
+        "route": "human_handoff",
+        "intent": "other",
+        "intent_confidence": 1.0,
+        "elapsed_ms": 11.88,
+        "trace": {
+          "trace_id": "trace_e3a99f029c2943cbba383a5db8b4a0dd",
+          "conversation_id": "handoff_ho_user_02_9641a5e6",
+          "route": "human_handoff",
+          "total_latency_ms": 11.88,
+          "stages": [
+            {
+              "name": "handoff_ticket",
+              "latency_ms": 11.66,
+              "status": "success",
+              "reason": "user_requested",
+              "priority": "high"
+            }
+          ],
+          "tokens": {
+            "prompt": 0,
+            "completion": 0,
+            "total": 0,
+            "cache_hit": 0,
+            "cache_miss": 0
+          }
+        },
+        "cost": {
+          "usd": 0.0,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 0
+        },
+        "handoff_required": true,
+        "handoff": {
+          "ticket_id": "HO-BBAAE6D23E",
+          "conversation_id": "handoff_ho_user_02_9641a5e6",
+          "reason": "user_requested",
+          "priority": "high",
+          "status": "open",
+          "summary": "用户诉求：我不想和机器人说了，我要找真人。",
+          "context": {
+            "question": "我不想和机器人说了，我要找真人。",
+            "history": [],
+            "order_id": null,
+            "policy": {
+              "should_handoff": true,
+              "reason": "user_requested",
+              "priority": "high",
+              "signals": [
+                "explicit_human_request"
+              ],
+              "user_message": "已按您的要求转接人工客服，并保留本次对话信息。"
+            },
+            "safety": {
+              "level": "normal",
+              "handoff_required": false,
+              "signals": [],
+              "guidance": ""
+            },
+            "errors": [],
+            "pii_redacted": [],
+            "recommended_next_action": "人工核对用户诉求、已有信息和失败步骤后继续处理。"
+          },
+          "created_at": "2026-07-16T03:20:09+00:00",
+          "updated_at": "2026-07-16T03:20:09+00:00"
+        },
+        "answer": "已按您的要求转接人工客服，并保留本次对话信息。\n\n人工工单号：HO-BBAAE6D23E。",
+        "knowledge_topics": [],
+        "knowledge_document_ids": [],
+        "knowledge_document_types": []
+      },
+      {
+        "case_id": "ho_user_03",
+        "question": "别再自动回复，马上接人工。",
+        "success": true,
+        "error": null,
+        "route": "human_handoff",
+        "intent": "other",
+        "intent_confidence": 1.0,
+        "elapsed_ms": 10.21,
+        "trace": {
+          "trace_id": "trace_0e717538eb0e49b9b1ece2fd53ac3938",
+          "conversation_id": "handoff_ho_user_03_a02a59a5",
+          "route": "human_handoff",
+          "total_latency_ms": 10.2,
+          "stages": [
+            {
+              "name": "handoff_ticket",
+              "latency_ms": 9.94,
+              "status": "success",
+              "reason": "user_requested",
+              "priority": "high"
+            }
+          ],
+          "tokens": {
+            "prompt": 0,
+            "completion": 0,
+            "total": 0,
+            "cache_hit": 0,
+            "cache_miss": 0
+          }
+        },
+        "cost": {
+          "usd": 0.0,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 0
+        },
+        "handoff_required": true,
+        "handoff": {
+          "ticket_id": "HO-09606CD4E1",
+          "conversation_id": "handoff_ho_user_03_a02a59a5",
+          "reason": "user_requested",
+          "priority": "high",
+          "status": "open",
+          "summary": "用户诉求：别再自动回复，马上接人工。",
+          "context": {
+            "question": "别再自动回复，马上接人工。",
+            "history": [],
+            "order_id": null,
+            "policy": {
+              "should_handoff": true,
+              "reason": "user_requested",
+              "priority": "high",
+              "signals": [
+                "explicit_human_request"
+              ],
+              "user_message": "已按您的要求转接人工客服，并保留本次对话信息。"
+            },
+            "safety": {
+              "level": "normal",
+              "handoff_required": false,
+              "signals": [],
+              "guidance": ""
+            },
+            "errors": [],
+            "pii_redacted": [],
+            "recommended_next_action": "人工核对用户诉求、已有信息和失败步骤后继续处理。"
+          },
+          "created_at": "2026-07-16T03:20:09+00:00",
+          "updated_at": "2026-07-16T03:20:09+00:00"
+        },
+        "answer": "已按您的要求转接人工客服，并保留本次对话信息。\n\n人工工单号：HO-09606CD4E1。",
+        "knowledge_topics": [],
+        "knowledge_document_ids": [],
+        "knowledge_document_types": []
+      },
+      {
+        "case_id": "ho_urgent_01",
+        "question": "用了面霜后呼吸困难，喉咙也肿了。",
+        "success": true,
+        "error": null,
+        "route": "human_handoff",
+        "intent": "safety_allergy",
+        "intent_confidence": 1.0,
+        "elapsed_ms": 13.5,
+        "trace": {
+          "trace_id": "trace_c7085f42f9b34cea9611895acf5cc854",
+          "conversation_id": "handoff_ho_urgent_01_cac6e22f",
+          "route": "human_handoff",
+          "total_latency_ms": 13.49,
+          "stages": [
+            {
+              "name": "handoff_ticket",
+              "latency_ms": 13.28,
+              "status": "success",
+              "reason": "urgent_skincare_safety",
+              "priority": "urgent"
+            }
+          ],
+          "tokens": {
+            "prompt": 0,
+            "completion": 0,
+            "total": 0,
+            "cache_hit": 0,
+            "cache_miss": 0
+          }
+        },
+        "cost": {
+          "usd": 0.0,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 0
+        },
+        "handoff_required": true,
+        "handoff": {
+          "ticket_id": "HO-A3F348FEC0",
+          "conversation_id": "handoff_ho_urgent_01_cac6e22f",
+          "reason": "urgent_skincare_safety",
+          "priority": "urgent",
+          "status": "open",
+          "summary": "用户诉求：用了面霜后呼吸困难，喉咙也肿了。",
+          "context": {
+            "question": "用了面霜后呼吸困难，喉咙也肿了。",
+            "history": [],
+            "order_id": null,
+            "policy": {
+              "should_handoff": true,
+              "reason": "urgent_skincare_safety",
+              "priority": "urgent",
+              "signals": [
+                "呼吸困难"
+              ],
+              "user_message": "已为您创建紧急人工协助工单。"
+            },
+            "safety": {
+              "level": "urgent",
+              "handoff_required": true,
+              "signals": [
+                "呼吸困难"
+              ],
+              "guidance": "请立即停止使用相关产品，并用清水温和冲洗。若出现呼吸困难、面部或喉咙肿胀、大面积水疱等情况，请立即联系急救或前往医疗机构；在线客服不能替代医生诊断。"
+            },
+            "errors": [],
+            "pii_redacted": [],
+            "recommended_next_action": "人工核对用户诉求、已有信息和失败步骤后继续处理。"
+          },
+          "created_at": "2026-07-16T03:20:09+00:00",
+          "updated_at": "2026-07-16T03:20:09+00:00"
+        },
+        "answer": "请立即停止使用相关产品，并用清水温和冲洗。若出现呼吸困难、面部或喉咙肿胀、大面积水疱等情况，请立即联系急救或前往医疗机构；在线客服不能替代医生诊断。\n\n已为您创建紧急人工协助工单。\n\n人工工单号：HO-A3F348FEC0。",
+        "knowledge_topics": [],
+        "knowledge_document_ids": [],
+        "knowledge_document_types": []
+      },
+      {
+        "case_id": "ho_urgent_02",
+        "question": "敷完面膜后全身荨麻疹，快喘不过气了。",
+        "success": true,
+        "error": null,
+        "route": "human_handoff",
+        "intent": "safety_allergy",
+        "intent_confidence": 1.0,
+        "elapsed_ms": 10.95,
+        "trace": {
+          "trace_id": "trace_7fa2391462ee435897ad2d0e50f18002",
+          "conversation_id": "handoff_ho_urgent_02_e698f66f",
+          "route": "human_handoff",
+          "total_latency_ms": 10.94,
+          "stages": [
+            {
+              "name": "handoff_ticket",
+              "latency_ms": 10.73,
+              "status": "success",
+              "reason": "urgent_skincare_safety",
+              "priority": "urgent"
+            }
+          ],
+          "tokens": {
+            "prompt": 0,
+            "completion": 0,
+            "total": 0,
+            "cache_hit": 0,
+            "cache_miss": 0
+          }
+        },
+        "cost": {
+          "usd": 0.0,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 0
+        },
+        "handoff_required": true,
+        "handoff": {
+          "ticket_id": "HO-8D86AC5488",
+          "conversation_id": "handoff_ho_urgent_02_e698f66f",
+          "reason": "urgent_skincare_safety",
+          "priority": "urgent",
+          "status": "open",
+          "summary": "用户诉求：敷完面膜后全身荨麻疹，快喘不过气了。",
+          "context": {
+            "question": "敷完面膜后全身荨麻疹，快喘不过气了。",
+            "history": [],
+            "order_id": null,
+            "policy": {
+              "should_handoff": true,
+              "reason": "urgent_skincare_safety",
+              "priority": "urgent",
+              "signals": [
+                "喘不过气",
+                "全身荨麻疹"
+              ],
+              "user_message": "已为您创建紧急人工协助工单。"
+            },
+            "safety": {
+              "level": "urgent",
+              "handoff_required": true,
+              "signals": [
+                "喘不过气",
+                "全身荨麻疹"
+              ],
+              "guidance": "请立即停止使用相关产品，并用清水温和冲洗。若出现呼吸困难、面部或喉咙肿胀、大面积水疱等情况，请立即联系急救或前往医疗机构；在线客服不能替代医生诊断。"
+            },
+            "errors": [],
+            "pii_redacted": [],
+            "recommended_next_action": "人工核对用户诉求、已有信息和失败步骤后继续处理。"
+          },
+          "created_at": "2026-07-16T03:20:09+00:00",
+          "updated_at": "2026-07-16T03:20:09+00:00"
+        },
+        "answer": "请立即停止使用相关产品，并用清水温和冲洗。若出现呼吸困难、面部或喉咙肿胀、大面积水疱等情况，请立即联系急救或前往医疗机构；在线客服不能替代医生诊断。\n\n已为您创建紧急人工协助工单。\n\n人工工单号：HO-8D86AC5488。",
+        "knowledge_topics": [],
+        "knowledge_document_ids": [],
+        "knowledge_document_types": []
+      },
+      {
+        "case_id": "ho_urgent_03",
+        "question": "精华进眼后眼睛肿，还有大面积水疱。",
+        "success": true,
+        "error": null,
+        "route": "human_handoff",
+        "intent": "safety_allergy",
+        "intent_confidence": 1.0,
+        "elapsed_ms": 11.6,
+        "trace": {
+          "trace_id": "trace_1250d136a5a94b4a9454042a017dc109",
+          "conversation_id": "handoff_ho_urgent_03_803aa9d0",
+          "route": "human_handoff",
+          "total_latency_ms": 11.59,
+          "stages": [
+            {
+              "name": "handoff_ticket",
+              "latency_ms": 10.62,
+              "status": "success",
+              "reason": "urgent_skincare_safety",
+              "priority": "urgent"
+            }
+          ],
+          "tokens": {
+            "prompt": 0,
+            "completion": 0,
+            "total": 0,
+            "cache_hit": 0,
+            "cache_miss": 0
+          }
+        },
+        "cost": {
+          "usd": 0.0,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 0
+        },
+        "handoff_required": true,
+        "handoff": {
+          "ticket_id": "HO-0B11FC4E71",
+          "conversation_id": "handoff_ho_urgent_03_803aa9d0",
+          "reason": "urgent_skincare_safety",
+          "priority": "urgent",
+          "status": "open",
+          "summary": "用户诉求：精华进眼后眼睛肿，还有大面积水疱。",
+          "context": {
+            "question": "精华进眼后眼睛肿，还有大面积水疱。",
+            "history": [],
+            "order_id": null,
+            "policy": {
+              "should_handoff": true,
+              "reason": "urgent_skincare_safety",
+              "priority": "urgent",
+              "signals": [
+                "眼睛肿",
+                "大面积水疱"
+              ],
+              "user_message": "已为您创建紧急人工协助工单。"
+            },
+            "safety": {
+              "level": "urgent",
+              "handoff_required": true,
+              "signals": [
+                "眼睛肿",
+                "大面积水疱"
+              ],
+              "guidance": "请立即停止使用相关产品，并用清水温和冲洗。若出现呼吸困难、面部或喉咙肿胀、大面积水疱等情况，请立即联系急救或前往医疗机构；在线客服不能替代医生诊断。"
+            },
+            "errors": [],
+            "pii_redacted": [],
+            "recommended_next_action": "人工核对用户诉求、已有信息和失败步骤后继续处理。"
+          },
+          "created_at": "2026-07-16T03:20:09+00:00",
+          "updated_at": "2026-07-16T03:20:09+00:00"
+        },
+        "answer": "请立即停止使用相关产品，并用清水温和冲洗。若出现呼吸困难、面部或喉咙肿胀、大面积水疱等情况，请立即联系急救或前往医疗机构；在线客服不能替代医生诊断。\n\n已为您创建紧急人工协助工单。\n\n人工工单号：HO-0B11FC4E71。",
+        "knowledge_topics": [],
+        "knowledge_document_ids": [],
+        "knowledge_document_types": []
+      },
+      {
+        "case_id": "ho_reaction_01",
+        "question": "用了以后脸很红、刺痛，想申请售后。",
+        "success": true,
+        "error": null,
+        "route": "human_handoff",
+        "intent": "safety_allergy",
+        "intent_confidence": 1.0,
+        "elapsed_ms": 19.42,
+        "trace": {
+          "trace_id": "trace_73733db737ab47b6afac5233377806c5",
+          "conversation_id": "handoff_ho_reaction_01_a124b451",
+          "route": "human_handoff",
+          "total_latency_ms": 19.41,
+          "stages": [
+            {
+              "name": "handoff_ticket",
+              "latency_ms": 19.19,
+              "status": "success",
+              "reason": "skincare_reaction",
+              "priority": "high"
+            }
+          ],
+          "tokens": {
+            "prompt": 0,
+            "completion": 0,
+            "total": 0,
+            "cache_hit": 0,
+            "cache_miss": 0
+          }
+        },
+        "cost": {
+          "usd": 0.0,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 0
+        },
+        "handoff_required": true,
+        "handoff": {
+          "ticket_id": "HO-088760345A",
+          "conversation_id": "handoff_ho_reaction_01_a124b451",
+          "reason": "skincare_reaction",
+          "priority": "high",
+          "status": "open",
+          "summary": "用户诉求：用了以后脸很红、刺痛，想申请售后。",
+          "context": {
+            "question": "用了以后脸很红、刺痛，想申请售后。",
+            "history": [],
+            "order_id": null,
+            "policy": {
+              "should_handoff": true,
+              "reason": "skincare_reaction",
+              "priority": "high",
+              "signals": [
+                "刺痛"
+              ],
+              "user_message": "已创建人工售后协助工单。"
+            },
+            "safety": {
+              "level": "caution",
+              "handoff_required": true,
+              "signals": [
+                "刺痛"
+              ],
+              "guidance": "建议先停用可疑产品，避免继续叠加功效型成分，并记录使用时间与反应。若不适持续、加重或影响眼周，请及时就医；客服可继续协助售后，但不能作医疗诊断。"
+            },
+            "errors": [],
+            "pii_redacted": [],
+            "recommended_next_action": "人工核对用户诉求、已有信息和失败步骤后继续处理。"
+          },
+          "created_at": "2026-07-16T03:20:09+00:00",
+          "updated_at": "2026-07-16T03:20:09+00:00"
+        },
+        "answer": "建议先停用可疑产品，避免继续叠加功效型成分，并记录使用时间与反应。若不适持续、加重或影响眼周，请及时就医；客服可继续协助售后，但不能作医疗诊断。\n\n已创建人工售后协助工单。\n\n人工工单号：HO-088760345A。",
+        "knowledge_topics": [],
+        "knowledge_document_ids": [],
+        "knowledge_document_types": []
+      },
+      {
+        "case_id": "ho_reaction_02",
+        "question": "新精华用了两次就过敏发痒，能退吗？",
+        "success": true,
+        "error": null,
+        "route": "human_handoff",
+        "intent": "safety_allergy",
+        "intent_confidence": 1.0,
+        "elapsed_ms": 12.52,
+        "trace": {
+          "trace_id": "trace_8d7aa94632654e24a5fbbe7557762046",
+          "conversation_id": "handoff_ho_reaction_02_3a6c75cf",
+          "route": "human_handoff",
+          "total_latency_ms": 12.51,
+          "stages": [
+            {
+              "name": "handoff_ticket",
+              "latency_ms": 12.28,
+              "status": "success",
+              "reason": "skincare_reaction",
+              "priority": "high"
+            }
+          ],
+          "tokens": {
+            "prompt": 0,
+            "completion": 0,
+            "total": 0,
+            "cache_hit": 0,
+            "cache_miss": 0
+          }
+        },
+        "cost": {
+          "usd": 0.0,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 0
+        },
+        "handoff_required": true,
+        "handoff": {
+          "ticket_id": "HO-79ACB78103",
+          "conversation_id": "handoff_ho_reaction_02_3a6c75cf",
+          "reason": "skincare_reaction",
+          "priority": "high",
+          "status": "open",
+          "summary": "用户诉求：新精华用了两次就过敏发痒，能退吗？",
+          "context": {
+            "question": "新精华用了两次就过敏发痒，能退吗？",
+            "history": [],
+            "order_id": null,
+            "policy": {
+              "should_handoff": true,
+              "reason": "skincare_reaction",
+              "priority": "high",
+              "signals": [
+                "过敏",
+                "发痒"
+              ],
+              "user_message": "已创建人工售后协助工单。"
+            },
+            "safety": {
+              "level": "caution",
+              "handoff_required": true,
+              "signals": [
+                "过敏",
+                "发痒"
+              ],
+              "guidance": "建议先停用可疑产品，避免继续叠加功效型成分，并记录使用时间与反应。若不适持续、加重或影响眼周，请及时就医；客服可继续协助售后，但不能作医疗诊断。"
+            },
+            "errors": [],
+            "pii_redacted": [],
+            "recommended_next_action": "人工核对用户诉求、已有信息和失败步骤后继续处理。"
+          },
+          "created_at": "2026-07-16T03:20:09+00:00",
+          "updated_at": "2026-07-16T03:20:09+00:00"
+        },
+        "answer": "建议先停用可疑产品，避免继续叠加功效型成分，并记录使用时间与反应。若不适持续、加重或影响眼周，请及时就医；客服可继续协助售后，但不能作医疗诊断。\n\n已创建人工售后协助工单。\n\n人工工单号：HO-79ACB78103。",
+        "knowledge_topics": [],
+        "knowledge_document_ids": [],
+        "knowledge_document_types": []
+      },
+      {
+        "case_id": "ho_complaint_01",
+        "question": "订单 MOCK202606260003 处理三次还没结果，我要投诉到消协。",
+        "success": true,
+        "error": null,
+        "route": "human_handoff",
+        "intent": "after_sale",
+        "intent_confidence": 1.0,
+        "elapsed_ms": 19.81,
+        "trace": {
+          "trace_id": "trace_7395df59d88e450fb581043ce27a8849",
+          "conversation_id": "handoff_ho_complaint_01_68635add",
+          "route": "human_handoff",
+          "total_latency_ms": 19.81,
+          "stages": [
+            {
+              "name": "handoff_ticket",
+              "latency_ms": 19.53,
+              "status": "success",
+              "reason": "complaint_escalation",
+              "priority": "high"
+            }
+          ],
+          "tokens": {
+            "prompt": 0,
+            "completion": 0,
+            "total": 0,
+            "cache_hit": 0,
+            "cache_miss": 0
+          }
+        },
+        "cost": {
+          "usd": 0.0,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 0
+        },
+        "handoff_required": true,
+        "handoff": {
+          "ticket_id": "HO-9FF649D882",
+          "conversation_id": "handoff_ho_complaint_01_68635add",
+          "reason": "complaint_escalation",
+          "priority": "high",
+          "status": "open",
+          "summary": "用户诉求：订单 MOCK202606260003 处理三次还没结果，我要投诉到消协。",
+          "context": {
+            "question": "订单 MOCK202606260003 处理三次还没结果，我要投诉到消协。",
+            "history": [],
+            "order_id": "MOCK202606260003",
+            "policy": {
+              "should_handoff": true,
+              "reason": "complaint_escalation",
+              "priority": "high",
+              "signals": [
+                "regulatory_or_legal_escalation"
+              ],
+              "user_message": "您的投诉已升级人工专员处理，并保留当前诉求。"
+            },
+            "safety": {
+              "level": "normal",
+              "handoff_required": false,
+              "signals": [],
+              "guidance": ""
+            },
+            "errors": [],
+            "pii_redacted": [],
+            "recommended_next_action": "人工核对用户诉求、已有信息和失败步骤后继续处理。"
+          },
+          "created_at": "2026-07-16T03:20:09+00:00",
+          "updated_at": "2026-07-16T03:20:09+00:00"
+        },
+        "answer": "您的投诉已升级人工专员处理，并保留当前诉求。\n\n人工工单号：HO-9FF649D882。",
+        "knowledge_topics": [],
+        "knowledge_document_ids": [],
+        "knowledge_document_types": []
+      },
+      {
+        "case_id": "ho_fraud_01",
+        "question": "订单 MOCK202606260003 出现异常支付，我怀疑账号被盗。",
+        "success": true,
+        "error": null,
+        "route": "human_handoff",
+        "intent": "other",
+        "intent_confidence": 1.0,
+        "elapsed_ms": 12.8,
+        "trace": {
+          "trace_id": "trace_e38e99a493214f6198883a0792f5cd03",
+          "conversation_id": "handoff_ho_fraud_01_219c8db0",
+          "route": "human_handoff",
+          "total_latency_ms": 12.79,
+          "stages": [
+            {
+              "name": "handoff_ticket",
+              "latency_ms": 12.55,
+              "status": "success",
+              "reason": "account_security",
+              "priority": "urgent"
+            }
+          ],
+          "tokens": {
+            "prompt": 0,
+            "completion": 0,
+            "total": 0,
+            "cache_hit": 0,
+            "cache_miss": 0
+          }
+        },
+        "cost": {
+          "usd": 0.0,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 0
+        },
+        "handoff_required": true,
+        "handoff": {
+          "ticket_id": "HO-DB1E51CF86",
+          "conversation_id": "handoff_ho_fraud_01_219c8db0",
+          "reason": "account_security",
+          "priority": "urgent",
+          "status": "open",
+          "summary": "用户诉求：订单 MOCK202606260003 出现异常支付，我怀疑账号被盗。",
+          "context": {
+            "question": "订单 MOCK202606260003 出现异常支付，我怀疑账号被盗。",
+            "history": [],
+            "order_id": "MOCK202606260003",
+            "policy": {
+              "should_handoff": true,
+              "reason": "account_security",
+              "priority": "urgent",
+              "signals": [
+                "account_security"
+              ],
+              "user_message": "为保护您的账户与资金安全，已立即升级人工客服处理。"
+            },
+            "safety": {
+              "level": "normal",
+              "handoff_required": false,
+              "signals": [],
+              "guidance": ""
+            },
+            "errors": [],
+            "pii_redacted": [],
+            "recommended_next_action": "人工核对用户诉求、已有信息和失败步骤后继续处理。"
+          },
+          "created_at": "2026-07-16T03:20:09+00:00",
+          "updated_at": "2026-07-16T03:20:09+00:00"
+        },
+        "answer": "为保护您的账户与资金安全，已立即升级人工客服处理。\n\n人工工单号：HO-DB1E51CF86。",
+        "knowledge_topics": [],
+        "knowledge_document_ids": [],
+        "knowledge_document_types": []
+      },
+      {
+        "case_id": "ho_repeat_01",
+        "question": "别再让我重复了，直接升级处理。",
+        "success": true,
+        "error": null,
+        "route": "human_handoff",
+        "intent": "after_sale",
+        "intent_confidence": 1.0,
+        "elapsed_ms": 20.19,
+        "trace": {
+          "trace_id": "trace_3727ae51510d45539cfc49f70498917a",
+          "conversation_id": "handoff_ho_repeat_01_8f5d2753",
+          "route": "human_handoff",
+          "total_latency_ms": 20.18,
+          "stages": [
+            {
+              "name": "handoff_ticket",
+              "latency_ms": 19.93,
+              "status": "success",
+              "reason": "repeated_failure",
+              "priority": "high"
+            }
+          ],
+          "tokens": {
+            "prompt": 0,
+            "completion": 0,
+            "total": 0,
+            "cache_hit": 0,
+            "cache_miss": 0
+          }
+        },
+        "cost": {
+          "usd": 0.0,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 0
+        },
+        "handoff_required": true,
+        "handoff": {
+          "ticket_id": "HO-8AC8FE6C5A",
+          "conversation_id": "handoff_ho_repeat_01_8f5d2753",
+          "reason": "repeated_failure",
+          "priority": "high",
+          "status": "open",
+          "summary": "用户诉求：别再让我重复了，直接升级处理。",
+          "context": {
+            "question": "别再让我重复了，直接升级处理。",
+            "history": [
+              {
+                "role": "buyer",
+                "content": "订单号我已经给过两次了"
+              },
+              {
+                "role": "seller",
+                "content": "系统还是查询失败"
+              }
+            ],
+            "order_id": null,
+            "policy": {
+              "should_handoff": true,
+              "reason": "repeated_failure",
+              "priority": "high",
+              "signals": [
+                "repeated_unresolved"
+              ],
+              "user_message": "已保留您此前提供的信息并升级人工处理，不会要求您重复描述。"
+            },
+            "safety": {
+              "level": "normal",
+              "handoff_required": false,
+              "signals": [],
+              "guidance": ""
+            },
+            "errors": [],
+            "pii_redacted": [],
+            "recommended_next_action": "人工核对用户诉求、已有信息和失败步骤后继续处理。"
+          },
+          "created_at": "2026-07-16T03:20:09+00:00",
+          "updated_at": "2026-07-16T03:20:09+00:00"
+        },
+        "answer": "已保留您此前提供的信息并升级人工处理，不会要求您重复描述。\n\n人工工单号：HO-8AC8FE6C5A。",
+        "knowledge_topics": [],
+        "knowledge_document_ids": [],
+        "knowledge_document_types": []
+      },
+      {
+        "case_id": "ho_dispute_01",
+        "question": "这笔退款金额有两千多，平台和商家说法冲突。",
+        "success": true,
+        "error": null,
+        "route": "human_handoff",
+        "intent": "after_sale",
+        "intent_confidence": 1.0,
+        "elapsed_ms": 11.58,
+        "trace": {
+          "trace_id": "trace_e615e89f6dec4d989fede45e6ae257ba",
+          "conversation_id": "handoff_ho_dispute_01_942da01c",
+          "route": "human_handoff",
+          "total_latency_ms": 11.58,
+          "stages": [
+            {
+              "name": "handoff_ticket",
+              "latency_ms": 11.28,
+              "status": "success",
+              "reason": "high_value_dispute",
+              "priority": "high"
+            }
+          ],
+          "tokens": {
+            "prompt": 0,
+            "completion": 0,
+            "total": 0,
+            "cache_hit": 0,
+            "cache_miss": 0
+          }
+        },
+        "cost": {
+          "usd": 0.0,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 0
+        },
+        "handoff_required": true,
+        "handoff": {
+          "ticket_id": "HO-848443BCD9",
+          "conversation_id": "handoff_ho_dispute_01_942da01c",
+          "reason": "high_value_dispute",
+          "priority": "high",
+          "status": "open",
+          "summary": "用户诉求：这笔退款金额有两千多，平台和商家说法冲突。",
+          "context": {
+            "question": "这笔退款金额有两千多，平台和商家说法冲突。",
+            "history": [],
+            "order_id": null,
+            "policy": {
+              "should_handoff": true,
+              "reason": "high_value_dispute",
+              "priority": "high",
+              "signals": [
+                "high_value_dispute"
+              ],
+              "user_message": "该问题涉及较高金额或责任争议，已升级人工专员核实。"
+            },
+            "safety": {
+              "level": "normal",
+              "handoff_required": false,
+              "signals": [],
+              "guidance": ""
+            },
+            "errors": [],
+            "pii_redacted": [],
+            "recommended_next_action": "人工核对用户诉求、已有信息和失败步骤后继续处理。"
+          },
+          "created_at": "2026-07-16T03:20:09+00:00",
+          "updated_at": "2026-07-16T03:20:09+00:00"
+        },
+        "answer": "该问题涉及较高金额或责任争议，已升级人工专员核实。\n\n人工工单号：HO-848443BCD9。",
+        "knowledge_topics": [],
+        "knowledge_document_ids": [],
+        "knowledge_document_types": []
+      },
+      {
+        "case_id": "auto_01",
+        "question": "油皮适合用面霜吗？",
+        "success": true,
+        "error": null,
+        "route": "knowledge_base",
+        "intent": "skin_type",
+        "intent_confidence": 0.99,
+        "elapsed_ms": 15036.78,
+        "trace": {
+          "trace_id": "trace_fa182f920b5a43d89c753171d3042277",
+          "conversation_id": "handoff_auto_01_814bba98",
+          "route": "knowledge_base",
+          "total_latency_ms": 15036.76,
+          "stages": [
+            {
+              "name": "embedding",
+              "latency_ms": 956.34,
+              "status": "success"
+            },
+            {
+              "name": "retrieval",
+              "latency_ms": 2432.71,
+              "status": "success",
+              "mode": "rrf_mmr"
+            },
+            {
+              "name": "answer_generation",
+              "latency_ms": 11410.24,
+              "status": "success",
+              "prompt_tokens": 728,
+              "completion_tokens": 253,
+              "total_tokens": 981,
+              "cache_hit_tokens": 256,
+              "cache_miss_tokens": 472,
+              "model": "deepseek-v4-flash"
+            }
+          ],
+          "tokens": {
+            "prompt": 728,
+            "completion": 253,
+            "total": 981,
+            "cache_hit": 256,
+            "cache_miss": 472
+          }
+        },
+        "cost": {
+          "usd": 0.00013764,
+          "cache_hit_tokens": 256,
+          "cache_miss_tokens": 472
+        },
+        "handoff_required": false,
+        "handoff": {},
+        "answer": "油皮是可以使用面霜的，比如神经酰胺修护面霜配方温和无酒精无香精，油痘肌也可以放心使用[S1]。不过不同面霜的质地和配方有差异，如果您有具体看中的产品，可以告诉我名字，我帮您查一下肤质匹配信息。",
+        "knowledge_topics": [
+          "肤质匹配",
+          "用法用量",
+          "肤质匹配"
+        ],
+        "knowledge_document_ids": [
+          "conversation:qa_topic_02458",
+          "conversation:qa_topic_00195",
+          "conversation:qa_topic_00873"
+        ],
+        "knowledge_document_types": [
+          "conversation",
+          "conversation",
+          "conversation"
+        ]
+      },
+      {
+        "case_id": "auto_02",
+        "question": "烟酰胺精华早晚都能用吗？",
+        "success": true,
+        "error": null,
+        "route": "knowledge_base",
+        "intent": "usage",
+        "intent_confidence": 0.95,
+        "elapsed_ms": 27964.59,
+        "trace": {
+          "trace_id": "trace_670e23f040ac4b28bb4afd9aba0cf416",
+          "conversation_id": "handoff_auto_02_ca788a57",
+          "route": "knowledge_base",
+          "total_latency_ms": 27964.57,
+          "stages": [
+            {
+              "name": "intent_recognition",
+              "latency_ms": 17661.78,
+              "status": "success",
+              "prompt_tokens": 2112,
+              "completion_tokens": 738,
+              "total_tokens": 2850,
+              "cache_hit_tokens": 2048,
+              "cache_miss_tokens": 64,
+              "model": "deepseek-v4-flash"
+            },
+            {
+              "name": "embedding",
+              "latency_ms": 1149.73,
+              "status": "success"
+            },
+            {
+              "name": "retrieval",
+              "latency_ms": 2673.79,
+              "status": "success",
+              "mode": "rrf_mmr"
+            },
+            {
+              "name": "answer_generation",
+              "latency_ms": 6210.81,
+              "status": "success",
+              "prompt_tokens": 821,
+              "completion_tokens": 104,
+              "total_tokens": 925,
+              "cache_hit_tokens": 256,
+              "cache_miss_tokens": 565,
+              "model": "deepseek-v4-flash"
+            }
+          ],
+          "tokens": {
+            "prompt": 2933,
+            "completion": 842,
+            "total": 3775,
+            "cache_hit": 2304,
+            "cache_miss": 629
+          }
+        },
+        "cost": {
+          "usd": 0.00033027,
+          "cache_hit_tokens": 2304,
+          "cache_miss_tokens": 629
+        },
+        "handoff_required": false,
+        "handoff": {},
+        "answer": "烟酰胺精华可以早晚都用，白天使用的话记得做好防晒哦[S3]。",
+        "knowledge_topics": [
+          "优惠活动",
+          "功效咨询",
+          "成分咨询"
+        ],
+        "knowledge_document_ids": [
+          "conversation:qa_topic_02006",
+          "conversation:qa_topic_02393",
+          "conversation:qa_topic_01994"
+        ],
+        "knowledge_document_types": [
+          "conversation",
+          "conversation",
+          "conversation"
+        ]
+      },
+      {
+        "case_id": "auto_03",
+        "question": "订单 MOCK202606260003 到哪里了？",
+        "success": true,
+        "error": null,
+        "route": "business_api",
+        "intent": "logistics",
+        "intent_confidence": 0.99,
+        "elapsed_ms": 253.41,
+        "trace": {
+          "trace_id": "trace_a5fce788f3234fc39fb86f5a65b36448",
+          "conversation_id": "handoff_auto_03_674538a0",
+          "route": "business_api",
+          "total_latency_ms": 253.4,
+          "stages": [
+            {
+              "name": "business_tool",
+              "latency_ms": 3.05,
+              "status": "success",
+              "action": "query_order",
+              "result_status": "authentication_required"
+            }
+          ],
+          "tokens": {
+            "prompt": 0,
+            "completion": 0,
+            "total": 0,
+            "cache_hit": 0,
+            "cache_miss": 0
+          }
+        },
+        "cost": {
+          "usd": 0.0,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 0
+        },
+        "handoff_required": false,
+        "handoff": {},
+        "answer": "执行订单操作前需要登录用户身份。",
+        "knowledge_topics": [],
+        "knowledge_document_ids": [],
+        "knowledge_document_types": []
+      },
+      {
+        "case_id": "auto_04",
+        "question": "发票应该怎么申请？",
+        "success": true,
+        "error": null,
+        "route": "waiting_slots",
+        "intent": "invoice",
+        "intent_confidence": 0.99,
+        "elapsed_ms": 137.36,
+        "trace": {
+          "trace_id": "trace_53543061209e443dadddeb77f9fa70d0",
+          "conversation_id": "handoff_auto_04_46208cbd",
+          "route": "waiting_slots",
+          "total_latency_ms": 137.35,
+          "stages": [],
+          "tokens": {
+            "prompt": 0,
+            "completion": 0,
+            "total": 0,
+            "cache_hit": 0,
+            "cache_miss": 0
+          }
+        },
+        "cost": {
+          "usd": 0.0,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 0
+        },
+        "handoff_required": false,
+        "handoff": {},
+        "answer": "请提供订单号（例如 MOCK202606260003），我才能继续查询或处理。",
+        "knowledge_topics": [],
+        "knowledge_document_ids": [],
+        "knowledge_document_types": []
+      },
+      {
+        "case_id": "auto_05",
+        "question": "这款粉底黄皮选哪个色号？",
+        "success": true,
+        "error": null,
+        "route": "knowledge_base",
+        "intent": "shade_color",
+        "intent_confidence": 0.95,
+        "elapsed_ms": 21261.96,
+        "trace": {
+          "trace_id": "trace_44ba0a0433ea41e88be85bbc1e064f52",
+          "conversation_id": "handoff_auto_05_404e296a",
+          "route": "knowledge_base",
+          "total_latency_ms": 21261.95,
+          "stages": [
+            {
+              "name": "intent_recognition",
+              "latency_ms": 7369.95,
+              "status": "success",
+              "prompt_tokens": 2114,
+              "completion_tokens": 207,
+              "total_tokens": 2321,
+              "cache_hit_tokens": 2048,
+              "cache_miss_tokens": 66,
+              "model": "deepseek-v4-flash"
+            },
+            {
+              "name": "embedding",
+              "latency_ms": 739.24,
+              "status": "success"
+            },
+            {
+              "name": "retrieval",
+              "latency_ms": 2504.85,
+              "status": "success",
+              "mode": "rrf_mmr"
+            },
+            {
+              "name": "answer_generation",
+              "latency_ms": 10408.71,
+              "status": "success",
+              "prompt_tokens": 904,
+              "completion_tokens": 325,
+              "total_tokens": 1229,
+              "cache_hit_tokens": 256,
+              "cache_miss_tokens": 648,
+              "model": "deepseek-v4-flash"
+            }
+          ],
+          "tokens": {
+            "prompt": 3018,
+            "completion": 532,
+            "total": 3550,
+            "cache_hit": 2304,
+            "cache_miss": 714
+          }
+        },
+        "cost": {
+          "usd": 0.00025537,
+          "cache_hit_tokens": 2304,
+          "cache_miss_tokens": 714
+        },
+        "handoff_required": false,
+        "handoff": {},
+        "answer": "偏黄皮的话，通常建议选21明亮色，自然贴肤不假白[S3]。如果想更提气色，也可以考虑枫叶红，黄皮涂不荧光[S1]。如果拿不准，建议先对照手臂内侧肤色与色卡对比，或者拍两个色号，不合适的未拆封可退哦[S2]。",
+        "knowledge_topics": [
+          "色号彩妆",
+          "色号彩妆",
+          "色号彩妆"
+        ],
+        "knowledge_document_ids": [
+          "conversation:qa_topic_00986",
+          "conversation:qa_topic_01211",
+          "conversation:qa_topic_01138"
+        ],
+        "knowledge_document_types": [
+          "conversation",
+          "conversation",
+          "conversation"
+        ]
+      },
+      {
+        "case_id": "auto_06",
+        "question": "商品保质期一般怎么看？",
+        "success": true,
+        "error": null,
+        "route": "knowledge_base",
+        "intent": "authenticity_shelf_life",
+        "intent_confidence": 0.99,
+        "elapsed_ms": 10835.5,
+        "trace": {
+          "trace_id": "trace_c1c7e0a6084c4e7985ac40dd67227cb2",
+          "conversation_id": "handoff_auto_06_646047ac",
+          "route": "knowledge_base",
+          "total_latency_ms": 10835.48,
+          "stages": [
+            {
+              "name": "embedding",
+              "latency_ms": 1059.01,
+              "status": "success"
+            },
+            {
+              "name": "retrieval",
+              "latency_ms": 2519.96,
+              "status": "success",
+              "mode": "rrf_mmr"
+            },
+            {
+              "name": "answer_generation",
+              "latency_ms": 6911.64,
+              "status": "success",
+              "prompt_tokens": 757,
+              "completion_tokens": 227,
+              "total_tokens": 984,
+              "cache_hit_tokens": 256,
+              "cache_miss_tokens": 501,
+              "model": "deepseek-v4-flash"
+            }
+          ],
+          "tokens": {
+            "prompt": 757,
+            "completion": 227,
+            "total": 984,
+            "cache_hit": 256,
+            "cache_miss": 501
+          }
+        },
+        "cost": {
+          "usd": 0.00013442,
+          "cache_hit_tokens": 256,
+          "cache_miss_tokens": 501
+        },
+        "handoff_required": false,
+        "handoff": {},
+        "answer": "一般商品的外包装上会直接标注生产批号或保质期。像我们家的产品，批号通常在瓶底或管尾的喷码上，格式如“5824A46”，保质期为3年，详情页也有批次说明哦。[S3] 开封后的产品，瓶身上会有开盖保质期标识，建议在6个月内用完。[S2]",
+        "knowledge_topics": [
+          "正品保质期",
+          "正品保质期",
+          "正品保质期"
+        ],
+        "knowledge_document_ids": [
+          "conversation:qa_topic_00229",
+          "conversation:qa_topic_00705",
+          "conversation:qa_topic_01245"
+        ],
+        "knowledge_document_types": [
+          "conversation",
+          "conversation",
+          "conversation"
+        ]
+      },
+      {
+        "case_id": "auto_07",
+        "question": "有没有满减优惠？",
+        "success": true,
+        "error": null,
+        "route": "knowledge_base",
+        "intent": "price",
+        "intent_confidence": 0.95,
+        "elapsed_ms": 14306.37,
+        "trace": {
+          "trace_id": "trace_9cb8180d44c94ed592fc98c890a4f483",
+          "conversation_id": "handoff_auto_07_aaa7bb63",
+          "route": "knowledge_base",
+          "total_latency_ms": 14306.35,
+          "stages": [
+            {
+              "name": "intent_recognition",
+              "latency_ms": 2261.99,
+              "status": "success",
+              "prompt_tokens": 2109,
+              "completion_tokens": 175,
+              "total_tokens": 2284,
+              "cache_hit_tokens": 2048,
+              "cache_miss_tokens": 61,
+              "model": "deepseek-v4-flash"
+            },
+            {
+              "name": "embedding",
+              "latency_ms": 1178.3,
+              "status": "success"
+            },
+            {
+              "name": "retrieval",
+              "latency_ms": 2591.61,
+              "status": "success",
+              "mode": "rrf_mmr"
+            },
+            {
+              "name": "answer_generation",
+              "latency_ms": 7954.05,
+              "status": "success",
+              "prompt_tokens": 742,
+              "completion_tokens": 228,
+              "total_tokens": 970,
+              "cache_hit_tokens": 256,
+              "cache_miss_tokens": 486,
+              "model": "deepseek-v4-flash"
+            }
+          ],
+          "tokens": {
+            "prompt": 2851,
+            "completion": 403,
+            "total": 3254,
+            "cache_hit": 2304,
+            "cache_miss": 547
+          }
+        },
+        "cost": {
+          "usd": 0.00019587,
+          "cache_hit_tokens": 2304,
+          "cache_miss_tokens": 547
+        },
+        "handoff_required": false,
+        "handoff": {},
+        "answer": "亲，目前我这里没有查到具体的满减活动信息哦。如果您想了解某个商品的优惠，可以告诉我具体是哪一款，我帮您查一下有没有对应的满减券或店铺活动～[S1]",
+        "knowledge_topics": [
+          "优惠活动",
+          "优惠活动",
+          "优惠活动"
+        ],
+        "knowledge_document_ids": [
+          "conversation:qa_topic_01860",
+          "conversation:qa_topic_00102",
+          "conversation:qa_topic_00159"
+        ],
+        "knowledge_document_types": [
+          "conversation",
+          "conversation",
+          "conversation"
+        ]
+      },
+      {
+        "case_id": "auto_08",
+        "question": "玻尿酸和烟酰胺可以一起用吗？",
+        "success": true,
+        "error": null,
+        "route": "knowledge_base",
+        "intent": "compatibility",
+        "intent_confidence": 0.95,
+        "elapsed_ms": 19842.05,
+        "trace": {
+          "trace_id": "trace_7df67c6906634fa98fedecec4bee6fd9",
+          "conversation_id": "handoff_auto_08_9e61aed5",
+          "route": "knowledge_base",
+          "total_latency_ms": 19842.04,
+          "stages": [
+            {
+              "name": "intent_recognition",
+              "latency_ms": 10045.93,
+              "status": "success",
+              "prompt_tokens": 2116,
+              "completion_tokens": 521,
+              "total_tokens": 2637,
+              "cache_hit_tokens": 2048,
+              "cache_miss_tokens": 68,
+              "model": "deepseek-v4-flash"
+            },
+            {
+              "name": "embedding",
+              "latency_ms": 691.1,
+              "status": "success"
+            },
+            {
+              "name": "retrieval",
+              "latency_ms": 2449.78,
+              "status": "success",
+              "mode": "rrf_mmr"
+            },
+            {
+              "name": "answer_generation",
+              "latency_ms": 6332.44,
+              "status": "success",
+              "prompt_tokens": 730,
+              "completion_tokens": 448,
+              "total_tokens": 1178,
+              "cache_hit_tokens": 256,
+              "cache_miss_tokens": 474,
+              "model": "deepseek-v4-flash"
+            }
+          ],
+          "tokens": {
+            "prompt": 2846,
+            "completion": 969,
+            "total": 3815,
+            "cache_hit": 2304,
+            "cache_miss": 542
+          }
+        },
+        "cost": {
+          "usd": 0.00035365,
+          "cache_hit_tokens": 2304,
+          "cache_miss_tokens": 542
+        },
+        "handoff_required": false,
+        "handoff": {},
+        "answer": "抱歉，目前我手头的资料中没有直接提到玻尿酸和烟酰胺是否可以一起使用的信息。建议您可以参考其他类似成分的用法，或者提供具体产品名称，我再帮您进一步查询。",
+        "knowledge_topics": [
+          "成分咨询",
+          "成分咨询",
+          "成分咨询"
+        ],
+        "knowledge_document_ids": [
+          "conversation:qa_topic_01980",
+          "conversation:qa_topic_02252",
+          "conversation:qa_topic_01021"
+        ],
+        "knowledge_document_types": [
+          "conversation",
+          "conversation",
+          "conversation"
+        ]
+      },
+      {
+        "case_id": "clarify_01",
+        "question": "这个怎么弄？",
+        "success": true,
+        "error": null,
+        "route": "clarify",
+        "intent": "other",
+        "intent_confidence": 0.2,
+        "elapsed_ms": 189.88,
+        "trace": {
+          "trace_id": "trace_bc38f2a7ebf348ea8090bcab2c31c051",
+          "conversation_id": "handoff_clarify_01_c7aabdac",
+          "route": "clarify",
+          "total_latency_ms": 189.87,
+          "stages": [],
+          "tokens": {
+            "prompt": 0,
+            "completion": 0,
+            "total": 0,
+            "cache_hit": 0,
+            "cache_miss": 0
+          }
+        },
+        "cost": {
+          "usd": 0.0,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 0
+        },
+        "handoff_required": false,
+        "handoff": {},
+        "answer": "请问您具体想咨询商品、物流、订单操作还是售后问题？",
+        "knowledge_topics": [],
+        "knowledge_document_ids": [],
+        "knowledge_document_types": []
+      },
+      {
+        "case_id": "clarify_02",
+        "question": "不太对，怎么办？",
+        "success": true,
+        "error": null,
+        "route": "clarify",
+        "intent": "other",
+        "intent_confidence": 0.2,
+        "elapsed_ms": 187.0,
+        "trace": {
+          "trace_id": "trace_3b52bedd11b9444da759fef2cc005e80",
+          "conversation_id": "handoff_clarify_02_3e7d8a8f",
+          "route": "clarify",
+          "total_latency_ms": 186.99,
+          "stages": [],
+          "tokens": {
+            "prompt": 0,
+            "completion": 0,
+            "total": 0,
+            "cache_hit": 0,
+            "cache_miss": 0
+          }
+        },
+        "cost": {
+          "usd": 0.0,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 0
+        },
+        "handoff_required": false,
+        "handoff": {},
+        "answer": "请问您具体想咨询商品、物流、订单操作还是售后问题？",
+        "knowledge_topics": [],
+        "knowledge_document_ids": [],
+        "knowledge_document_types": []
+      },
+      {
+        "case_id": "clarify_03",
+        "question": "我想处理一下。",
+        "success": true,
+        "error": null,
+        "route": "clarify",
+        "intent": "other",
+        "intent_confidence": 0.2,
+        "elapsed_ms": 199.96,
+        "trace": {
+          "trace_id": "trace_3d6a60b91c9a40c89bf53a3b40879948",
+          "conversation_id": "handoff_clarify_03_d8e6f655",
+          "route": "clarify",
+          "total_latency_ms": 199.94,
+          "stages": [],
+          "tokens": {
+            "prompt": 0,
+            "completion": 0,
+            "total": 0,
+            "cache_hit": 0,
+            "cache_miss": 0
+          }
+        },
+        "cost": {
+          "usd": 0.0,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 0
+        },
+        "handoff_required": false,
+        "handoff": {},
+        "answer": "请问您具体想咨询商品、物流、订单操作还是售后问题？",
+        "knowledge_topics": [],
+        "knowledge_document_ids": [],
+        "knowledge_document_types": []
+      },
+      {
+        "case_id": "clarify_04",
+        "question": "还有别的办法吗？",
+        "success": true,
+        "error": null,
+        "route": "clarify",
+        "intent": "other",
+        "intent_confidence": 0.15,
+        "elapsed_ms": 3159.71,
+        "trace": {
+          "trace_id": "trace_11af04a452ee411ca5247d9fbfc93893",
+          "conversation_id": "handoff_clarify_04_371d23fc",
+          "route": "clarify",
+          "total_latency_ms": 3159.69,
+          "stages": [
+            {
+              "name": "intent_recognition",
+              "latency_ms": 2956.26,
+              "status": "success",
+              "prompt_tokens": 2110,
+              "completion_tokens": 264,
+              "total_tokens": 2374,
+              "cache_hit_tokens": 2048,
+              "cache_miss_tokens": 62,
+              "model": "deepseek-v4-flash"
+            }
+          ],
+          "tokens": {
+            "prompt": 2110,
+            "completion": 264,
+            "total": 2374,
+            "cache_hit": 2048,
+            "cache_miss": 62
+          }
+        },
+        "cost": {
+          "usd": 8.833e-05,
+          "cache_hit_tokens": 2048,
+          "cache_miss_tokens": 62
+        },
+        "handoff_required": false,
+        "handoff": {},
+        "answer": "您好，请问您指的是哪个问题？可以详细说一下吗？",
+        "knowledge_topics": [],
+        "knowledge_document_ids": [],
+        "knowledge_document_types": []
+      }
+    ]
+  },
+  "fault_injection": {
+    "graceful_degradation_rate": 1.0,
+    "rows": [
+      {
+        "name": "es_unavailable",
+        "safe_degradation": true,
+        "case_id": "es_unavailable",
+        "question": "护肤流程是什么？",
+        "success": true,
+        "error": null,
+        "route": "human_handoff",
+        "intent": "other",
+        "intent_confidence": 1.0,
+        "elapsed_ms": 152.27,
+        "trace": {
+          "trace_id": "trace_aaea54ce4d6f452c873c847c4b83c5f0",
+          "conversation_id": "fault_es_unavailable_09b33b17",
+          "route": "human_handoff",
+          "total_latency_ms": 152.26,
+          "stages": [
+            {
+              "name": "handoff_ticket",
+              "latency_ms": 8.78,
+              "status": "success",
+              "reason": "automation_failure",
+              "priority": "high"
+            }
+          ],
+          "tokens": {
+            "prompt": 0,
+            "completion": 0,
+            "total": 0,
+            "cache_hit": 0,
+            "cache_miss": 0
+          }
+        },
+        "cost": {
+          "usd": 0.0,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 0
+        },
+        "handoff_required": true,
+        "handoff": {
+          "ticket_id": "HO-B96ABFAACF",
+          "conversation_id": "fault_es_unavailable_09b33b17",
+          "reason": "automation_failure",
+          "priority": "high",
+          "status": "open",
+          "summary": "用户诉求：护肤流程是什么？",
+          "context": {
+            "question": "护肤流程是什么？",
+            "history": [
+              {
+                "role": "buyer",
+                "content": "护肤流程是什么？",
+                "metadata": {
+                  "resumes_task": false
+                },
+                "created_at": "2026-07-16T03:20:44+00:00"
+              }
+            ],
+            "order_id": null,
+            "policy": {
+              "should_handoff": true,
+              "reason": "automation_failure",
+              "priority": "high",
+              "signals": [
+                "task_execution"
+              ],
+              "user_message": "自动处理暂时失败，已保存您的诉求和已执行步骤并转人工继续处理。"
+            },
+            "safety": {
+              "level": "normal",
+              "handoff_required": false,
+              "signals": [],
+              "guidance": ""
+            },
+            "errors": [
+              {
+                "stage": "task_execution",
+                "task_id": "891fa17bc7cd4c16827c5afafc30a0bd",
+                "error_type": "RuntimeError",
+                "message": "injected ES outage"
+              }
+            ],
+            "pii_redacted": [],
+            "recommended_next_action": "人工核对用户诉求、已有信息和失败步骤后继续处理。"
+          },
+          "created_at": "2026-07-16T03:20:44+00:00",
+          "updated_at": "2026-07-16T03:20:44+00:00"
+        },
+        "answer": "自动处理暂时失败，已保存您的诉求和已执行步骤并转人工继续处理。\n\n人工工单号：HO-B96ABFAACF。",
+        "knowledge_topics": [],
+        "knowledge_document_ids": [],
+        "knowledge_document_types": []
+      },
+      {
+        "name": "business_tool_unavailable",
+        "safe_degradation": true,
+        "case_id": "business_tool_unavailable",
+        "question": "订单 MOCK202606260003 到哪里了？",
+        "success": true,
+        "error": null,
+        "route": "human_handoff",
+        "intent": "other",
+        "intent_confidence": 1.0,
+        "elapsed_ms": 132.24,
+        "trace": {
+          "trace_id": "trace_d4e89184f3164212a6445266f3dcf5df",
+          "conversation_id": "fault_business_tool_unavailable_89090f10",
+          "route": "human_handoff",
+          "total_latency_ms": 132.23,
+          "stages": [
+            {
+              "name": "handoff_ticket",
+              "latency_ms": 9.12,
+              "status": "success",
+              "reason": "automation_failure",
+              "priority": "high"
+            }
+          ],
+          "tokens": {
+            "prompt": 0,
+            "completion": 0,
+            "total": 0,
+            "cache_hit": 0,
+            "cache_miss": 0
+          }
+        },
+        "cost": {
+          "usd": 0.0,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 0
+        },
+        "handoff_required": true,
+        "handoff": {
+          "ticket_id": "HO-BB9B316EF7",
+          "conversation_id": "fault_business_tool_unavailable_89090f10",
+          "reason": "automation_failure",
+          "priority": "high",
+          "status": "open",
+          "summary": "用户诉求：订单 MOCK202606260003 到哪里了？",
+          "context": {
+            "question": "订单 MOCK202606260003 到哪里了？",
+            "history": [
+              {
+                "role": "buyer",
+                "content": "订单 MOCK202606260003 到哪里了？",
+                "metadata": {
+                  "resumes_task": false
+                },
+                "created_at": "2026-07-16T03:20:44+00:00"
+              }
+            ],
+            "order_id": "MOCK202606260003",
+            "policy": {
+              "should_handoff": true,
+              "reason": "automation_failure",
+              "priority": "high",
+              "signals": [
+                "task_execution"
+              ],
+              "user_message": "自动处理暂时失败，已保存您的诉求和已执行步骤并转人工继续处理。"
+            },
+            "safety": {
+              "level": "normal",
+              "handoff_required": false,
+              "signals": [],
+              "guidance": ""
+            },
+            "errors": [
+              {
+                "stage": "task_execution",
+                "task_id": "b8af2cec4ce0408088b2d7c85fbc0b85",
+                "error_type": "RuntimeError",
+                "message": "injected tool outage"
+              }
+            ],
+            "pii_redacted": [],
+            "recommended_next_action": "人工核对用户诉求、已有信息和失败步骤后继续处理。"
+          },
+          "created_at": "2026-07-16T03:20:45+00:00",
+          "updated_at": "2026-07-16T03:20:45+00:00"
+        },
+        "answer": "自动处理暂时失败，已保存您的诉求和已执行步骤并转人工继续处理。\n\n人工工单号：HO-BB9B316EF7。",
+        "knowledge_topics": [],
+        "knowledge_document_ids": [],
+        "knowledge_document_types": []
+      },
+      {
+        "name": "llm_timeout",
+        "safe_degradation": true,
+        "case_id": "llm_timeout",
+        "question": "这款产品怎么用？",
+        "success": true,
+        "error": null,
+        "route": "human_handoff",
+        "intent": "other",
+        "intent_confidence": 1.0,
+        "elapsed_ms": 94.5,
+        "trace": {
+          "trace_id": "trace_bb3cd1ed41464fb3bac5738b5aa66612",
+          "conversation_id": "fault_llm_timeout_b8a5ef87",
+          "route": "human_handoff",
+          "total_latency_ms": 94.49,
+          "stages": [
+            {
+              "name": "handoff_ticket",
+              "latency_ms": 15.13,
+              "status": "success",
+              "reason": "llm_unavailable",
+              "priority": "high"
+            }
+          ],
+          "tokens": {
+            "prompt": 0,
+            "completion": 0,
+            "total": 0,
+            "cache_hit": 0,
+            "cache_miss": 0
+          }
+        },
+        "cost": {
+          "usd": 0.0,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 0
+        },
+        "handoff_required": true,
+        "handoff": {
+          "ticket_id": "HO-3BBB08D460",
+          "conversation_id": "fault_llm_timeout_b8a5ef87",
+          "reason": "llm_unavailable",
+          "priority": "high",
+          "status": "open",
+          "summary": "用户诉求：这款产品怎么用？",
+          "context": {
+            "question": "这款产品怎么用？",
+            "history": [
+              {
+                "role": "buyer",
+                "content": "这款产品怎么用？",
+                "metadata": {
+                  "resumes_task": false
+                },
+                "created_at": "2026-07-16T03:20:45+00:00"
+              }
+            ],
+            "order_id": null,
+            "policy": {
+              "should_handoff": true,
+              "reason": "llm_unavailable",
+              "priority": "high",
+              "signals": [
+                "TimeoutError"
+              ],
+              "user_message": "智能客服暂时无法完成判断，已保留您的诉求并转人工处理。"
+            },
+            "safety": {
+              "level": "normal",
+              "handoff_required": false,
+              "signals": [],
+              "guidance": ""
+            },
+            "errors": [
+              {
+                "stage": "intent_recognition",
+                "error_type": "TimeoutError"
+              }
+            ],
+            "pii_redacted": [],
+            "recommended_next_action": "人工核对用户诉求、已有信息和失败步骤后继续处理。"
+          },
+          "created_at": "2026-07-16T03:20:45+00:00",
+          "updated_at": "2026-07-16T03:20:45+00:00"
+        },
+        "answer": "智能客服暂时无法完成判断，已保留您的诉求并转人工处理。\n\n人工工单号：HO-3BBB08D460。",
+        "knowledge_topics": [],
+        "knowledge_document_ids": [],
+        "knowledge_document_types": []
+      },
+      {
+        "name": "urgent_path_without_llm",
+        "safe_degradation": true,
+        "case_id": "urgent_path_without_llm",
+        "question": "用了以后呼吸困难而且喉咙肿。",
+        "success": true,
+        "error": null,
+        "route": "human_handoff",
+        "intent": "safety_allergy",
+        "intent_confidence": 1.0,
+        "elapsed_ms": 10.96,
+        "trace": {
+          "trace_id": "trace_78319542f09b40c28a160d6f3ba8a066",
+          "conversation_id": "fault_urgent_path_without_llm_dd29f675",
+          "route": "human_handoff",
+          "total_latency_ms": 10.95,
+          "stages": [
+            {
+              "name": "handoff_ticket",
+              "latency_ms": 10.76,
+              "status": "success",
+              "reason": "urgent_skincare_safety",
+              "priority": "urgent"
+            }
+          ],
+          "tokens": {
+            "prompt": 0,
+            "completion": 0,
+            "total": 0,
+            "cache_hit": 0,
+            "cache_miss": 0
+          }
+        },
+        "cost": {
+          "usd": 0.0,
+          "cache_hit_tokens": 0,
+          "cache_miss_tokens": 0
+        },
+        "handoff_required": true,
+        "handoff": {
+          "ticket_id": "HO-C1F8CB82E1",
+          "conversation_id": "fault_urgent_path_without_llm_dd29f675",
+          "reason": "urgent_skincare_safety",
+          "priority": "urgent",
+          "status": "open",
+          "summary": "用户诉求：用了以后呼吸困难而且喉咙肿。",
+          "context": {
+            "question": "用了以后呼吸困难而且喉咙肿。",
+            "history": [],
+            "order_id": null,
+            "policy": {
+              "should_handoff": true,
+              "reason": "urgent_skincare_safety",
+              "priority": "urgent",
+              "signals": [
+                "呼吸困难",
+                "喉咙肿"
+              ],
+              "user_message": "已为您创建紧急人工协助工单。"
+            },
+            "safety": {
+              "level": "urgent",
+              "handoff_required": true,
+              "signals": [
+                "呼吸困难",
+                "喉咙肿"
+              ],
+              "guidance": "请立即停止使用相关产品，并用清水温和冲洗。若出现呼吸困难、面部或喉咙肿胀、大面积水疱等情况，请立即联系急救或前往医疗机构；在线客服不能替代医生诊断。"
+            },
+            "errors": [],
+            "pii_redacted": [],
+            "recommended_next_action": "人工核对用户诉求、已有信息和失败步骤后继续处理。"
+          },
+          "created_at": "2026-07-16T03:20:45+00:00",
+          "updated_at": "2026-07-16T03:20:45+00:00"
+        },
+        "answer": "请立即停止使用相关产品，并用清水温和冲洗。若出现呼吸困难、面部或喉咙肿胀、大面积水疱等情况，请立即联系急救或前往医疗机构；在线客服不能替代医生诊断。\n\n已为您创建紧急人工协助工单。\n\n人工工单号：HO-C1F8CB82E1。",
+        "knowledge_topics": [],
+        "knowledge_document_ids": [],
+        "knowledge_document_types": []
+      }
+    ]
+  }
+}

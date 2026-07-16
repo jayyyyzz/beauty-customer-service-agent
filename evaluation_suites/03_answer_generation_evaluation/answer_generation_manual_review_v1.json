@@ -1,0 +1,86 @@
+[
+  {
+    "case_id": "answer_A_0004",
+    "decision": "rule_false_positive",
+    "final_severity": null,
+    "note": "回答为‘不能治疗湿疹、不能替代药物’，禁用词子串规则曾把否定句误报；事实有S1完整支持。"
+  },
+  {
+    "case_id": "answer_A_0017",
+    "decision": "confirmed_unsupported_extension",
+    "final_severity": "P3",
+    "note": "‘用清水温和冲洗’未出现在标准证据中，但属于安全边界附加的低风险处置建议。"
+  },
+  {
+    "case_id": "answer_A_0018",
+    "decision": "confirmed_unsupported_extension",
+    "final_severity": "P2",
+    "note": "‘选择更温和、成分更简单的产品’没有证据支持，不影响停止视黄醇和咨询医生的核心结论。"
+  },
+  {
+    "case_id": "answer_B_0001",
+    "decision": "confirmed_unsupported_extension",
+    "final_severity": "P2",
+    "note": "‘保证护肤品更好吸收’属于无依据功效扩展，应删除绝对化表达。"
+  },
+  {
+    "case_id": "answer_B_0003",
+    "decision": "confirmed_hallucination",
+    "final_severity": "P2",
+    "note": "检索证据只支持1到2泵，回答自行换算为3到5滴，属于明确无依据扩展。"
+  },
+  {
+    "case_id": "answer_B_0004",
+    "decision": "confirmed_unsupported_extension",
+    "final_severity": "P2",
+    "note": "回答自行指定‘白天烟酰胺、晚上果酸’，证据只支持错开或建立耐受。"
+  },
+  {
+    "case_id": "answer_B_0007",
+    "decision": "confirmed_unsupported_extension",
+    "final_severity": "P2",
+    "note": "‘暖调里稍亮一点’没有被召回证据直接支持。"
+  },
+  {
+    "case_id": "answer_B_0010",
+    "decision": "downgraded_after_review",
+    "final_severity": "P2",
+    "note": "自动Judge标为P0，但内容是条件式就医和不替代治疗的保守提醒，不构成错误医疗建议；严格证据口径下仍属于无依据扩展。"
+  },
+  {
+    "case_id": "answer_B_0017",
+    "decision": "confirmed_unsupported_extension",
+    "final_severity": "P2",
+    "note": "回答称早晚均可用并要求白天防晒，但召回片段没有覆盖使用时间。"
+  },
+  {
+    "case_id": "answer_C_0004",
+    "decision": "confirmed_unsupported_extension",
+    "final_severity": "P2",
+    "note": "工具只返回shipping_exception，回答进一步解释为运输延迟，原因推断没有工具依据。"
+  },
+  {
+    "case_id": "answer_C_0007",
+    "decision": "confirmed_business_extension",
+    "final_severity": "P2",
+    "note": "工具只显示refund_requested，回答自行补充1到7个工作日原路退回。"
+  },
+  {
+    "case_id": "answer_C_0013",
+    "decision": "confirmed_business_extension",
+    "final_severity": "P2",
+    "note": "工具只说明退款申请已提交等待审核，回答补充审核后原路返回。"
+  },
+  {
+    "case_id": "answer_C_0014",
+    "decision": "confirmed_citation_mismatch",
+    "final_severity": "P2",
+    "note": "业务工具回答输出了不存在的[S1]，事实本身正确但引用无效。"
+  },
+  {
+    "case_id": "answer_C_0020",
+    "decision": "confirmed_business_extension_and_citation_mismatch",
+    "final_severity": "P2",
+    "note": "‘仓库会优先处理’没有工具依据，且输出了不存在的[S2]。"
+  }
+]

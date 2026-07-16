@@ -1,0 +1,13 @@
+﻿.env
+.venv/
+.venv-*/
+__pycache__/
+*.py[cod]
+*.log
+.idea/
+runtime/
+models/
+data/raw/
+*.npz
+.pytest_cache/
+.ruff_cache/

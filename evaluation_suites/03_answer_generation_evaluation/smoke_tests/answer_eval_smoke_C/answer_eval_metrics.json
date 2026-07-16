@@ -1,0 +1,214 @@
+{
+  "metadata": {
+    "generated_at": "2026-07-16T10:29:09+08:00",
+    "dataset": "F:\\111_ai大模型学习资料\\beauty-customer-service-agent\\evaluation\\answer_generation_benchmark_v1.jsonl",
+    "dataset_sha256": "29d4cf9bc7d2b379d3ccb9606d8a28c3c1085c56f2b5423478e691dd0e41f73c",
+    "runner_sha256": "c1cec0a67deeb4553e7ca84a028e186cdd62dffada995f065456fa7bf36cf356",
+    "agent_pipeline_sha256": "0b38071826cbf8e6678b40a7d57d2cbaf9d7137ad130a08faf6b729eb3002b61",
+    "model": "deepseek-chat",
+    "base_url": "https://api.deepseek.com",
+    "answer_temperature": "provider_default (当前生产代码未显式设置)",
+    "judge_temperature": 0,
+    "es_index": "customer_service_knowledge_v1",
+    "es_mode": "rrf_mmr",
+    "rerank_enabled": true,
+    "concurrency": 1
+  },
+  "distribution": {
+    "track": {
+      "C_tool_result": 1
+    },
+    "risk_level": {
+      "high": 1
+    },
+    "sample_type": {
+      "business_tool": 1
+    }
+  },
+  "overall": {
+    "cases": 1,
+    "faithfulness": 1.0,
+    "weighted_faithfulness": 1.0,
+    "answer_relevance": 1.0,
+    "completeness": 1.0,
+    "rule_required_point_coverage": 0.75,
+    "claim_hallucination_rate": 0.0,
+    "answer_hallucination_rate": 0.0,
+    "critical_hallucination_rate": 0.0,
+    "abstention_recall": 0.0,
+    "false_answer_rate": 0.0,
+    "citation_correctness": 0.0,
+    "citation_coverage": 0.0,
+    "citation_rule_validity": 0.0,
+    "clarity": 1.0,
+    "conciseness": 1.0,
+    "actionability": 1.0,
+    "professionalism": 1.0,
+    "avg_generation_latency_ms": 6812.6,
+    "p95_generation_latency_ms": 6812.6,
+    "generation_error_rate": 0.0,
+    "judge_error_rate": 0.0,
+    "judge_total_tokens": 1462,
+    "error_counts": {
+      "missing_required_point": 1
+    }
+  },
+  "by_track": {
+    "C_tool_result": {
+      "cases": 1,
+      "faithfulness": 1.0,
+      "weighted_faithfulness": 1.0,
+      "answer_relevance": 1.0,
+      "completeness": 1.0,
+      "rule_required_point_coverage": 0.75,
+      "claim_hallucination_rate": 0.0,
+      "answer_hallucination_rate": 0.0,
+      "critical_hallucination_rate": 0.0,
+      "abstention_recall": 0.0,
+      "false_answer_rate": 0.0,
+      "citation_correctness": 0.0,
+      "citation_coverage": 0.0,
+      "citation_rule_validity": 0.0,
+      "clarity": 1.0,
+      "conciseness": 1.0,
+      "actionability": 1.0,
+      "professionalism": 1.0,
+      "avg_generation_latency_ms": 6812.6,
+      "p95_generation_latency_ms": 6812.6,
+      "generation_error_rate": 0.0,
+      "judge_error_rate": 0.0,
+      "judge_total_tokens": 1462,
+      "error_counts": {
+        "missing_required_point": 1
+      }
+    }
+  },
+  "by_risk_level": {
+    "high": {
+      "cases": 1,
+      "faithfulness": 1.0,
+      "weighted_faithfulness": 1.0,
+      "answer_relevance": 1.0,
+      "completeness": 1.0,
+      "rule_required_point_coverage": 0.75,
+      "claim_hallucination_rate": 0.0,
+      "answer_hallucination_rate": 0.0,
+      "critical_hallucination_rate": 0.0,
+      "abstention_recall": 0.0,
+      "false_answer_rate": 0.0,
+      "citation_correctness": 0.0,
+      "citation_coverage": 0.0,
+      "citation_rule_validity": 0.0,
+      "clarity": 1.0,
+      "conciseness": 1.0,
+      "actionability": 1.0,
+      "professionalism": 1.0,
+      "avg_generation_latency_ms": 6812.6,
+      "p95_generation_latency_ms": 6812.6,
+      "generation_error_rate": 0.0,
+      "judge_error_rate": 0.0,
+      "judge_total_tokens": 1462,
+      "error_counts": {
+        "missing_required_point": 1
+      }
+    }
+  },
+  "by_sample_type": {
+    "business_tool": {
+      "cases": 1,
+      "faithfulness": 1.0,
+      "weighted_faithfulness": 1.0,
+      "answer_relevance": 1.0,
+      "completeness": 1.0,
+      "rule_required_point_coverage": 0.75,
+      "claim_hallucination_rate": 0.0,
+      "answer_hallucination_rate": 0.0,
+      "critical_hallucination_rate": 0.0,
+      "abstention_recall": 0.0,
+      "false_answer_rate": 0.0,
+      "citation_correctness": 0.0,
+      "citation_coverage": 0.0,
+      "citation_rule_validity": 0.0,
+      "clarity": 1.0,
+      "conciseness": 1.0,
+      "actionability": 1.0,
+      "professionalism": 1.0,
+      "avg_generation_latency_ms": 6812.6,
+      "p95_generation_latency_ms": 6812.6,
+      "generation_error_rate": 0.0,
+      "judge_error_rate": 0.0,
+      "judge_total_tokens": 1462,
+      "error_counts": {
+        "missing_required_point": 1
+      }
+    }
+  },
+  "acceptance": {
+    "faithfulness": {
+      "value": 1.0,
+      "threshold": 0.92,
+      "operator": ">=",
+      "passed": true
+    },
+    "weighted_faithfulness": {
+      "value": 1.0,
+      "threshold": 0.95,
+      "operator": ">=",
+      "passed": true
+    },
+    "answer_relevance": {
+      "value": 1.0,
+      "threshold": 0.85,
+      "operator": ">=",
+      "passed": true
+    },
+    "completeness": {
+      "value": 1.0,
+      "threshold": 0.8,
+      "operator": ">=",
+      "passed": true
+    },
+    "claim_hallucination_rate": {
+      "value": 0.0,
+      "threshold": 0.05,
+      "operator": "<=",
+      "passed": true
+    },
+    "answer_hallucination_rate": {
+      "value": 0.0,
+      "threshold": 0.1,
+      "operator": "<=",
+      "passed": true
+    },
+    "critical_hallucination_rate": {
+      "value": 0.0,
+      "threshold": 0.0,
+      "operator": "<=",
+      "passed": true
+    },
+    "abstention_recall": {
+      "value": 0.0,
+      "threshold": 0.85,
+      "operator": ">=",
+      "passed": false
+    },
+    "false_answer_rate": {
+      "value": 0.0,
+      "threshold": 0.05,
+      "operator": "<=",
+      "passed": true
+    },
+    "citation_correctness": {
+      "value": 0.0,
+      "threshold": 0.9,
+      "operator": ">=",
+      "passed": false
+    },
+    "citation_coverage": {
+      "value": 0.0,
+      "threshold": 0.85,
+      "operator": ">=",
+      "passed": false
+    }
+  }
+}

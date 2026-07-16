@@ -1,0 +1,4 @@
+faq_id,question,answer,intent,category,need_human,source,source_url,retrieved_at
+canonical_shipping_delay,快递一直没到或物流长时间未更新怎么办？,"请提供订单号或物流单号，客服会核查当前物流节点。若物流长时间未更新、超过预计送达时间或疑似丢件，将转人工联系承运商处理；请勿在未核查前承诺具体送达时间。",logistics_delay,物流异常,true,内部演示规则（由合成customer_dialogues归纳）,,2026-07-15
+canonical_shipping_dispatch,今天下单后多久可以发货？,"现货订单通常会在48小时内发出，发出后系统会推送物流单号；促销期、预售商品或仓库异常可能延迟，最终以订单页和仓库实际处理进度为准。",logistics,发货时效,false,内部演示规则（由合成customer_dialogues归纳）,,2026-07-15
+canonical_allergy_return,商品使用后出现过敏反应可以退货吗？,"请立即停用并保留皮肤状况照片、订单号等凭证。过敏或质量问题即使商品已拆封也可以申请售后，由客服审核后办理退款或退货；症状持续或加重时应及时就医。",after_sale,过敏售后,true,内部演示规则（由合成customer_dialogues归纳）,,2026-07-15

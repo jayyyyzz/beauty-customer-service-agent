@@ -1,0 +1,2084 @@
+{
+  "metadata": {
+    "generated_at": "2026-07-16T10:10:47+08:00",
+    "dataset": "F:\\111_ai大模型学习资料\\beauty-customer-service-agent\\evaluation\\intent_benchmark_v1.jsonl",
+    "dataset_sha256": "307432c40bc4ae228250fa1db4d42477174373370c0a048a4b9b416d17b6ccd8",
+    "deployed_prompt_source": "F:\\111_ai大模型学习资料\\beauty-customer-service-agent\\agent_pipeline.py",
+    "deployed_prompt_source_sha256": "51d1abb9712d8587650313f5bd781d8c4af0fe284c0fb3219f1a4db0217d18d1",
+    "model": "deepseek-chat",
+    "base_url": "https://api.deepseek.com",
+    "temperature": "provider_default (代码未显式设置)",
+    "current_clarify_threshold": 0.7,
+    "cases": 708
+  },
+  "dataset_distribution": {
+    "level1": {
+      "price": 32,
+      "product_info": 28,
+      "skin_type": 32,
+      "skin_concern": 32,
+      "ingredient": 30,
+      "efficacy": 28,
+      "usage": 32,
+      "routine": 28,
+      "compatibility": 30,
+      "shade_color": 30,
+      "authenticity_shelf_life": 28,
+      "safety_allergy": 34,
+      "quality_issue": 38,
+      "comparison": 28,
+      "logistics": 32,
+      "urge_shipment": 30,
+      "logistics_delay": 34,
+      "after_sale": 32,
+      "invoice": 26,
+      "gift_sample": 32,
+      "review": 28,
+      "other": 64
+    },
+    "scenario": {
+      "base": 440,
+      "noise": 88,
+      "context": 60,
+      "confusable": 60,
+      "clarify": 40,
+      "multi_intent": 20
+    },
+    "difficulty": {
+      "easy": 110,
+      "medium": 418,
+      "hard": 180
+    },
+    "has_history": 60,
+    "should_clarify": 49,
+    "multi_intent": 20
+  },
+  "classification": {
+    "level1": {
+      "accuracy": 0.7641242937853108,
+      "macro_f1": 0.755006833583638,
+      "micro_f1": 0.7641242937853108,
+      "weighted_f1": 0.7578121194028685,
+      "per_class": {
+        "after_sale": {
+          "precision": 0.49206349206349204,
+          "recall": 0.96875,
+          "f1": 0.6526315789473683,
+          "support": 32,
+          "tp": 31,
+          "fp": 32,
+          "fn": 1
+        },
+        "authenticity_shelf_life": {
+          "precision": 0.8636363636363636,
+          "recall": 0.6785714285714286,
+          "f1": 0.76,
+          "support": 28,
+          "tp": 19,
+          "fp": 3,
+          "fn": 9
+        },
+        "comparison": {
+          "precision": 1.0,
+          "recall": 0.21428571428571427,
+          "f1": 0.35294117647058826,
+          "support": 28,
+          "tp": 6,
+          "fp": 0,
+          "fn": 22
+        },
+        "compatibility": {
+          "precision": 0.8125,
+          "recall": 0.8666666666666667,
+          "f1": 0.8387096774193549,
+          "support": 30,
+          "tp": 26,
+          "fp": 6,
+          "fn": 4
+        },
+        "efficacy": {
+          "precision": 0.9259259259259259,
+          "recall": 0.8928571428571429,
+          "f1": 0.9090909090909091,
+          "support": 28,
+          "tp": 25,
+          "fp": 2,
+          "fn": 3
+        },
+        "gift_sample": {
+          "precision": 1.0,
+          "recall": 0.8125,
+          "f1": 0.896551724137931,
+          "support": 32,
+          "tp": 26,
+          "fp": 0,
+          "fn": 6
+        },
+        "ingredient": {
+          "precision": 0.9642857142857143,
+          "recall": 0.9,
+          "f1": 0.9310344827586207,
+          "support": 30,
+          "tp": 27,
+          "fp": 1,
+          "fn": 3
+        },
+        "invoice": {
+          "precision": 1.0,
+          "recall": 0.9230769230769231,
+          "f1": 0.9600000000000001,
+          "support": 26,
+          "tp": 24,
+          "fp": 0,
+          "fn": 2
+        },
+        "logistics": {
+          "precision": 0.7619047619047619,
+          "recall": 1.0,
+          "f1": 0.8648648648648648,
+          "support": 32,
+          "tp": 32,
+          "fp": 10,
+          "fn": 0
+        },
+        "logistics_delay": {
+          "precision": 0.7878787878787878,
+          "recall": 0.7647058823529411,
+          "f1": 0.7761194029850745,
+          "support": 34,
+          "tp": 26,
+          "fp": 7,
+          "fn": 8
+        },
+        "other": {
+          "precision": 0.8392857142857143,
+          "recall": 0.734375,
+          "f1": 0.7833333333333332,
+          "support": 64,
+          "tp": 47,
+          "fp": 9,
+          "fn": 17
+        },
+        "price": {
+          "precision": 0.8205128205128205,
+          "recall": 1.0,
+          "f1": 0.9014084507042254,
+          "support": 32,
+          "tp": 32,
+          "fp": 7,
+          "fn": 0
+        },
+        "product_info": {
+          "precision": 0.45161290322580644,
+          "recall": 1.0,
+          "f1": 0.6222222222222222,
+          "support": 28,
+          "tp": 28,
+          "fp": 34,
+          "fn": 0
+        },
+        "quality_issue": {
+          "precision": 0.8235294117647058,
+          "recall": 0.7368421052631579,
+          "f1": 0.7777777777777778,
+          "support": 38,
+          "tp": 28,
+          "fp": 6,
+          "fn": 10
+        },
+        "review": {
+          "precision": 0.875,
+          "recall": 0.25,
+          "f1": 0.3888888888888889,
+          "support": 28,
+          "tp": 7,
+          "fp": 1,
+          "fn": 21
+        },
+        "routine": {
+          "precision": 0.65625,
+          "recall": 0.75,
+          "f1": 0.7,
+          "support": 28,
+          "tp": 21,
+          "fp": 11,
+          "fn": 7
+        },
+        "safety_allergy": {
+          "precision": 0.8947368421052632,
+          "recall": 0.5,
+          "f1": 0.6415094339622641,
+          "support": 34,
+          "tp": 17,
+          "fp": 2,
+          "fn": 17
+        },
+        "shade_color": {
+          "precision": 0.96,
+          "recall": 0.8,
+          "f1": 0.8727272727272728,
+          "support": 30,
+          "tp": 24,
+          "fp": 1,
+          "fn": 6
+        },
+        "skin_concern": {
+          "precision": 0.8387096774193549,
+          "recall": 0.8125,
+          "f1": 0.8253968253968254,
+          "support": 32,
+          "tp": 26,
+          "fp": 5,
+          "fn": 6
+        },
+        "skin_type": {
+          "precision": 0.7307692307692307,
+          "recall": 0.59375,
+          "f1": 0.6551724137931033,
+          "support": 32,
+          "tp": 19,
+          "fp": 7,
+          "fn": 13
+        },
+        "urge_shipment": {
+          "precision": 0.9130434782608695,
+          "recall": 0.7,
+          "f1": 0.7924528301886793,
+          "support": 30,
+          "tp": 21,
+          "fp": 2,
+          "fn": 9
+        },
+        "usage": {
+          "precision": 0.58,
+          "recall": 0.90625,
+          "f1": 0.7073170731707317,
+          "support": 32,
+          "tp": 29,
+          "fp": 21,
+          "fn": 3
+        }
+      }
+    },
+    "level2": {
+      "accuracy": 0.046610169491525424,
+      "macro_f1": 0.032231354080093574,
+      "micro_f1": 0.046610169491525424,
+      "weighted_f1": 0.059644783597924175,
+      "per_class": {
+        "after_sale.exchange": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 4,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "after_sale.refund": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 14,
+          "tp": 0,
+          "fp": 0,
+          "fn": 14
+        },
+        "after_sale.return": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 14,
+          "tp": 0,
+          "fp": 0,
+          "fn": 14
+        },
+        "authenticity_shelf_life.authenticity": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 12,
+          "tp": 0,
+          "fp": 0,
+          "fn": 12
+        },
+        "authenticity_shelf_life.shelf_life": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 16,
+          "tp": 0,
+          "fp": 0,
+          "fn": 16
+        },
+        "comparison.product": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 19,
+          "tp": 0,
+          "fp": 0,
+          "fn": 19
+        },
+        "comparison.store": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 9,
+          "tp": 0,
+          "fp": 0,
+          "fn": 9
+        },
+        "compatibility.ingredient": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 16,
+          "tp": 0,
+          "fp": 0,
+          "fn": 16
+        },
+        "compatibility.product": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 14,
+          "tp": 0,
+          "fp": 0,
+          "fn": 14
+        },
+        "efficacy.claim": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 24,
+          "tp": 0,
+          "fp": 0,
+          "fn": 24
+        },
+        "efficacy.timeline": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 4,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "gift_sample.gift": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 23,
+          "tp": 0,
+          "fp": 0,
+          "fn": 23
+        },
+        "gift_sample.sample": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 9,
+          "tp": 0,
+          "fp": 0,
+          "fn": 9
+        },
+        "ingredient.composition": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 17,
+          "tp": 0,
+          "fp": 0,
+          "fn": 17
+        },
+        "ingredient.safety": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 9,
+          "tp": 0,
+          "fp": 0,
+          "fn": 9
+        },
+        "ingredient.special": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 4,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "invoice.process": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 11,
+          "tp": 0,
+          "fp": 0,
+          "fn": 11
+        },
+        "invoice.type": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 15,
+          "tp": 0,
+          "fp": 0,
+          "fn": 15
+        },
+        "logistics.status": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 18,
+          "tp": 0,
+          "fp": 0,
+          "fn": 18
+        },
+        "logistics.time": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 14,
+          "tp": 0,
+          "fp": 0,
+          "fn": 14
+        },
+        "logistics_delay.abnormal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 25,
+          "tp": 0,
+          "fp": 0,
+          "fn": 25
+        },
+        "logistics_delay.force_majeure": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 9,
+          "tp": 0,
+          "fp": 0,
+          "fn": 9
+        },
+        "other.irrelevant": {
+          "precision": 0.8666666666666667,
+          "recall": 0.8666666666666667,
+          "f1": 0.8666666666666667,
+          "support": 15,
+          "tp": 13,
+          "fp": 2,
+          "fn": 2
+        },
+        "other.unclear": {
+          "precision": 1.0,
+          "recall": 0.3877551020408163,
+          "f1": 0.5588235294117647,
+          "support": 49,
+          "tp": 19,
+          "fp": 0,
+          "fn": 30
+        },
+        "price.discount": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 19,
+          "tp": 0,
+          "fp": 0,
+          "fn": 19
+        },
+        "price.inquiry": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 13,
+          "tp": 0,
+          "fp": 0,
+          "fn": 13
+        },
+        "product_info.availability": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 9,
+          "tp": 0,
+          "fp": 0,
+          "fn": 9
+        },
+        "product_info.specification": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 19,
+          "tp": 0,
+          "fp": 0,
+          "fn": 19
+        },
+        "quality_issue.abnormal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 34,
+          "tp": 0,
+          "fp": 0,
+          "fn": 34
+        },
+        "quality_issue.complaint": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 4,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "review.policy": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 16,
+          "tp": 0,
+          "fp": 0,
+          "fn": 16
+        },
+        "review.process": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 12,
+          "tp": 0,
+          "fp": 0,
+          "fn": 12
+        },
+        "routine.design": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 18,
+          "tp": 0,
+          "fp": 0,
+          "fn": 18
+        },
+        "routine.step": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 10,
+          "tp": 0,
+          "fp": 0,
+          "fn": 10
+        },
+        "safety_allergy.reaction": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 15,
+          "tp": 0,
+          "fp": 0,
+          "fn": 15
+        },
+        "safety_allergy.sensitive": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 19,
+          "tp": 0,
+          "fp": 0,
+          "fn": 19
+        },
+        "shade_color.effect": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 9,
+          "tp": 0,
+          "fp": 0,
+          "fn": 9
+        },
+        "shade_color.shade": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 21,
+          "tp": 0,
+          "fp": 0,
+          "fn": 21
+        },
+        "skin_concern.acne": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 12,
+          "tp": 0,
+          "fp": 0,
+          "fn": 12
+        },
+        "skin_concern.repair": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "skin_concern.texture": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 8,
+          "tp": 0,
+          "fp": 0,
+          "fn": 8
+        },
+        "skin_concern.tone": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "skin_type.advice": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 4,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "skin_type.fit": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 28,
+          "tp": 0,
+          "fp": 0,
+          "fn": 28
+        },
+        "urge_shipment.normal": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 18,
+          "tp": 0,
+          "fp": 0,
+          "fn": 18
+        },
+        "urge_shipment.urgent": {
+          "precision": 1.0,
+          "recall": 0.08333333333333333,
+          "f1": 0.15384615384615385,
+          "support": 12,
+          "tp": 1,
+          "fp": 0,
+          "fn": 11
+        },
+        "usage.method": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 17,
+          "tp": 0,
+          "fp": 0,
+          "fn": 17
+        },
+        "usage.scene": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "usage.tolerance": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 8,
+          "tp": 0,
+          "fp": 0,
+          "fn": 8
+        }
+      }
+    },
+    "level3": {
+      "accuracy": 0.046610169491525424,
+      "macro_f1": 0.015658786879237677,
+      "micro_f1": 0.046610169491525424,
+      "weighted_f1": 0.05950897308075773,
+      "per_class": {
+        "after_sale.exchange.process": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 4,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "after_sale.refund.account": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "after_sale.refund.progress": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 9,
+          "tp": 0,
+          "fp": 0,
+          "fn": 9
+        },
+        "after_sale.return.address": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "after_sale.return.policy": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "authenticity_shelf_life.authenticity.anti_fake": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "authenticity_shelf_life.authenticity.channel": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "authenticity_shelf_life.shelf_life.expiration": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "authenticity_shelf_life.shelf_life.open_after": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 6,
+          "tp": 0,
+          "fp": 0,
+          "fn": 6
+        },
+        "authenticity_shelf_life.shelf_life.production_date": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "comparison.product.similar": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "comparison.product.suitability": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "comparison.product.upgrade": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "comparison.store.authenticity": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 4,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "comparison.store.price": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "compatibility.ingredient.retinol_acid": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 9,
+          "tp": 0,
+          "fp": 0,
+          "fn": 9
+        },
+        "compatibility.ingredient.vc_niacinamide": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "compatibility.product.comedogenic": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 4,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "compatibility.product.layering": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "compatibility.product.pilling": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "efficacy.claim.anti_aging": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "efficacy.claim.brightening": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 9,
+          "tp": 0,
+          "fp": 0,
+          "fn": 9
+        },
+        "efficacy.claim.moisturizing": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "efficacy.claim.repair": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "efficacy.timeline.how_long": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 4,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "gift_sample.gift.missing": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 9,
+          "tp": 0,
+          "fp": 0,
+          "fn": 9
+        },
+        "gift_sample.gift.package": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "gift_sample.gift.rule": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 9,
+          "tp": 0,
+          "fp": 0,
+          "fn": 9
+        },
+        "gift_sample.sample.request": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "gift_sample.sample.trial_pack": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 4,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "ingredient.composition.active": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "ingredient.composition.concentration": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "ingredient.composition.full_list": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "ingredient.safety.alcohol": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "ingredient.safety.fragrance": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2,
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "ingredient.special.retinol": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 4,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "invoice.process.application": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "invoice.process.modification": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 6,
+          "tp": 0,
+          "fp": 0,
+          "fn": 6
+        },
+        "invoice.type.electronic": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "invoice.type.paper": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "invoice.type.special": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "logistics.status.location": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 13,
+          "tp": 0,
+          "fp": 0,
+          "fn": 13
+        },
+        "logistics.status.tracking": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "logistics.time.delivery": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "logistics.time.shipping": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "logistics_delay.abnormal.lost": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "logistics_delay.abnormal.stuck": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 18,
+          "tp": 0,
+          "fp": 0,
+          "fn": 18
+        },
+        "logistics_delay.force_majeure.holiday": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 4,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "logistics_delay.force_majeure.weather": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "other.irrelevant": {
+          "precision": 0.8666666666666667,
+          "recall": 0.8666666666666667,
+          "f1": 0.8666666666666667,
+          "support": 15,
+          "tp": 13,
+          "fp": 2,
+          "fn": 2
+        },
+        "other.unclear": {
+          "precision": 1.0,
+          "recall": 0.3877551020408163,
+          "f1": 0.5588235294117647,
+          "support": 49,
+          "tp": 19,
+          "fp": 0,
+          "fn": 30
+        },
+        "price.discount.coupon": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "price.discount.member": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "price.discount.promotion": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "price.inquiry.current": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "price.inquiry.set": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 6,
+          "tp": 0,
+          "fp": 0,
+          "fn": 6
+        },
+        "product_info.availability.restock": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 4,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "product_info.availability.stock": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "product_info.specification.capacity": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "product_info.specification.package": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "product_info.specification.set_content": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 9,
+          "tp": 0,
+          "fp": 0,
+          "fn": 9
+        },
+        "quality_issue.abnormal.damaged": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 4,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "quality_issue.abnormal.leakage": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 9,
+          "tp": 0,
+          "fp": 0,
+          "fn": 9
+        },
+        "quality_issue.abnormal.oxidation": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "quality_issue.abnormal.smell": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 9,
+          "tp": 0,
+          "fp": 0,
+          "fn": 9
+        },
+        "quality_issue.abnormal.texture": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "quality_issue.complaint.compensation": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2,
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "quality_issue.complaint.return": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2,
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "review.policy.amount": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "review.policy.condition": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 9,
+          "tp": 0,
+          "fp": 0,
+          "fn": 9
+        },
+        "review.process.payment": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "review.process.submission": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "routine.design.morning": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "routine.design.night": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "routine.design.simple": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 6,
+          "tp": 0,
+          "fp": 0,
+          "fn": 6
+        },
+        "routine.step.essence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "routine.step.toner": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "safety_allergy.reaction.allergy": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 6,
+          "tp": 0,
+          "fp": 0,
+          "fn": 6
+        },
+        "safety_allergy.reaction.stinging": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 9,
+          "tp": 0,
+          "fp": 0,
+          "fn": 9
+        },
+        "safety_allergy.sensitive.medical": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "safety_allergy.sensitive.pregnancy": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "safety_allergy.sensitive.skin_test": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "shade_color.effect.finish": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "shade_color.effect.longevity": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 4,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "shade_color.shade.concealer": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "shade_color.shade.foundation": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 11,
+          "tp": 0,
+          "fp": 0,
+          "fn": 11
+        },
+        "shade_color.shade.lipstick": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "skin_concern.acne.closed_comedone": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "skin_concern.acne.pimple": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "skin_concern.repair.barrier": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "skin_concern.texture.dryness": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 4,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "skin_concern.texture.pore": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 4,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "skin_concern.tone.dullness": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "skin_type.advice.age": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 4,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "skin_type.fit.combination": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "skin_type.fit.dry": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "skin_type.fit.oily": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 9,
+          "tp": 0,
+          "fp": 0,
+          "fn": 9
+        },
+        "skin_type.fit.sensitive": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "urge_shipment.normal.reason": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "urge_shipment.normal.request": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 13,
+          "tp": 0,
+          "fp": 0,
+          "fn": 13
+        },
+        "urge_shipment.urgent.complaint": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "urge_shipment.urgent.deadline": {
+          "precision": 1.0,
+          "recall": 0.14285714285714285,
+          "f1": 0.25,
+          "support": 7,
+          "tp": 1,
+          "fp": 0,
+          "fn": 6
+        },
+        "usage.method.dosage": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "usage.method.frequency": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "usage.method.order": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "usage.scene.makeup_remove": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "usage.tolerance.build": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 8,
+          "tp": 0,
+          "fp": 0,
+          "fn": 8
+        }
+      }
+    }
+  },
+  "full_path_accuracy": 0.046610169491525424,
+  "mean_hierarchical_path_score": 0.33361581920903954,
+  "multi_intent": {
+    "cases": 20,
+    "level1_exact_set_accuracy": 0.65,
+    "level1_precision": 0.825,
+    "level1_recall": 0.85,
+    "level1_f1": 0.825,
+    "level3_exact_set_accuracy": 0,
+    "level3_precision": 0.0,
+    "level3_recall": 0.0,
+    "level3_f1": 0.0
+  },
+  "clarification": {
+    "thresholds": [
+      {
+        "threshold": 0.5,
+        "precision": 0.39473684210526316,
+        "recall": 0.30612244897959184,
+        "f1": 0.3448275862068966,
+        "error_release_rate": 0.6938775510204082,
+        "over_clarify_rate": 0.03490136570561457,
+        "tp": 15,
+        "fp": 23,
+        "fn": 34,
+        "tn": 636
+      },
+      {
+        "threshold": 0.55,
+        "precision": 0.43902439024390244,
+        "recall": 0.3673469387755102,
+        "f1": 0.4,
+        "error_release_rate": 0.6326530612244898,
+        "over_clarify_rate": 0.03490136570561457,
+        "tp": 18,
+        "fp": 23,
+        "fn": 31,
+        "tn": 636
+      },
+      {
+        "threshold": 0.6,
+        "precision": 0.43902439024390244,
+        "recall": 0.3673469387755102,
+        "f1": 0.4,
+        "error_release_rate": 0.6326530612244898,
+        "over_clarify_rate": 0.03490136570561457,
+        "tp": 18,
+        "fp": 23,
+        "fn": 31,
+        "tn": 636
+      },
+      {
+        "threshold": 0.65,
+        "precision": 0.5208333333333334,
+        "recall": 0.5102040816326531,
+        "f1": 0.5154639175257733,
+        "error_release_rate": 0.4897959183673469,
+        "over_clarify_rate": 0.03490136570561457,
+        "tp": 25,
+        "fp": 23,
+        "fn": 24,
+        "tn": 636
+      },
+      {
+        "threshold": 0.7,
+        "precision": 0.5208333333333334,
+        "recall": 0.5102040816326531,
+        "f1": 0.5154639175257733,
+        "error_release_rate": 0.4897959183673469,
+        "over_clarify_rate": 0.03490136570561457,
+        "tp": 25,
+        "fp": 23,
+        "fn": 24,
+        "tn": 636
+      },
+      {
+        "threshold": 0.75,
+        "precision": 0.5272727272727272,
+        "recall": 0.5918367346938775,
+        "f1": 0.5576923076923076,
+        "error_release_rate": 0.40816326530612246,
+        "over_clarify_rate": 0.03945371775417299,
+        "tp": 29,
+        "fp": 26,
+        "fn": 20,
+        "tn": 633
+      },
+      {
+        "threshold": 0.8,
+        "precision": 0.5272727272727272,
+        "recall": 0.5918367346938775,
+        "f1": 0.5576923076923076,
+        "error_release_rate": 0.40816326530612246,
+        "over_clarify_rate": 0.03945371775417299,
+        "tp": 29,
+        "fp": 26,
+        "fn": 20,
+        "tn": 633
+      }
+    ],
+    "selected": {
+      "threshold": 0.75,
+      "precision": 0.5272727272727272,
+      "recall": 0.5918367346938775,
+      "f1": 0.5576923076923076,
+      "error_release_rate": 0.40816326530612246,
+      "over_clarify_rate": 0.03945371775417299,
+      "tp": 29,
+      "fp": 26,
+      "fn": 20,
+      "tn": 633,
+      "meets_targets": false
+    }
+  },
+  "calibration": {
+    "ece": 0.21478813559322035,
+    "brier_score": 0.23479025423728814,
+    "bins": [
+      {
+        "range": "0.0-0.5",
+        "count": 38,
+        "avg_confidence": 0.09999999999999999,
+        "accuracy": 0.8421052631578947
+      },
+      {
+        "range": "0.5-0.6",
+        "count": 3,
+        "avg_confidence": 0.5,
+        "accuracy": 0
+      },
+      {
+        "range": "0.6-0.7",
+        "count": 7,
+        "avg_confidence": 0.6,
+        "accuracy": 0.8571428571428571
+      },
+      {
+        "range": "0.7-0.8",
+        "count": 4,
+        "avg_confidence": 0.7,
+        "accuracy": 0.5
+      },
+      {
+        "range": "0.8-0.9",
+        "count": 10,
+        "avg_confidence": 0.8,
+        "accuracy": 0.4
+      },
+      {
+        "range": "0.9-1.0",
+        "count": 646,
+        "avg_confidence": 0.9485603715170279,
+        "accuracy": 0.7693498452012384
+      }
+    ],
+    "high_confidence_errors": 149,
+    "high_confidence_total": 646,
+    "high_confidence_error_rate": 0.2306501547987616
+  },
+  "slices": {
+    "scenario": {
+      "base": {
+        "count": 440,
+        "level1_accuracy": 0.7818181818181819,
+        "level2_accuracy": 0.029545454545454545,
+        "level3_accuracy": 0.029545454545454545,
+        "full_path_accuracy": 0.029545454545454545,
+        "mean_path_score": 0.33045454545454545
+      },
+      "clarify": {
+        "count": 40,
+        "level1_accuracy": 0.675,
+        "level2_accuracy": 0.425,
+        "level3_accuracy": 0.425,
+        "full_path_accuracy": 0.425,
+        "mean_path_score": 0.525
+      },
+      "confusable": {
+        "count": 60,
+        "level1_accuracy": 0.8333333333333334,
+        "level2_accuracy": 0,
+        "level3_accuracy": 0,
+        "full_path_accuracy": 0,
+        "mean_path_score": 0.33333333333333337
+      },
+      "context": {
+        "count": 60,
+        "level1_accuracy": 0.6,
+        "level2_accuracy": 0,
+        "level3_accuracy": 0,
+        "full_path_accuracy": 0,
+        "mean_path_score": 0.24000000000000002
+      },
+      "multi_intent": {
+        "count": 20,
+        "level1_accuracy": 0.85,
+        "level2_accuracy": 0,
+        "level3_accuracy": 0,
+        "full_path_accuracy": 0,
+        "mean_path_score": 0.34
+      },
+      "noise": {
+        "count": 88,
+        "level1_accuracy": 0.7613636363636364,
+        "level2_accuracy": 0.03409090909090909,
+        "level3_accuracy": 0.03409090909090909,
+        "full_path_accuracy": 0.03409090909090909,
+        "mean_path_score": 0.325
+      }
+    },
+    "difficulty": {
+      "easy": {
+        "count": 110,
+        "level1_accuracy": 0.7363636363636363,
+        "level2_accuracy": 0.01818181818181818,
+        "level3_accuracy": 0.01818181818181818,
+        "full_path_accuracy": 0.01818181818181818,
+        "mean_path_score": 0.3054545454545455
+      },
+      "hard": {
+        "count": 180,
+        "level1_accuracy": 0.7222222222222222,
+        "level2_accuracy": 0.09444444444444444,
+        "level3_accuracy": 0.09444444444444444,
+        "full_path_accuracy": 0.09444444444444444,
+        "mean_path_score": 0.34555555555555556
+      },
+      "medium": {
+        "count": 418,
+        "level1_accuracy": 0.7894736842105263,
+        "level2_accuracy": 0.03349282296650718,
+        "level3_accuracy": 0.03349282296650718,
+        "full_path_accuracy": 0.03349282296650718,
+        "mean_path_score": 0.33588516746411484
+      }
+    },
+    "has_noise": {
+      "False": {
+        "count": 620,
+        "level1_accuracy": 0.7645161290322581,
+        "level2_accuracy": 0.04838709677419355,
+        "level3_accuracy": 0.04838709677419355,
+        "full_path_accuracy": 0.04838709677419355,
+        "mean_path_score": 0.33483870967741935
+      },
+      "True": {
+        "count": 88,
+        "level1_accuracy": 0.7613636363636364,
+        "level2_accuracy": 0.03409090909090909,
+        "level3_accuracy": 0.03409090909090909,
+        "full_path_accuracy": 0.03409090909090909,
+        "mean_path_score": 0.325
+      }
+    },
+    "emotion": {
+      "negative": {
+        "count": 44,
+        "level1_accuracy": 0.7272727272727273,
+        "level2_accuracy": 0.045454545454545456,
+        "level3_accuracy": 0.045454545454545456,
+        "full_path_accuracy": 0.045454545454545456,
+        "mean_path_score": 0.3181818181818182
+      },
+      "neutral": {
+        "count": 664,
+        "level1_accuracy": 0.766566265060241,
+        "level2_accuracy": 0.046686746987951805,
+        "level3_accuracy": 0.046686746987951805,
+        "full_path_accuracy": 0.046686746987951805,
+        "mean_path_score": 0.3346385542168675
+      }
+    }
+  },
+  "context_accuracy": 0.6,
+  "confusable_accuracy": 0.8333333333333334,
+  "output": {
+    "valid_rate": 0.05084745762711865,
+    "json_valid_rate": 1,
+    "path_prefix_valid_rate": 0.05084745762711865,
+    "fallback_count": 35,
+    "exception_count": 0
+  },
+  "latency_ms": {
+    "mean": 1290.1246468926554,
+    "median": 1246.17,
+    "p95": 1836.46,
+    "max": 2835.84
+  },
+  "top_level1_confusions": [
+    {
+      "gold": "review",
+      "predicted": "after_sale",
+      "count": 10
+    },
+    {
+      "gold": "review",
+      "predicted": "other",
+      "count": 9
+    },
+    {
+      "gold": "quality_issue",
+      "predicted": "after_sale",
+      "count": 8
+    },
+    {
+      "gold": "logistics_delay",
+      "predicted": "logistics",
+      "count": 8
+    },
+    {
+      "gold": "routine",
+      "predicted": "usage",
+      "count": 7
+    },
+    {
+      "gold": "authenticity_shelf_life",
+      "predicted": "product_info",
+      "count": 7
+    },
+    {
+      "gold": "safety_allergy",
+      "predicted": "usage",
+      "count": 7
+    },
+    {
+      "gold": "urge_shipment",
+      "predicted": "logistics_delay",
+      "count": 7
+    },
+    {
+      "gold": "comparison",
+      "predicted": "product_info",
+      "count": 6
+    },
+    {
+      "gold": "gift_sample",
+      "predicted": "after_sale",
+      "count": 6
+    },
+    {
+      "gold": "other",
+      "predicted": "product_info",
+      "count": 6
+    },
+    {
+      "gold": "skin_concern",
+      "predicted": "routine",
+      "count": 5
+    },
+    {
+      "gold": "comparison",
+      "predicted": "skin_type",
+      "count": 5
+    },
+    {
+      "gold": "comparison",
+      "predicted": "price",
+      "count": 5
+    },
+    {
+      "gold": "skin_type",
+      "predicted": "skin_concern",
+      "count": 4
+    },
+    {
+      "gold": "skin_type",
+      "predicted": "product_info",
+      "count": 4
+    },
+    {
+      "gold": "other",
+      "predicted": "quality_issue",
+      "count": 4
+    },
+    {
+      "gold": "skin_type",
+      "predicted": "compatibility",
+      "count": 3
+    },
+    {
+      "gold": "ingredient",
+      "predicted": "product_info",
+      "count": 3
+    },
+    {
+      "gold": "efficacy",
+      "predicted": "product_info",
+      "count": 3
+    }
+  ],
+  "error_types": {
+    "hierarchy_path": 460,
+    "over_clarify": 26,
+    "over_confident": 140,
+    "correct": 14,
+    "under_confident": 23,
+    "clarify_missed": 20,
+    "classification_error": 6,
+    "multi_intent": 19
+  }
+}
