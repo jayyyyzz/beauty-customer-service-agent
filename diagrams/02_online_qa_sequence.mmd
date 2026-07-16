@@ -1,0 +1,46 @@
+sequenceDiagram
+    participant User as 用户
+    participant Web as FastAPI / Web
+    participant Safety as 安全防护
+    participant Agent as Agent 编排
+    participant Memory as 会话状态
+    participant LLM as DeepSeek
+    participant ES as Elasticsearch
+    participant Tool as 业务工具
+    participant Handoff as 人工工单
+
+    User->>Web: conversation_id + 问题 + 用户身份
+    Web->>Safety: 脱敏、注入检测、护肤风险分级
+
+    alt 提示词注入或严重安全风险
+        Safety->>Handoff: 创建脱敏人工工单
+        Safety-->>Web: 安全提示 / 人工转接
+    else 正常请求
+        Safety->>Agent: 安全后的问题
+        Agent->>Memory: 读取历史消息、槽位和待处理任务
+        Agent->>LLM: 多意图识别
+        LLM-->>Agent: intents + keywords + confidence
+        Agent->>Memory: 创建或恢复任务
+
+        alt 缺少订单号等必要槽位
+            Agent-->>Web: 澄清问题，任务进入 waiting_user
+        else 知识库任务
+            Agent->>ES: 元数据过滤 + BM25/kNN/RRF/MMR 检索
+            ES-->>Agent: 去重知识与来源引用
+        else 业务工具任务
+            Agent->>Tool: 查询或提交业务操作
+            Tool-->>Agent: 结果 / 待确认操作
+        else 混合任务
+            Agent->>ES: 检索政策、FAQ、商品或对话知识
+            Agent->>Tool: 查询订单或执行已确认操作
+            ES-->>Agent: 知识与引用
+            Tool-->>Agent: 业务结果
+        end
+
+        Agent->>LLM: 历史 + 知识 + 工具结果 + 安全边界
+        LLM-->>Agent: 客服回复
+        Agent->>Memory: 保存消息、槽位和任务结果
+        Agent-->>Web: answer + route + citations + trace
+    end
+
+    Web-->>User: 最终回复与可解释执行信息

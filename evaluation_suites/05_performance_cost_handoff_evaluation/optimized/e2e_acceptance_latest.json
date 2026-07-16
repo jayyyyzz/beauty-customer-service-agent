@@ -1,0 +1,107 @@
+{
+  "generated_at": "2026-07-16T12:26:34+08:00",
+  "cases": [
+    {
+      "name": "knowledge_routine_short_query",
+      "question": "护肤流程有吗？",
+      "expected_route": "knowledge_base",
+      "expected_topics": [
+        "用法用量"
+      ],
+      "passed": true,
+      "elapsed_seconds": 7.793,
+      "failures": [],
+      "route": "knowledge_base",
+      "intent_level1": "routine",
+      "intent_confidence": 0.99,
+      "knowledge_topics": [
+        "用法用量",
+        "用法用量",
+        "色号彩妆"
+      ],
+      "knowledge_chunk_ids": [
+        null,
+        null,
+        null
+      ],
+      "order_status": null,
+      "answer": "通用护肤顺序：洁面→水→精华→乳/霜→（白天）防晒，质地越轻薄越先用[S1]。您脸干、泛红，可以将修护精华放在精华步骤使用。需要更具体的搭配请告诉我早晚习惯和产品。"
+    },
+    {
+      "name": "knowledge_skin_type",
+      "question": "油皮适合用面霜吗？",
+      "expected_route": "knowledge_base",
+      "expected_topics": [
+        "肤质匹配"
+      ],
+      "passed": true,
+      "elapsed_seconds": 3.735,
+      "failures": [],
+      "route": "knowledge_base",
+      "intent_level1": "skin_type",
+      "intent_confidence": 0.99,
+      "knowledge_topics": [
+        "肤质匹配",
+        "用法用量",
+        "肤质匹配"
+      ],
+      "knowledge_chunk_ids": [
+        null,
+        null,
+        null
+      ],
+      "order_status": null,
+      "answer": "油皮可以用面霜，选肤感清爽的产品一般不会闷痘[S1][S2]。建议首次先在耳后或手臂内侧试用，无不适再全脸使用[S1]。"
+    },
+    {
+      "name": "business_logistics",
+      "question": "订单 MOCK202606260003 的快递到哪里了？",
+      "expected_route": "business_api",
+      "expected_topics": [],
+      "passed": true,
+      "elapsed_seconds": 0.951,
+      "failures": [],
+      "route": "business_api",
+      "intent_level1": "logistics",
+      "intent_confidence": 0.99,
+      "knowledge_topics": [],
+      "knowledge_chunk_ids": [],
+      "order_status": "succeeded",
+      "answer": "订单 MOCK202606260003；订单状态为已支付，支付状态为已支付，履约状态为已发货；承运方为 SF Express，运单号为 SF6046680126，系统记录的预计送达时间为 2026-06-30。"
+    },
+    {
+      "name": "hybrid_quality_issue",
+      "question": "收到的精华漏液了，应该怎么处理？",
+      "expected_route": "hybrid",
+      "expected_topics": [
+        "破损补发",
+        "过敏售后",
+        "退换货"
+      ],
+      "passed": true,
+      "elapsed_seconds": 4.089,
+      "failures": [],
+      "route": "hybrid",
+      "intent_level1": "quality_issue",
+      "intent_confidence": 0.99,
+      "knowledge_topics": [
+        "破损补发",
+        "回购老客",
+        "退换货"
+      ],
+      "knowledge_chunk_ids": [
+        null,
+        null,
+        null
+      ],
+      "order_status": "succeeded",
+      "answer": "已查到订单 MOCK202606260003，精华漏液可为您安排补发并附赠同款旅行装作为补偿[S1]。请问您确认需要补发吗？"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "all_passed": true
+  }
+}

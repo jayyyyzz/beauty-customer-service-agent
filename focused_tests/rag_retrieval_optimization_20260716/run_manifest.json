@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-07-16T08:01:13.731578+00:00",
+  "python": "3.14.5",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "benchmark": "F:\\111_ai大模型学习资料\\beauty-customer-service-agent\\focused_tests\\rag_retrieval_optimization_20260716\\benchmark\\retrieval_benchmark_v2.jsonl",
+  "query_count": 111,
+  "snapshot": {
+    "index": "customer_service_knowledge_v1",
+    "document_count": 25520,
+    "document_types": {
+      "faq": 22576,
+      "conversation": 1904,
+      "product": 1034,
+      "policy": 3,
+      "shipping": 3
+    },
+    "languages": {
+      "en": 22573,
+      "zh": 2947
+    },
+    "embedding_model": "bge-small-zh-v1.5",
+    "vector_dims": 512
+  },
+  "encoding": {
+    "cache_loaded": true,
+    "total_ms": 0.0,
+    "avg_ms": 0.0
+  },
+  "best_params": {
+    "num_candidates": 120,
+    "candidate_k": 12,
+    "dedup_threshold": 0.82,
+    "profile": "balanced"
+  },
+  "baseline_experiments": [
+    "A_bm25_raw",
+    "B_knn_raw",
+    "C_hybrid_enhanced",
+    "D_hybrid_enhanced_dedup",
+    "P_production_rrf_mmr"
+  ],
+  "optimized_experiment": "O_hybrid_contextual_rerank",
+  "note": "弱监督银标评测；参数只在 calibration split 选择。"
+}

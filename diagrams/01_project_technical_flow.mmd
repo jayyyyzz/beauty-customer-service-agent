@@ -1,0 +1,36 @@
+flowchart TD
+    subgraph Offline["离线知识建设"]
+        RAW["公开数据与模拟customer_dialogues"] --> CLEAN["data/processed<br/>清洗后的商品、FAQ、政策、物流数据"]
+        RAW --> CHUNK["chunk/<br/>customer_dialogues切分与评测"]
+        CLEAN --> NORMALIZE["knowledge_sources.py<br/>统一 KnowledgeDocument"]
+        CHUNK --> NORMALIZE
+        NORMALIZE --> EMBED["bge_numpy.py<br/>本地 BGE 512维编码"]
+        EMBED --> INGEST["es_ingest.py<br/>内容哈希增量入库"]
+        INGEST --> INDEX["Elasticsearch<br/>多源文本、向量与元数据索引"]
+    end
+
+    subgraph Online["在线 Agent 链路"]
+        USER["用户 / Web 页面 / API"] --> WEB["web_app.py / main.py"]
+        WEB --> SAFE["agent_safety.py<br/>脱敏、注入检测、风险分级"]
+        SAFE --> AGENT["agent_pipeline.py<br/>Agent 总编排"]
+        AGENT <--> MEMORY["conversation_state.py<br/>消息、槽位、任务状态"]
+        AGENT --> INTENT["三级多意图识别<br/>DeepSeek"]
+        INTENT --> ROUTE{"知识 / 工具 / 混合<br/>澄清 / 人工"}
+
+        ROUTE --> SEARCH["es_search.py<br/>BM25 + kNN + RRF/MMR"]
+        INDEX --> SEARCH
+        SEARCH --> CONTEXT["去重知识片段与来源引用"]
+
+        ROUTE --> TOOLS["business_tools/<br/>查询、催发货、退款、取消、改址、发票"]
+        TOOLS <--> TOOLDB["runtime/business_tools.db<br/>权限、确认、幂等、审计"]
+
+        ROUTE --> HANDOFF["handoff_store.py<br/>人工工单"]
+        CONTEXT --> ANSWER["DeepSeek<br/>基于证据生成客服回复"]
+        TOOLS --> ANSWER
+        ANSWER --> RESULT["answer / route / citations / trace"]
+        HANDOFF --> RESULT
+        RESULT --> WEB
+    end
+
+    OBS["agent_observability.py<br/>结构化日志、延迟与路由指标"] -.-> WEB
+    OBS -.-> AGENT

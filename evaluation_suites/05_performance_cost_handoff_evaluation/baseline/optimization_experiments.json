@@ -1,0 +1,1627 @@
+{
+  "generated_at": "2026-07-16T10:36:48+08:00",
+  "note": "Small live latency/cost comparison; retrieval quality requires the full retrieval benchmark before deployment.",
+  "results": [
+    {
+      "id": "A_baseline",
+      "mode": "rrf_mmr",
+      "rerank": true,
+      "requests": 6,
+      "success_rate": 1.0,
+      "mean_latency_ms": 12247.09,
+      "median_latency_ms": 12425.84,
+      "mean_tokens": 3883.17,
+      "mean_cost_usd": 0.00025748,
+      "retrieval_nonempty_rate": 1.0,
+      "rows": [
+        {
+          "case_id": "opt_routine",
+          "question": "日常护肤流程应该怎么安排？",
+          "success": true,
+          "error": null,
+          "route": "knowledge_base",
+          "intent": "routine",
+          "intent_confidence": 0.9,
+          "elapsed_ms": 16004.89,
+          "trace": {
+            "trace_id": "trace_96bb2e09cda042afb96743f19cfbf76a",
+            "conversation_id": "A_baseline_0_opt_routine_3a3ae95e",
+            "route": "knowledge_base",
+            "total_latency_ms": 16004.88,
+            "stages": [
+              {
+                "name": "intent_recognition",
+                "latency_ms": 3717.66,
+                "status": "success",
+                "prompt_tokens": 233,
+                "completion_tokens": 79,
+                "total_tokens": 312,
+                "cache_hit_tokens": 128,
+                "cache_miss_tokens": 105,
+                "model": "deepseek-chat"
+              },
+              {
+                "name": "embedding",
+                "latency_ms": 3027.44,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 2971.41,
+                "status": "success",
+                "mode": "rrf_mmr"
+              },
+              {
+                "name": "reranker",
+                "latency_ms": 2288.0,
+                "status": "success",
+                "prompt_tokens": 2429,
+                "completion_tokens": 82,
+                "total_tokens": 2511,
+                "cache_hit_tokens": 2304,
+                "cache_miss_tokens": 125,
+                "model": "deepseek-chat"
+              },
+              {
+                "name": "answer_generation",
+                "latency_ms": 1945.96,
+                "status": "success",
+                "prompt_tokens": 644,
+                "completion_tokens": 56,
+                "total_tokens": 700,
+                "cache_hit_tokens": 0,
+                "cache_miss_tokens": 644,
+                "model": "deepseek-chat"
+              }
+            ],
+            "tokens": {
+              "prompt": 3306,
+              "completion": 217,
+              "total": 3523,
+              "cache_hit": 2432,
+              "cache_miss": 874
+            }
+          },
+          "cost": {
+            "usd": 0.00018993,
+            "cache_hit_tokens": 2432,
+            "cache_miss_tokens": 874
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "日常护肤顺序可以这样安排：洁面→水→精华→乳/霜，如果是白天，最后再加一层防晒。总体原则是质地越轻薄越先用哦[S1][S3]。您是想了解早晚是否有区别，还是有具体产品需要确认顺序呢？",
+          "knowledge_topics": [
+            "用法用量",
+            "优惠活动",
+            "用法用量"
+          ],
+          "knowledge_document_ids": [
+            "conversation:qa_topic_00332",
+            "conversation:qa_topic_00484",
+            "conversation:qa_topic_00765"
+          ],
+          "knowledge_document_types": [
+            "conversation",
+            "conversation",
+            "conversation"
+          ]
+        },
+        {
+          "case_id": "opt_skin",
+          "question": "油皮适合用面霜吗？",
+          "success": true,
+          "error": null,
+          "route": "knowledge_base",
+          "intent": "skin_type",
+          "intent_confidence": 0.95,
+          "elapsed_ms": 12164.05,
+          "trace": {
+            "trace_id": "trace_4c65d12f10a04caf9de4e9711dfdc8a0",
+            "conversation_id": "A_baseline_0_opt_skin_f41dc83e",
+            "route": "knowledge_base",
+            "total_latency_ms": 12164.03,
+            "stages": [
+              {
+                "name": "intent_recognition",
+                "latency_ms": 1480.79,
+                "status": "success",
+                "prompt_tokens": 232,
+                "completion_tokens": 84,
+                "total_tokens": 316,
+                "cache_hit_tokens": 128,
+                "cache_miss_tokens": 104,
+                "model": "deepseek-chat"
+              },
+              {
+                "name": "embedding",
+                "latency_ms": 2715.22,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 3515.71,
+                "status": "success",
+                "mode": "rrf_mmr"
+              },
+              {
+                "name": "reranker",
+                "latency_ms": 2039.35,
+                "status": "success",
+                "prompt_tokens": 1876,
+                "completion_tokens": 63,
+                "total_tokens": 1939,
+                "cache_hit_tokens": 1792,
+                "cache_miss_tokens": 84,
+                "model": "deepseek-chat"
+              },
+              {
+                "name": "answer_generation",
+                "latency_ms": 2245.77,
+                "status": "success",
+                "prompt_tokens": 613,
+                "completion_tokens": 110,
+                "total_tokens": 723,
+                "cache_hit_tokens": 0,
+                "cache_miss_tokens": 613,
+                "model": "deepseek-chat"
+              }
+            ],
+            "tokens": {
+              "prompt": 2721,
+              "completion": 257,
+              "total": 2978,
+              "cache_hit": 1920,
+              "cache_miss": 801
+            }
+          },
+          "cost": {
+            "usd": 0.00018948,
+            "cache_hit_tokens": 1920,
+            "cache_miss_tokens": 801
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "油皮是可以使用面霜的，关键是要选对质地。比如我们的角鲨烷保湿面霜，专门针对油痘肌做过测试，肤感清爽不闷，正确用量一般不会闷痘[S1]；如果对功效有更高要求，视黄醇抗皱晚霜也适合油皮，配方温和无酒精无香精[S3]。建议首次使用前先在耳后或手臂内侧试用一下，没有不适再上脸[S2]。你是在看哪一款呢？我可以帮你再详细看看～",
+          "knowledge_topics": [
+            "用法用量",
+            "肤质匹配",
+            "肤质匹配"
+          ],
+          "knowledge_document_ids": [
+            "conversation:qa_topic_00354",
+            "conversation:qa_topic_00293",
+            "conversation:qa_topic_00233"
+          ],
+          "knowledge_document_types": [
+            "conversation",
+            "conversation",
+            "conversation"
+          ]
+        },
+        {
+          "case_id": "opt_auth",
+          "question": "商品保质期和批次应该怎么看？",
+          "success": true,
+          "error": null,
+          "route": "multi_intent",
+          "intent": "authenticity_shelf_life",
+          "intent_confidence": 0.9,
+          "elapsed_ms": 16916.04,
+          "trace": {
+            "trace_id": "trace_7d90ccec9bbc44cabbdade8ad8f350ab",
+            "conversation_id": "A_baseline_0_opt_auth_a9c1d06e",
+            "route": "multi_intent",
+            "total_latency_ms": 16916.03,
+            "stages": [
+              {
+                "name": "intent_recognition",
+                "latency_ms": 1831.32,
+                "status": "success",
+                "prompt_tokens": 234,
+                "completion_tokens": 156,
+                "total_tokens": 390,
+                "cache_hit_tokens": 128,
+                "cache_miss_tokens": 106,
+                "model": "deepseek-chat"
+              },
+              {
+                "name": "embedding",
+                "latency_ms": 2284.47,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 2977.71,
+                "status": "success",
+                "mode": "rrf_mmr"
+              },
+              {
+                "name": "reranker",
+                "latency_ms": 2503.72,
+                "status": "success",
+                "prompt_tokens": 1882,
+                "completion_tokens": 82,
+                "total_tokens": 1964,
+                "cache_hit_tokens": 0,
+                "cache_miss_tokens": 1882,
+                "model": "deepseek-chat"
+              },
+              {
+                "name": "embedding",
+                "latency_ms": 0.0,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 3173.42,
+                "status": "success",
+                "mode": "rrf_mmr"
+              },
+              {
+                "name": "reranker",
+                "latency_ms": 1574.73,
+                "status": "success",
+                "prompt_tokens": 1882,
+                "completion_tokens": 82,
+                "total_tokens": 1964,
+                "cache_hit_tokens": 1792,
+                "cache_miss_tokens": 90,
+                "model": "deepseek-chat"
+              },
+              {
+                "name": "answer_generation",
+                "latency_ms": 2355.82,
+                "status": "success",
+                "prompt_tokens": 740,
+                "completion_tokens": 80,
+                "total_tokens": 820,
+                "cache_hit_tokens": 0,
+                "cache_miss_tokens": 740,
+                "model": "deepseek-chat"
+              }
+            ],
+            "tokens": {
+              "prompt": 4738,
+              "completion": 400,
+              "total": 5138,
+              "cache_hit": 1920,
+              "cache_miss": 2818
+            }
+          },
+          "cost": {
+            "usd": 0.0005119,
+            "cache_hit_tokens": 1920,
+            "cache_miss_tokens": 2818
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "您好！商品的保质期和批次号一般可以在瓶底或管尾的喷码上找到，格式通常是字母和数字组合，比如8778A65这样的编码。[S1] 您可以拍下瓶底/管尾的清晰照片发给我，我帮您查询具体的生产日期和保质期。另外，商品详情页也会标注批次说明哦～[S2]",
+          "knowledge_topics": [
+            "正品保质期",
+            "正品保质期",
+            "正品保质期"
+          ],
+          "knowledge_document_ids": [
+            "conversation:qa_topic_00079",
+            "conversation:qa_topic_00487",
+            "conversation:qa_topic_01866"
+          ],
+          "knowledge_document_types": [
+            "conversation",
+            "conversation",
+            "conversation"
+          ]
+        },
+        {
+          "case_id": "opt_routine",
+          "question": "日常护肤流程应该怎么安排？",
+          "success": true,
+          "error": null,
+          "route": "knowledge_base",
+          "intent": "routine",
+          "intent_confidence": 0.95,
+          "elapsed_ms": 7528.09,
+          "trace": {
+            "trace_id": "trace_93cfeafeb2474b37b3e96787621deb84",
+            "conversation_id": "A_baseline_1_opt_routine_56830993",
+            "route": "knowledge_base",
+            "total_latency_ms": 7528.08,
+            "stages": [
+              {
+                "name": "intent_recognition",
+                "latency_ms": 1349.98,
+                "status": "success",
+                "prompt_tokens": 230,
+                "completion_tokens": 72,
+                "total_tokens": 302,
+                "cache_hit_tokens": 128,
+                "cache_miss_tokens": 102,
+                "model": "deepseek-chat"
+              },
+              {
+                "name": "embedding",
+                "latency_ms": 0.01,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 2755.62,
+                "status": "success",
+                "mode": "rrf_mmr"
+              },
+              {
+                "name": "reranker",
+                "latency_ms": 1448.87,
+                "status": "success",
+                "prompt_tokens": 2429,
+                "completion_tokens": 82,
+                "total_tokens": 2511,
+                "cache_hit_tokens": 2304,
+                "cache_miss_tokens": 125,
+                "model": "deepseek-chat"
+              },
+              {
+                "name": "answer_generation",
+                "latency_ms": 1805.36,
+                "status": "success",
+                "prompt_tokens": 620,
+                "completion_tokens": 67,
+                "total_tokens": 687,
+                "cache_hit_tokens": 0,
+                "cache_miss_tokens": 620,
+                "model": "deepseek-chat"
+              }
+            ],
+            "tokens": {
+              "prompt": 3279,
+              "completion": 221,
+              "total": 3500,
+              "cache_hit": 2432,
+              "cache_miss": 847
+            }
+          },
+          "cost": {
+            "usd": 0.00018727,
+            "cache_hit_tokens": 2432,
+            "cache_miss_tokens": 847
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "日常护肤建议按这个顺序来：洁面→水→精华→乳/霜→（白天）防晒，质地越轻薄越先用哦[S1]。晚上用的话，乳液或面霜吸收更好，只晚上用也完全OK[S2]。如果有特定产品想咨询搭配，可以告诉我，我帮你看看～",
+          "knowledge_topics": [
+            "用法用量",
+            "用法用量",
+            "用法用量"
+          ],
+          "knowledge_document_ids": [
+            "conversation:qa_topic_00765",
+            "conversation:qa_topic_00332",
+            "conversation:qa_topic_00530"
+          ],
+          "knowledge_document_types": [
+            "conversation",
+            "conversation",
+            "conversation"
+          ]
+        },
+        {
+          "case_id": "opt_skin",
+          "question": "油皮适合用面霜吗？",
+          "success": true,
+          "error": null,
+          "route": "knowledge_base",
+          "intent": "skin_type",
+          "intent_confidence": 0.95,
+          "elapsed_ms": 8181.81,
+          "trace": {
+            "trace_id": "trace_7a3859bee1eb44f28dd5e425aed4774e",
+            "conversation_id": "A_baseline_1_opt_skin_2b81d4c9",
+            "route": "knowledge_base",
+            "total_latency_ms": 8181.8,
+            "stages": [
+              {
+                "name": "intent_recognition",
+                "latency_ms": 1448.87,
+                "status": "success",
+                "prompt_tokens": 235,
+                "completion_tokens": 84,
+                "total_tokens": 319,
+                "cache_hit_tokens": 128,
+                "cache_miss_tokens": 107,
+                "model": "deepseek-chat"
+              },
+              {
+                "name": "embedding",
+                "latency_ms": 0.01,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 3049.73,
+                "status": "success",
+                "mode": "rrf_mmr"
+              },
+              {
+                "name": "reranker",
+                "latency_ms": 1381.37,
+                "status": "success",
+                "prompt_tokens": 1876,
+                "completion_tokens": 82,
+                "total_tokens": 1958,
+                "cache_hit_tokens": 1792,
+                "cache_miss_tokens": 84,
+                "model": "deepseek-chat"
+              },
+              {
+                "name": "answer_generation",
+                "latency_ms": 2158.0,
+                "status": "success",
+                "prompt_tokens": 611,
+                "completion_tokens": 95,
+                "total_tokens": 706,
+                "cache_hit_tokens": 0,
+                "cache_miss_tokens": 611,
+                "model": "deepseek-chat"
+              }
+            ],
+            "tokens": {
+              "prompt": 2722,
+              "completion": 261,
+              "total": 2983,
+              "cache_hit": 1920,
+              "cache_miss": 802
+            }
+          },
+          "cost": {
+            "usd": 0.00019074,
+            "cache_hit_tokens": 1920,
+            "cache_miss_tokens": 802
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "油皮是可以使用面霜的，不过建议选择质地比较清爽、不油腻的款式。比如我们有的面霜就会针对油皮和油痘肌做测试，肤感清爽不闷，正常用量下一般不会闷痘。[S1][S2] 如果你是新尝试，建议第一次先在耳后或手臂内侧试用一下，没有不适再上脸哦~[S1] 需要我帮你推荐适合油皮的面霜吗？",
+          "knowledge_topics": [
+            "肤质匹配",
+            "用法用量",
+            "用法用量"
+          ],
+          "knowledge_document_ids": [
+            "conversation:qa_topic_00293",
+            "conversation:qa_topic_00354",
+            "conversation:qa_topic_01280"
+          ],
+          "knowledge_document_types": [
+            "conversation",
+            "conversation",
+            "conversation"
+          ]
+        },
+        {
+          "case_id": "opt_auth",
+          "question": "商品保质期和批次应该怎么看？",
+          "success": true,
+          "error": null,
+          "route": "multi_intent",
+          "intent": "authenticity_shelf_life",
+          "intent_confidence": 0.9,
+          "elapsed_ms": 12687.64,
+          "trace": {
+            "trace_id": "trace_9c6a184d54b9492c9f2b3a67d773a6ec",
+            "conversation_id": "A_baseline_1_opt_auth_1c8b0f07",
+            "route": "multi_intent",
+            "total_latency_ms": 12687.62,
+            "stages": [
+              {
+                "name": "intent_recognition",
+                "latency_ms": 1744.11,
+                "status": "success",
+                "prompt_tokens": 235,
+                "completion_tokens": 163,
+                "total_tokens": 398,
+                "cache_hit_tokens": 128,
+                "cache_miss_tokens": 107,
+                "model": "deepseek-chat"
+              },
+              {
+                "name": "embedding",
+                "latency_ms": 0.01,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 2737.58,
+                "status": "success",
+                "mode": "rrf_mmr"
+              },
+              {
+                "name": "reranker",
+                "latency_ms": 1338.09,
+                "status": "success",
+                "prompt_tokens": 1882,
+                "completion_tokens": 82,
+                "total_tokens": 1964,
+                "cache_hit_tokens": 1792,
+                "cache_miss_tokens": 90,
+                "model": "deepseek-chat"
+              },
+              {
+                "name": "embedding",
+                "latency_ms": 0.01,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 2808.44,
+                "status": "success",
+                "mode": "rrf_mmr"
+              },
+              {
+                "name": "reranker",
+                "latency_ms": 1523.76,
+                "status": "success",
+                "prompt_tokens": 1882,
+                "completion_tokens": 97,
+                "total_tokens": 1979,
+                "cache_hit_tokens": 1792,
+                "cache_miss_tokens": 90,
+                "model": "deepseek-chat"
+              },
+              {
+                "name": "answer_generation",
+                "latency_ms": 2355.19,
+                "status": "success",
+                "prompt_tokens": 749,
+                "completion_tokens": 87,
+                "total_tokens": 836,
+                "cache_hit_tokens": 0,
+                "cache_miss_tokens": 749,
+                "model": "deepseek-chat"
+              }
+            ],
+            "tokens": {
+              "prompt": 4748,
+              "completion": 429,
+              "total": 5177,
+              "cache_hit": 3712,
+              "cache_miss": 1036
+            }
+          },
+          "cost": {
+            "usd": 0.00027555,
+            "cache_hit_tokens": 3712,
+            "cache_miss_tokens": 1036
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "您好，商品的生产批号一般在瓶底或管尾的喷码上，格式通常是一串字母和数字的组合，比如8778A65。[S1] 不同产品的保质期可能略有不同，多数是3年，具体保质期信息在商品详情页也都有说明。[S1][S2] 如果您把批号发给我，我可以帮您查询具体的生产日期和到期时间哦。",
+          "knowledge_topics": [
+            "正品保质期",
+            "正品保质期",
+            "正品保质期"
+          ],
+          "knowledge_document_ids": [
+            "conversation:qa_topic_00079",
+            "conversation:qa_topic_00487",
+            "conversation:qa_topic_01866"
+          ],
+          "knowledge_document_types": [
+            "conversation",
+            "conversation",
+            "conversation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B_disable_llm_rerank",
+      "mode": "rrf_mmr",
+      "rerank": false,
+      "requests": 6,
+      "success_rate": 1.0,
+      "mean_latency_ms": 7939.47,
+      "median_latency_ms": 7352.99,
+      "mean_tokens": 1027.83,
+      "mean_cost_usd": 0.00015259,
+      "retrieval_nonempty_rate": 1.0,
+      "rows": [
+        {
+          "case_id": "opt_routine",
+          "question": "日常护肤流程应该怎么安排？",
+          "success": true,
+          "error": null,
+          "route": "knowledge_base",
+          "intent": "routine",
+          "intent_confidence": 0.95,
+          "elapsed_ms": 7580.03,
+          "trace": {
+            "trace_id": "trace_77aa536356b645f6b17a0e03d991359f",
+            "conversation_id": "B_disable_llm_rerank_0_opt_routine_e053b5e1",
+            "route": "knowledge_base",
+            "total_latency_ms": 7580.01,
+            "stages": [
+              {
+                "name": "intent_recognition",
+                "latency_ms": 1469.58,
+                "status": "success",
+                "prompt_tokens": 237,
+                "completion_tokens": 84,
+                "total_tokens": 321,
+                "cache_hit_tokens": 128,
+                "cache_miss_tokens": 109,
+                "model": "deepseek-chat"
+              },
+              {
+                "name": "embedding",
+                "latency_ms": 0.01,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 3222.88,
+                "status": "success",
+                "mode": "rrf_mmr"
+              },
+              {
+                "name": "answer_generation",
+                "latency_ms": 2728.18,
+                "status": "success",
+                "prompt_tokens": 610,
+                "completion_tokens": 119,
+                "total_tokens": 729,
+                "cache_hit_tokens": 0,
+                "cache_miss_tokens": 610,
+                "model": "deepseek-chat"
+              }
+            ],
+            "tokens": {
+              "prompt": 847,
+              "completion": 203,
+              "total": 1050,
+              "cache_hit": 128,
+              "cache_miss": 719
+            }
+          },
+          "cost": {
+            "usd": 0.00015786,
+            "cache_hit_tokens": 128,
+            "cache_miss_tokens": 719
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "日常护肤流程可以参考这个顺序：**洁面→水→精华→乳/霜→（白天）防晒**，质地越轻薄的产品越先用哦[S1]。比如你如果有美白淡斑精华，就用在爽肤水之后、乳液或面霜之前[S1]。如果白天出门，最后加一步防晒就好。敏感肌的话，用新产品前建议先在耳后或手臂内侧试一下，没有不适再上脸[S2]。你具体是什么肤质？或者有哪几款产品想搭配使用？可以告诉我，我帮你看看步骤合不合适～",
+          "knowledge_topics": [
+            "用法用量",
+            "肤质匹配",
+            "优惠活动"
+          ],
+          "knowledge_document_ids": [
+            "conversation:qa_topic_00108",
+            "conversation:qa_topic_02325",
+            "conversation:qa_topic_00484"
+          ],
+          "knowledge_document_types": [
+            "conversation",
+            "conversation",
+            "conversation"
+          ]
+        },
+        {
+          "case_id": "opt_skin",
+          "question": "油皮适合用面霜吗？",
+          "success": true,
+          "error": null,
+          "route": "knowledge_base",
+          "intent": "skin_type",
+          "intent_confidence": 0.95,
+          "elapsed_ms": 7292.92,
+          "trace": {
+            "trace_id": "trace_ae90137cbe574794aa7e4d3265e0dd05",
+            "conversation_id": "B_disable_llm_rerank_0_opt_skin_58b12f69",
+            "route": "knowledge_base",
+            "total_latency_ms": 7292.9,
+            "stages": [
+              {
+                "name": "intent_recognition",
+                "latency_ms": 1503.78,
+                "status": "success",
+                "prompt_tokens": 238,
+                "completion_tokens": 72,
+                "total_tokens": 310,
+                "cache_hit_tokens": 128,
+                "cache_miss_tokens": 110,
+                "model": "deepseek-chat"
+              },
+              {
+                "name": "embedding",
+                "latency_ms": 0.01,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 3028.74,
+                "status": "success",
+                "mode": "rrf_mmr"
+              },
+              {
+                "name": "answer_generation",
+                "latency_ms": 2598.5,
+                "status": "success",
+                "prompt_tokens": 568,
+                "completion_tokens": 99,
+                "total_tokens": 667,
+                "cache_hit_tokens": 0,
+                "cache_miss_tokens": 568,
+                "model": "deepseek-chat"
+              }
+            ],
+            "tokens": {
+              "prompt": 806,
+              "completion": 171,
+              "total": 977,
+              "cache_hit": 128,
+              "cache_miss": 678
+            }
+          },
+          "cost": {
+            "usd": 0.00014316,
+            "cache_hit_tokens": 128,
+            "cache_miss_tokens": 678
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "油皮是可以使用面霜的，关键要看具体产品的配方。比如有些修护类面霜配方温和无酒精无香精，油皮也能放心用[S1]。而且有些产品还针对油皮做过测试，肤感清爽不闷[S2]。建议您可以看看面霜的质地描述，像“轻薄”“清爽”“无油”这类关键词的会更适合油皮。您有具体看中哪款面霜吗？我可以帮您看看适不适合。",
+          "knowledge_topics": [
+            "肤质匹配",
+            "用法用量",
+            "肤质匹配"
+          ],
+          "knowledge_document_ids": [
+            "conversation:qa_topic_02458",
+            "conversation:qa_topic_00195",
+            "conversation:qa_topic_00873"
+          ],
+          "knowledge_document_types": [
+            "conversation",
+            "conversation",
+            "conversation"
+          ]
+        },
+        {
+          "case_id": "opt_auth",
+          "question": "商品保质期和批次应该怎么看？",
+          "success": true,
+          "error": null,
+          "route": "knowledge_base",
+          "intent": "authenticity_shelf_life",
+          "intent_confidence": 0.95,
+          "elapsed_ms": 7267.14,
+          "trace": {
+            "trace_id": "trace_494d5e2de2654231b5a350c4e5c78076",
+            "conversation_id": "B_disable_llm_rerank_0_opt_auth_f0f9a430",
+            "route": "knowledge_base",
+            "total_latency_ms": 7267.13,
+            "stages": [
+              {
+                "name": "intent_recognition",
+                "latency_ms": 1398.7,
+                "status": "success",
+                "prompt_tokens": 238,
+                "completion_tokens": 88,
+                "total_tokens": 326,
+                "cache_hit_tokens": 128,
+                "cache_miss_tokens": 110,
+                "model": "deepseek-chat"
+              },
+              {
+                "name": "embedding",
+                "latency_ms": 0.01,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 2887.19,
+                "status": "success",
+                "mode": "rrf_mmr"
+              },
+              {
+                "name": "answer_generation",
+                "latency_ms": 2835.16,
+                "status": "success",
+                "prompt_tokens": 587,
+                "completion_tokens": 107,
+                "total_tokens": 694,
+                "cache_hit_tokens": 0,
+                "cache_miss_tokens": 587,
+                "model": "deepseek-chat"
+              }
+            ],
+            "tokens": {
+              "prompt": 825,
+              "completion": 195,
+              "total": 1020,
+              "cache_hit": 128,
+              "cache_miss": 697
+            }
+          },
+          "cost": {
+            "usd": 0.00015254,
+            "cache_hit_tokens": 128,
+            "cache_miss_tokens": 697
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "您好，商品的生产批号通常印在瓶底或管尾的喷码上，格式一般是一串字母和数字组合，例如“5824A46”[S2]。批号可以用于查询生产日期，但具体保质期时长，不同商品不同，一般详情页会有批次和保质期说明，您也可以根据包装上的“保质期至”字样直接查看[S2]。如果您需要我帮您查询具体批号对应的生产日期，请把批号发给我，我来帮您查看。",
+          "knowledge_topics": [
+            "正品保质期",
+            "正品保质期",
+            "正品保质期"
+          ],
+          "knowledge_document_ids": [
+            "conversation:qa_topic_00229",
+            "conversation:qa_topic_01245",
+            "conversation:qa_topic_00705"
+          ],
+          "knowledge_document_types": [
+            "conversation",
+            "conversation",
+            "conversation"
+          ]
+        },
+        {
+          "case_id": "opt_routine",
+          "question": "日常护肤流程应该怎么安排？",
+          "success": true,
+          "error": null,
+          "route": "knowledge_base",
+          "intent": "routine",
+          "intent_confidence": 0.95,
+          "elapsed_ms": 7062.64,
+          "trace": {
+            "trace_id": "trace_fadfc746dd7d49b4b00f41de24fb6c2b",
+            "conversation_id": "B_disable_llm_rerank_1_opt_routine_7fa4587c",
+            "route": "knowledge_base",
+            "total_latency_ms": 7062.63,
+            "stages": [
+              {
+                "name": "intent_recognition",
+                "latency_ms": 1396.59,
+                "status": "success",
+                "prompt_tokens": 237,
+                "completion_tokens": 84,
+                "total_tokens": 321,
+                "cache_hit_tokens": 128,
+                "cache_miss_tokens": 109,
+                "model": "deepseek-chat"
+              },
+              {
+                "name": "embedding",
+                "latency_ms": 0.01,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 3045.38,
+                "status": "success",
+                "mode": "rrf_mmr"
+              },
+              {
+                "name": "answer_generation",
+                "latency_ms": 2473.75,
+                "status": "success",
+                "prompt_tokens": 611,
+                "completion_tokens": 83,
+                "total_tokens": 694,
+                "cache_hit_tokens": 0,
+                "cache_miss_tokens": 611,
+                "model": "deepseek-chat"
+              }
+            ],
+            "tokens": {
+              "prompt": 848,
+              "completion": 167,
+              "total": 1015,
+              "cache_hit": 128,
+              "cache_miss": 720
+            }
+          },
+          "cost": {
+            "usd": 0.00014792,
+            "cache_hit_tokens": 128,
+            "cache_miss_tokens": 720
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "日常护肤流程可以参考这个简单步骤：洁面→水→精华→乳/霜，白天记得最后加防晒，质地越轻薄越先用哦[S1]。如果你是敏感肌，新品上脸前建议先在耳后或手臂内侧试用，没问题再用[S2]。这样安排比较基础，适合大部分人。如果皮肤有不适或特殊情况，可以告诉我你的肤质和需求，我再帮你细化！",
+          "knowledge_topics": [
+            "用法用量",
+            "肤质匹配",
+            "优惠活动"
+          ],
+          "knowledge_document_ids": [
+            "conversation:qa_topic_00108",
+            "conversation:qa_topic_02325",
+            "conversation:qa_topic_00484"
+          ],
+          "knowledge_document_types": [
+            "conversation",
+            "conversation",
+            "conversation"
+          ]
+        },
+        {
+          "case_id": "opt_skin",
+          "question": "油皮适合用面霜吗？",
+          "success": true,
+          "error": null,
+          "route": "knowledge_base",
+          "intent": "skin_type",
+          "intent_confidence": 1.0,
+          "elapsed_ms": 7413.05,
+          "trace": {
+            "trace_id": "trace_62a7a20865be422b88af1a9f9899307a",
+            "conversation_id": "B_disable_llm_rerank_1_opt_skin_dfb2b466",
+            "route": "knowledge_base",
+            "total_latency_ms": 7413.04,
+            "stages": [
+              {
+                "name": "intent_recognition",
+                "latency_ms": 1560.56,
+                "status": "success",
+                "prompt_tokens": 237,
+                "completion_tokens": 86,
+                "total_tokens": 323,
+                "cache_hit_tokens": 128,
+                "cache_miss_tokens": 109,
+                "model": "deepseek-chat"
+              },
+              {
+                "name": "embedding",
+                "latency_ms": 0.01,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 3477.13,
+                "status": "success",
+                "mode": "rrf_mmr"
+              },
+              {
+                "name": "answer_generation",
+                "latency_ms": 2211.54,
+                "status": "success",
+                "prompt_tokens": 569,
+                "completion_tokens": 76,
+                "total_tokens": 645,
+                "cache_hit_tokens": 0,
+                "cache_miss_tokens": 569,
+                "model": "deepseek-chat"
+              }
+            ],
+            "tokens": {
+              "prompt": 806,
+              "completion": 162,
+              "total": 968,
+              "cache_hit": 128,
+              "cache_miss": 678
+            }
+          },
+          "cost": {
+            "usd": 0.00014064,
+            "cache_hit_tokens": 128,
+            "cache_miss_tokens": 678
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "油皮是可以使用面霜的，关键要选对质地和成分。比如一些神经酰胺修护面霜，配方温和无酒精无香精，油皮也能放心用[S1]。不过具体产品建议您查看商品详情，挑质地清爽、不油腻的款。您有看中的面霜吗？我可以帮您确认是否适合油皮。",
+          "knowledge_topics": [
+            "肤质匹配",
+            "用法用量",
+            "肤质匹配"
+          ],
+          "knowledge_document_ids": [
+            "conversation:qa_topic_02458",
+            "conversation:qa_topic_00195",
+            "conversation:qa_topic_00873"
+          ],
+          "knowledge_document_types": [
+            "conversation",
+            "conversation",
+            "conversation"
+          ]
+        },
+        {
+          "case_id": "opt_auth",
+          "question": "商品保质期和批次应该怎么看？",
+          "success": true,
+          "error": null,
+          "route": "multi_intent",
+          "intent": "authenticity_shelf_life",
+          "intent_confidence": 0.9,
+          "elapsed_ms": 11021.02,
+          "trace": {
+            "trace_id": "trace_499e866c06d14d93b31b595cc1abb6f6",
+            "conversation_id": "B_disable_llm_rerank_1_opt_auth_6f3704d9",
+            "route": "multi_intent",
+            "total_latency_ms": 11021.01,
+            "stages": [
+              {
+                "name": "intent_recognition",
+                "latency_ms": 1695.14,
+                "status": "success",
+                "prompt_tokens": 239,
+                "completion_tokens": 155,
+                "total_tokens": 394,
+                "cache_hit_tokens": 128,
+                "cache_miss_tokens": 111,
+                "model": "deepseek-chat"
+              },
+              {
+                "name": "embedding",
+                "latency_ms": 0.01,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 2897.79,
+                "status": "success",
+                "mode": "rrf_mmr"
+              },
+              {
+                "name": "embedding",
+                "latency_ms": 0.01,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 2881.23,
+                "status": "success",
+                "mode": "rrf_mmr"
+              },
+              {
+                "name": "answer_generation",
+                "latency_ms": 3311.48,
+                "status": "success",
+                "prompt_tokens": 671,
+                "completion_tokens": 72,
+                "total_tokens": 743,
+                "cache_hit_tokens": 0,
+                "cache_miss_tokens": 671,
+                "model": "deepseek-chat"
+              }
+            ],
+            "tokens": {
+              "prompt": 910,
+              "completion": 227,
+              "total": 1137,
+              "cache_hit": 128,
+              "cache_miss": 782
+            }
+          },
+          "cost": {
+            "usd": 0.0001734,
+            "cache_hit_tokens": 128,
+            "cache_miss_tokens": 782
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "亲，商品保质期和批号一般在瓶底或管尾的喷码上，格式通常像 “5824A46” 这样[S2]。您可以根据喷码上的生产日期推算保质期，一般未开封保质期是3年[S2]。如果找不到具体位置，可以告诉我商品名称，我帮您进一步确认哦～",
+          "knowledge_topics": [
+            "正品保质期",
+            "正品保质期",
+            "正品保质期"
+          ],
+          "knowledge_document_ids": [
+            "conversation:qa_topic_00229",
+            "conversation:qa_topic_01245",
+            "conversation:qa_topic_00705"
+          ],
+          "knowledge_document_types": [
+            "conversation",
+            "conversation",
+            "conversation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C_bm25_no_rerank",
+      "mode": "bm25",
+      "rerank": false,
+      "requests": 6,
+      "success_rate": 1.0,
+      "mean_latency_ms": 6235.74,
+      "median_latency_ms": 6338.05,
+      "mean_tokens": 1029.17,
+      "mean_cost_usd": 0.00015035,
+      "retrieval_nonempty_rate": 1.0,
+      "rows": [
+        {
+          "case_id": "opt_routine",
+          "question": "日常护肤流程应该怎么安排？",
+          "success": true,
+          "error": null,
+          "route": "knowledge_base",
+          "intent": "routine",
+          "intent_confidence": 0.95,
+          "elapsed_ms": 6739.92,
+          "trace": {
+            "trace_id": "trace_6bc7a378160a450e8f8793d0829cce92",
+            "conversation_id": "C_bm25_no_rerank_0_opt_routine_64d8ba3b",
+            "route": "knowledge_base",
+            "total_latency_ms": 6739.91,
+            "stages": [
+              {
+                "name": "intent_recognition",
+                "latency_ms": 1473.66,
+                "status": "success",
+                "prompt_tokens": 237,
+                "completion_tokens": 82,
+                "total_tokens": 319,
+                "cache_hit_tokens": 128,
+                "cache_miss_tokens": 109,
+                "model": "deepseek-chat"
+              },
+              {
+                "name": "embedding",
+                "latency_ms": 0.0,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 2161.61,
+                "status": "success",
+                "mode": "bm25"
+              },
+              {
+                "name": "answer_generation",
+                "latency_ms": 2940.03,
+                "status": "success",
+                "prompt_tokens": 616,
+                "completion_tokens": 106,
+                "total_tokens": 722,
+                "cache_hit_tokens": 0,
+                "cache_miss_tokens": 616,
+                "model": "deepseek-chat"
+              }
+            ],
+            "tokens": {
+              "prompt": 853,
+              "completion": 188,
+              "total": 1041,
+              "cache_hit": 128,
+              "cache_miss": 725
+            }
+          },
+          "cost": {
+            "usd": 0.0001545,
+            "cache_hit_tokens": 128,
+            "cache_miss_tokens": 725
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "日常护肤流程可以按这个顺序来：洁面→水→精华→乳/霜→（白天）防晒，质地越轻薄的越先用哦[S1]。晚上可以只用到乳/霜那一步，不用涂防晒，晚间皮肤吸收效果会更好，只晚上用也完全OK~[S3] 如果想加入面膜之类的产品，可以在洁面后、水之前敷，之后照常涂后续步骤就好。您有具体想了解的产品吗？我可以帮您细化一下顺序。",
+          "knowledge_topics": [
+            "用法用量",
+            "用法用量",
+            "用法用量"
+          ],
+          "knowledge_document_ids": [
+            "conversation:qa_topic_02190",
+            "conversation:qa_topic_01392",
+            "conversation:qa_topic_01183"
+          ],
+          "knowledge_document_types": [
+            "conversation",
+            "conversation",
+            "conversation"
+          ]
+        },
+        {
+          "case_id": "opt_skin",
+          "question": "油皮适合用面霜吗？",
+          "success": true,
+          "error": null,
+          "route": "knowledge_base",
+          "intent": "skin_type",
+          "intent_confidence": 0.9,
+          "elapsed_ms": 6234.2,
+          "trace": {
+            "trace_id": "trace_f1b8faf3d62a43acafd67b4a522d4c3f",
+            "conversation_id": "C_bm25_no_rerank_0_opt_skin_3ddf936b",
+            "route": "knowledge_base",
+            "total_latency_ms": 6234.19,
+            "stages": [
+              {
+                "name": "intent_recognition",
+                "latency_ms": 1467.72,
+                "status": "success",
+                "prompt_tokens": 237,
+                "completion_tokens": 63,
+                "total_tokens": 300,
+                "cache_hit_tokens": 128,
+                "cache_miss_tokens": 109,
+                "model": "deepseek-chat"
+              },
+              {
+                "name": "embedding",
+                "latency_ms": 0.0,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 2146.49,
+                "status": "success",
+                "mode": "bm25"
+              },
+              {
+                "name": "answer_generation",
+                "latency_ms": 2469.76,
+                "status": "success",
+                "prompt_tokens": 652,
+                "completion_tokens": 92,
+                "total_tokens": 744,
+                "cache_hit_tokens": 0,
+                "cache_miss_tokens": 652,
+                "model": "deepseek-chat"
+              }
+            ],
+            "tokens": {
+              "prompt": 889,
+              "completion": 155,
+              "total": 1044,
+              "cache_hit": 128,
+              "cache_miss": 761
+            }
+          },
+          "cost": {
+            "usd": 0.0001503,
+            "cache_hit_tokens": 128,
+            "cache_miss_tokens": 761
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "油皮是可以使用面霜的，不过建议选择质地清爽、不油腻的保湿类面霜，比如角鲨烷保湿面霜这类成分温和的就很适合。[S1] 如果担心闷痘，首次用之前可以在耳后或手臂内侧先试一下，没有不适再上脸哦。[S1] 另外，如果你具体看中了哪款面霜，也可以告诉我，我帮你查查是否适合油皮～",
+          "knowledge_topics": [
+            "肤质匹配",
+            "肤质匹配",
+            "肤质匹配"
+          ],
+          "knowledge_document_ids": [
+            "conversation:qa_topic_00293",
+            "conversation:qa_topic_00519",
+            "conversation:qa_topic_01672"
+          ],
+          "knowledge_document_types": [
+            "conversation",
+            "conversation",
+            "conversation"
+          ]
+        },
+        {
+          "case_id": "opt_auth",
+          "question": "商品保质期和批次应该怎么看？",
+          "success": true,
+          "error": null,
+          "route": "knowledge_base",
+          "intent": "product_info",
+          "intent_confidence": 0.95,
+          "elapsed_ms": 6441.89,
+          "trace": {
+            "trace_id": "trace_ed67ab1116e541b5bf43283d07459394",
+            "conversation_id": "C_bm25_no_rerank_0_opt_auth_7ebc349a",
+            "route": "knowledge_base",
+            "total_latency_ms": 6441.88,
+            "stages": [
+              {
+                "name": "intent_recognition",
+                "latency_ms": 1431.58,
+                "status": "success",
+                "prompt_tokens": 237,
+                "completion_tokens": 78,
+                "total_tokens": 315,
+                "cache_hit_tokens": 128,
+                "cache_miss_tokens": 109,
+                "model": "deepseek-chat"
+              },
+              {
+                "name": "embedding",
+                "latency_ms": 0.0,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 2141.78,
+                "status": "success",
+                "mode": "bm25"
+              },
+              {
+                "name": "answer_generation",
+                "latency_ms": 2455.25,
+                "status": "success",
+                "prompt_tokens": 594,
+                "completion_tokens": 111,
+                "total_tokens": 705,
+                "cache_hit_tokens": 0,
+                "cache_miss_tokens": 594,
+                "model": "deepseek-chat"
+              }
+            ],
+            "tokens": {
+              "prompt": 831,
+              "completion": 189,
+              "total": 1020,
+              "cache_hit": 128,
+              "cache_miss": 703
+            }
+          },
+          "cost": {
+            "usd": 0.0001517,
+            "cache_hit_tokens": 128,
+            "cache_miss_tokens": 703
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "您好，查看商品保质期和批次的方法是这样的：大部分产品的批号都印在瓶底或管尾的喷码处，格式类似“6089A19”这样的编码。一般护肤品保质期为3年，具体信息在商品详情页也会有说明哦[S2]。如果您收到的产品与之前买的味道有细微差异，不同批次间可能会出现这种情况，属于正常现象，您也可以通过扫瓶身防伪码来验证真伪[S1][S3]。请问您具体是哪个产品需要查询？我可以帮您看看。",
+          "knowledge_topics": [
+            "正品保质期",
+            "正品保质期",
+            "正品保质期"
+          ],
+          "knowledge_document_ids": [
+            "conversation:qa_topic_00130",
+            "conversation:qa_topic_00147",
+            "conversation:qa_topic_00165"
+          ],
+          "knowledge_document_types": [
+            "conversation",
+            "conversation",
+            "conversation"
+          ]
+        },
+        {
+          "case_id": "opt_routine",
+          "question": "日常护肤流程应该怎么安排？",
+          "success": true,
+          "error": null,
+          "route": "knowledge_base",
+          "intent": "routine",
+          "intent_confidence": 0.95,
+          "elapsed_ms": 6478.71,
+          "trace": {
+            "trace_id": "trace_7b49e13cf4f349599df6f4aab22a66fd",
+            "conversation_id": "C_bm25_no_rerank_1_opt_routine_4d54b357",
+            "route": "knowledge_base",
+            "total_latency_ms": 6478.69,
+            "stages": [
+              {
+                "name": "intent_recognition",
+                "latency_ms": 1573.88,
+                "status": "success",
+                "prompt_tokens": 236,
+                "completion_tokens": 86,
+                "total_tokens": 322,
+                "cache_hit_tokens": 128,
+                "cache_miss_tokens": 108,
+                "model": "deepseek-chat"
+              },
+              {
+                "name": "embedding",
+                "latency_ms": 0.0,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 2166.76,
+                "status": "success",
+                "mode": "bm25"
+              },
+              {
+                "name": "answer_generation",
+                "latency_ms": 2591.96,
+                "status": "success",
+                "prompt_tokens": 620,
+                "completion_tokens": 93,
+                "total_tokens": 713,
+                "cache_hit_tokens": 0,
+                "cache_miss_tokens": 620,
+                "model": "deepseek-chat"
+              }
+            ],
+            "tokens": {
+              "prompt": 856,
+              "completion": 179,
+              "total": 1035,
+              "cache_hit": 128,
+              "cache_miss": 728
+            }
+          },
+          "cost": {
+            "usd": 0.0001524,
+            "cache_hit_tokens": 128,
+            "cache_miss_tokens": 728
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "日常护肤流程可以简单按这个顺序来：洁面→水→精华→乳/霜。如果是白天，最后再加一层防晒。注意质地越轻薄的越先用哦～[S1] 比如先用水，再用乳液或面霜。晚上用的话可以省略防晒，晚间皮肤吸收更好，只晚上护肤也完全OK。[S3] 如果您有具体产品想确认顺序，也可以告诉我，我帮您看下～",
+          "knowledge_topics": [
+            "用法用量",
+            "用法用量",
+            "用法用量"
+          ],
+          "knowledge_document_ids": [
+            "conversation:qa_topic_02190",
+            "conversation:qa_topic_01392",
+            "conversation:qa_topic_01183"
+          ],
+          "knowledge_document_types": [
+            "conversation",
+            "conversation",
+            "conversation"
+          ]
+        },
+        {
+          "case_id": "opt_skin",
+          "question": "油皮适合用面霜吗？",
+          "success": true,
+          "error": null,
+          "route": "knowledge_base",
+          "intent": "skin_type",
+          "intent_confidence": 0.99,
+          "elapsed_ms": 5898.52,
+          "trace": {
+            "trace_id": "trace_db3b1a5ca7d24c1f914e64305d8014b5",
+            "conversation_id": "C_bm25_no_rerank_1_opt_skin_72ab5e65",
+            "route": "knowledge_base",
+            "total_latency_ms": 5898.51,
+            "stages": [
+              {
+                "name": "intent_recognition",
+                "latency_ms": 1270.38,
+                "status": "success",
+                "prompt_tokens": 237,
+                "completion_tokens": 80,
+                "total_tokens": 317,
+                "cache_hit_tokens": 128,
+                "cache_miss_tokens": 109,
+                "model": "deepseek-chat"
+              },
+              {
+                "name": "embedding",
+                "latency_ms": 0.0,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 2160.01,
+                "status": "success",
+                "mode": "bm25"
+              },
+              {
+                "name": "answer_generation",
+                "latency_ms": 2280.81,
+                "status": "success",
+                "prompt_tokens": 652,
+                "completion_tokens": 73,
+                "total_tokens": 725,
+                "cache_hit_tokens": 0,
+                "cache_miss_tokens": 652,
+                "model": "deepseek-chat"
+              }
+            ],
+            "tokens": {
+              "prompt": 889,
+              "completion": 153,
+              "total": 1042,
+              "cache_hit": 128,
+              "cache_miss": 761
+            }
+          },
+          "cost": {
+            "usd": 0.00014974,
+            "cache_hit_tokens": 128,
+            "cache_miss_tokens": 761
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "可以的，油皮用合适的面霜是没问题的～比如成分温和、主打基础保湿的面霜，油皮也能放心用[S1]。建议首次使用前先在耳后或手臂内侧试一下，没有不适再上脸哦[S1]。想更具体的话，可以告诉我你关注的是哪款面霜，我帮你看看适不适合。",
+          "knowledge_topics": [
+            "肤质匹配",
+            "肤质匹配",
+            "肤质匹配"
+          ],
+          "knowledge_document_ids": [
+            "conversation:qa_topic_00293",
+            "conversation:qa_topic_00519",
+            "conversation:qa_topic_01672"
+          ],
+          "knowledge_document_types": [
+            "conversation",
+            "conversation",
+            "conversation"
+          ]
+        },
+        {
+          "case_id": "opt_auth",
+          "question": "商品保质期和批次应该怎么看？",
+          "success": true,
+          "error": null,
+          "route": "knowledge_base",
+          "intent": "authenticity_shelf_life",
+          "intent_confidence": 0.95,
+          "elapsed_ms": 5621.19,
+          "trace": {
+            "trace_id": "trace_2f5772832935433e9a91f70bb2ea851e",
+            "conversation_id": "C_bm25_no_rerank_1_opt_auth_d2aa56b9",
+            "route": "knowledge_base",
+            "total_latency_ms": 5621.19,
+            "stages": [
+              {
+                "name": "intent_recognition",
+                "latency_ms": 1509.03,
+                "status": "success",
+                "prompt_tokens": 237,
+                "completion_tokens": 86,
+                "total_tokens": 323,
+                "cache_hit_tokens": 128,
+                "cache_miss_tokens": 109,
+                "model": "deepseek-chat"
+              },
+              {
+                "name": "embedding",
+                "latency_ms": 0.0,
+                "status": "success"
+              },
+              {
+                "name": "retrieval",
+                "latency_ms": 2125.48,
+                "status": "success",
+                "mode": "bm25"
+              },
+              {
+                "name": "answer_generation",
+                "latency_ms": 1803.86,
+                "status": "success",
+                "prompt_tokens": 599,
+                "completion_tokens": 71,
+                "total_tokens": 670,
+                "cache_hit_tokens": 0,
+                "cache_miss_tokens": 599,
+                "model": "deepseek-chat"
+              }
+            ],
+            "tokens": {
+              "prompt": 836,
+              "completion": 157,
+              "total": 993,
+              "cache_hit": 128,
+              "cache_miss": 708
+            }
+          },
+          "cost": {
+            "usd": 0.00014344,
+            "cache_hit_tokens": 128,
+            "cache_miss_tokens": 708
+          },
+          "handoff_required": false,
+          "handoff": {},
+          "answer": "亲，批号一般在瓶底或管尾的喷码上，格式类似“6089A19”[S2]。您找到批号后可以告诉我，我帮您核实保质期；不同批次产品香味可能会有细微差异，这是正常现象，您也可以扫瓶身防伪码验证真伪哦[S1][S3]。",
+          "knowledge_topics": [
+            "正品保质期",
+            "正品保质期",
+            "正品保质期"
+          ],
+          "knowledge_document_ids": [
+            "conversation:qa_topic_00130",
+            "conversation:qa_topic_00147",
+            "conversation:qa_topic_00165"
+          ],
+          "knowledge_document_types": [
+            "conversation",
+            "conversation",
+            "conversation"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+%% 美妆电商智能客服 Agent：易读版技术路线图
+%%{init: {'theme': 'base', 'themeVariables': {'background': '#ffffff', 'primaryColor': '#f6f2ff', 'primaryTextColor': '#2e2942', 'primaryBorderColor': '#8f7ae5', 'lineColor': '#4d4d4d', 'clusterBkg': '#ffffff', 'clusterBorder': '#d9d2f4', 'fontFamily': 'Microsoft YaHei, Arial, sans-serif'}}}%%
+flowchart TB
+
+    subgraph OFFLINE["一、离线知识库建设"]
+        direction LR
+        A1["原始数据来源<br/>商品 / FAQ / 政策 / 物流规则<br/>customer_dialogues / Mock 订单"]
+        A2["数据清洗与统一字段<br/>data/processed/*.csv"]
+        A3["客服 QA 抽取<br/>qa_pairs/extract_qa_pairs.py"]
+        A4["三种 Chunk 切分<br/>qa_pair / qa_topic / qa_window"]
+        A5["Chunk 质量评测<br/>完整性 / 纯净度 / 长度 / 密度 / 冗余"]
+        A6["选用 qa_topic<br/>2583 个客服知识块"]
+        A7["多源知识统一建模<br/>KnowledgeDocument + 来源元数据"]
+        A8["BGE 向量化<br/>512 维语义向量"]
+        A9["Elasticsearch 增量入库<br/>内容哈希 + 文本 + 向量 + 元数据"]
+        A10["多源知识索引<br/>商品 / FAQ / 政策 / 对话"]
+
+        A1 --> A2
+        A1 --> A3 --> A4 --> A5 --> A6
+        A2 --> A7
+        A6 --> A7 --> A8 --> A9 --> A10
+    end
+
+    subgraph ONLINE["二、在线 Agent 决策"]
+        direction LR
+        B1["用户问题 + 历史对话<br/>Web 页面 / FastAPI"]
+        B2["安全预处理<br/>敏感信息脱敏 / 注入检测 / 风险分级"]
+        B3["读取多轮状态<br/>历史消息 / 槽位 / 待恢复任务"]
+        B4["三级多意图识别<br/>规则快速通道 + DeepSeek"]
+        B5{"Agent 路由判断"}
+        B6["知识库任务<br/>商品 / 肤质 / 功效 / 成分"]
+        B7["业务工具任务<br/>物流 / 退款 / 改址 / 发票"]
+        B8["混合任务<br/>知识检索 + 业务操作"]
+        B9["信息不足<br/>追问缺失槽位"]
+        B10["高风险或系统异常<br/>人工转接"]
+
+        B1 --> B2 --> B3 --> B4 --> B5
+        B5 --> B6
+        B5 --> B7
+        B5 --> B8
+        B5 --> B9
+        B5 --> B10
+    end
+
+    subgraph EXECUTION["三、检索与业务执行"]
+        direction LR
+        C1["构造检索 Query<br/>历史上下文 + 意图 + 关键词"]
+        C2["ES 混合检索<br/>BM25 + kNN + RRF/MMR"]
+        C3["语义去重 / 条件 Rerank<br/>召回 Top-K 知识与来源引用"]
+        C4["提取业务参数<br/>订单号 / 地址 / 发票信息"]
+        C5["权限校验 + 二次确认<br/>幂等控制 + 失败重试"]
+        C6["业务工具执行<br/>查询 / 催发货 / 退款 / 取消 / 改址 / 发票"]
+        C7["保存会话状态<br/>槽位 / 任务进度 / 执行结果"]
+
+        C1 --> C2 --> C3
+        C4 --> C5 --> C6 --> C7
+    end
+
+    subgraph OUTPUT["四、回答与运行治理"]
+        direction LR
+        D1["组装回答上下文<br/>历史 + 知识证据 + 工具结果"]
+        D2["DeepSeek 生成客服回复"]
+        D3["答案守卫<br/>引用校验 / 幻觉约束 / 护肤安全提示"]
+        D4["输出结果<br/>answer / intent / route / citations / trace"]
+        D5["可观测性<br/>日志 / 延迟 / Token / 成本 / 路由指标"]
+        D6["人工工单<br/>脱敏上下文 + 优先级 + 失败步骤"]
+
+        D1 --> D2 --> D3 --> D4
+        D5 -.-> D4
+        D6 --> D4
+    end
+
+    A10 --> C2
+    B6 --> C1
+    B7 --> C4
+    B8 --> C1
+    B8 --> C4
+    B9 --> C7
+    B10 --> D6
+    C3 --> D1
+    C6 --> D1
+    C7 --> D1
+
+    classDef normal fill:#f6f2ff,stroke:#8f7ae5,color:#2e2942,stroke-width:1.2px;
+    classDef decision fill:#ebe4ff,stroke:#7c63d8,color:#2e2942,stroke-width:1.5px;
+    classDef store fill:#eef4ff,stroke:#6d89c9,color:#24324a,stroke-width:1.2px;
+    classDef output fill:#f1efff,stroke:#6f5bc7,color:#2e2942,stroke-width:1.5px;
+
+    class A1,A2,A3,A4,A5,A6,A7,A8,A9,B1,B2,B3,B4,B6,B7,B8,B9,B10,C1,C2,C3,C4,C5,C6,C7,D1,D2,D3,D5,D6 normal;
+    class B5 decision;
+    class A10 store;
+    class D4 output;
+
+    style OFFLINE fill:#ffffff,stroke:#d9d2f4,stroke-width:1px
+    style ONLINE fill:#ffffff,stroke:#d9d2f4,stroke-width:1px
+    style EXECUTION fill:#ffffff,stroke:#d9d2f4,stroke-width:1px
+    style OUTPUT fill:#ffffff,stroke:#d9d2f4,stroke-width:1px

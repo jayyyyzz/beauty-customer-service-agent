@@ -1,0 +1,23 @@
+stateDiagram-v2
+    [*] --> IntentRecognition: 用户输入
+    IntentRecognition --> TaskSplit: 识别一个或多个意图
+    TaskSplit --> SlotCheck: 为每个意图创建任务
+
+    SlotCheck --> WaitingUser: 缺少订单号等必要槽位
+    SlotCheck --> InProgress: 槽位完整
+
+    WaitingUser --> IntentRecognition: 用户插入其他问题\n原任务继续保存
+    WaitingUser --> InProgress: 用户补充缺失槽位\n恢复原任务
+
+    InProgress --> KnowledgeSearch: 知识库任务
+    InProgress --> BusinessTool: 业务工具任务
+    InProgress --> HybridExecution: 混合任务
+
+    KnowledgeSearch --> Completed
+    BusinessTool --> Completed
+    HybridExecution --> Completed
+    InProgress --> Failed: 执行异常
+
+    Completed --> MemoryWrite: 写入结果与客服回复
+    Failed --> MemoryWrite: 记录失败状态
+    MemoryWrite --> [*]

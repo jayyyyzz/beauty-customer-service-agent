@@ -1,0 +1,43 @@
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0,
+    "analysis": {
+      "analyzer": {
+        "multilingual_text": {
+          "type": "standard"
+        }
+      }
+    }
+  },
+  "mappings": {
+    "dynamic": false,
+    "properties": {
+      "document_id":     { "type": "keyword" },
+      "document_type":   { "type": "keyword" },
+      "source_record_id": { "type": "keyword" },
+      "title":           { "type": "text", "analyzer": "multilingual_text" },
+      "content":         { "type": "text", "analyzer": "multilingual_text" },
+      "question_text":   { "type": "text", "analyzer": "multilingual_text" },
+      "answer_text":     { "type": "text", "analyzer": "multilingual_text" },
+      "source_name":     { "type": "keyword" },
+      "source_url":      { "type": "keyword", "index": false },
+      "brand":           { "type": "keyword" },
+      "category":        { "type": "keyword" },
+      "intent":          { "type": "keyword" },
+      "topics":          { "type": "keyword" },
+      "language":        { "type": "keyword" },
+      "need_human":      { "type": "boolean" },
+      "updated_at":      { "type": "date", "ignore_malformed": true },
+      "content_hash":    { "type": "keyword" },
+      "embedding_version": { "type": "keyword" },
+      "embedding_input_hash": { "type": "keyword" },
+      "content_vector": {
+        "type": "dense_vector",
+        "dims": 512,
+        "index": true,
+        "similarity": "cosine"
+      }
+    }
+  }
+}

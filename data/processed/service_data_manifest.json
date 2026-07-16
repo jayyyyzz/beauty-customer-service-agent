@@ -1,0 +1,78 @@
+{
+  "retrieved_at": "2026-06-26T07:54:52+00:00",
+  "outputs": {
+    "faq_knowledge": "data/processed/faq_knowledge.csv",
+    "policy_knowledge": "data/processed/policy_knowledge.csv",
+    "shipping_rules": "data/processed/shipping_rules.csv",
+    "order_mock_data": "data/processed/order_mock_data.csv"
+  },
+  "row_counts": {
+    "faq_knowledge": 22573,
+    "policy_knowledge": 3,
+    "shipping_rules": 3,
+    "order_mock_data": 48
+  },
+  "sources": {
+    "bitext_retail_ecommerce": {
+      "url": "https://huggingface.co/datasets/bitext/Bitext-retail-ecommerce-llm-chatbot-training-dataset/resolve/main/bitext-retail-ecommerce-llm-chatbot-training-dataset.csv",
+      "readme_url": "https://huggingface.co/datasets/bitext/Bitext-retail-ecommerce-llm-chatbot-training-dataset/raw/main/README.md",
+      "license": "cdla-sharing-1.0",
+      "note": "Hybrid synthetic retail/eCommerce customer-support training dataset."
+    },
+    "brand_policy_pages": [
+      {
+        "brand": "ColourPop",
+        "policy_type": "after_sales",
+        "url": "https://colourpop.com/policies/refund-policy",
+        "raw_html": "data/raw/colourpop_com_policies_refund-policy.html",
+        "raw_text": "data/raw/colourpop_com_policies_refund-policy.txt",
+        "text_chars": 635
+      },
+      {
+        "brand": "ColourPop",
+        "policy_type": "shipping",
+        "url": "https://colourpop.com/policies/shipping-policy",
+        "raw_html": "data/raw/colourpop_com_policies_shipping-policy.html",
+        "raw_text": "data/raw/colourpop_com_policies_shipping-policy.txt",
+        "text_chars": 5486
+      },
+      {
+        "brand": "Fenty Beauty",
+        "policy_type": "after_sales",
+        "url": "https://fentybeauty.com/policies/refund-policy",
+        "raw_html": "data/raw/fentybeauty_com_policies_refund-policy.html",
+        "raw_text": "data/raw/fentybeauty_com_policies_refund-policy.txt",
+        "text_chars": 2398
+      },
+      {
+        "brand": "Fenty Beauty",
+        "policy_type": "shipping",
+        "url": "https://fentybeauty.com/policies/shipping-policy",
+        "raw_html": "data/raw/fentybeauty_com_policies_shipping-policy.html",
+        "raw_text": "data/raw/fentybeauty_com_policies_shipping-policy.txt",
+        "text_chars": 9691
+      },
+      {
+        "brand": "Glossier",
+        "policy_type": "after_sales",
+        "url": "https://www.glossier.com/policies/refund-policy",
+        "raw_html": "data/raw/glossier_com_policies_refund-policy.html",
+        "raw_text": "data/raw/glossier_com_policies_refund-policy.txt",
+        "text_chars": 1951
+      },
+      {
+        "brand": "Glossier",
+        "policy_type": "shipping",
+        "url": "https://www.glossier.com/policies/shipping-policy",
+        "raw_html": "data/raw/glossier_com_policies_shipping-policy.html",
+        "raw_text": "data/raw/glossier_com_policies_shipping-policy.txt",
+        "text_chars": 8737
+      }
+    ]
+  },
+  "privacy_notes": [
+    "No real customer orders were collected.",
+    "order_mock_data.csv is generated from public product data and synthetic order states.",
+    "FAQ knowledge comes from a public synthetic/tagged support dataset, not private chat logs."
+  ]
+}

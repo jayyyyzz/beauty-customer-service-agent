@@ -1,0 +1,98 @@
+{
+  "generated_at": "2026-07-16T10:34:13+08:00",
+  "benchmark": "evaluation_suites\\04_tool_call_task_completion_evaluation\\tool_benchmark_v1.jsonl",
+  "total_cases": 240,
+  "planner": {
+    "case_count": 120,
+    "tool_selection_accuracy": 0.8571,
+    "tool_macro_f1": 0.86,
+    "no_tool_accuracy": 1.0,
+    "clarification_accuracy": 1.0,
+    "argument_exact_match": 0.8095,
+    "order_id_accuracy": 0.9286,
+    "critical_argument_error_rate": 0.0725,
+    "unnecessary_tool_call_rate": 0.0,
+    "missed_tool_call_rate": 0.0,
+    "plan_exact_match": 0.8667,
+    "per_tool": {
+      "query_order": {
+        "precision": 0.5556,
+        "recall": 1.0,
+        "f1": 0.7143,
+        "support": 15
+      },
+      "urge_shipment": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 14
+      },
+      "request_refund": {
+        "precision": 1.0,
+        "recall": 0.9286,
+        "f1": 0.963,
+        "support": 14
+      },
+      "cancel_order": {
+        "precision": 1.0,
+        "recall": 0.6429,
+        "f1": 0.7826,
+        "support": 14
+      },
+      "update_address": {
+        "precision": 1.0,
+        "recall": 0.5385,
+        "f1": 0.7,
+        "support": 13
+      },
+      "request_invoice": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 14
+      }
+    },
+    "errors": {
+      "wrong_tool": 12,
+      "wrong_entity_resolution": 4
+    }
+  },
+  "sandbox": {
+    "case_count": 96,
+    "tool_execution_success_rate": 1.0,
+    "strict_task_completion_rate": 0.9896,
+    "confirmation_compliance": 1.0,
+    "unauthorized_execution_rate": 0.0,
+    "recovery_success_rate": 1.0,
+    "duplicate_execution_rate": 0.0,
+    "false_success_rate": 0.0,
+    "p50_latency_ms": 30.204,
+    "p95_latency_ms": 51.72,
+    "errors": {
+      "business_rule_gap": 1
+    }
+  },
+  "e2e": {
+    "case_count": 24,
+    "tool_selection_accuracy": 0.9583,
+    "argument_exact_match": 0.9167,
+    "strict_task_completion_rate": 0.7083,
+    "natural_language_write_completion_rate": 0.25,
+    "structured_write_completion_rate": 1.0,
+    "tool_failure_marked_completed_rate": 0.2083,
+    "p50_latency_ms": 248.734,
+    "p95_latency_ms": 957.112,
+    "errors": {
+      "missing_argument": 4,
+      "wrong_tool": 1,
+      "wrong_entity_resolution": 2
+    }
+  },
+  "overall_strict_task_completion_rate": 0.9,
+  "overall_errors": {
+    "wrong_tool": 13,
+    "wrong_entity_resolution": 6,
+    "business_rule_gap": 1,
+    "missing_argument": 4
+  }
+}

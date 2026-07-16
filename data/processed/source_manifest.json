@@ -1,0 +1,25 @@
+{
+  "retrieved_at": "2026-06-26T07:36:49+00:00",
+  "row_count": 1034,
+  "rows_by_source": {
+    "Makeup API": 931,
+    "Open Beauty Facts": 103
+  },
+  "outputs": {
+    "product_knowledge": "data/processed/product_knowledge.csv",
+    "makeup_api_raw": "data/raw/makeup_api_products.json",
+    "openbeautyfacts_raw": "data/raw/openbeautyfacts_products.json"
+  },
+  "sources": [
+    {
+      "name": "Makeup API",
+      "url": "https://makeup-api.herokuapp.com/api/v1/products.json",
+      "notes": "Public REST JSON API for makeup product search."
+    },
+    {
+      "name": "Open Beauty Facts",
+      "url": "https://world.openbeautyfacts.org",
+      "notes": "Open cosmetic product label database. Use a custom User-Agent and respect documented API rate limits."
+    }
+  ]
+}

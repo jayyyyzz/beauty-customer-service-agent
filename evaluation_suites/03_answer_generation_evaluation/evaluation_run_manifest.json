@@ -1,0 +1,12 @@
+{
+  "baseline": {
+    "answer_model": "deepseek-chat",
+    "judge_model": "deepseek-v4-flash",
+    "answer_generation_note": "基线回答保留自首次60条测评；后续仅使用统一新版Judge重评，未重新生成基线答案。"
+  },
+  "optimized": {
+    "answer_model": "deepseek-v4-flash",
+    "judge_model": "deepseek-v4-flash",
+    "answer_generation_note": "优化后结果由全量测评及最终代码影响范围内的21条增量复测合并。"
+  }
+}
